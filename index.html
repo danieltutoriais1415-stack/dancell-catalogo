@@ -20,7 +20,9 @@
       --shadow:0 14px 40px rgba(5,21,53,.12);
     }
 
-    *{box-sizing:border-box}
+    *{
+      box-sizing:border-box;
+    }
 
     body{
       margin:0;
@@ -29,23 +31,36 @@
       color:var(--ink);
     }
 
-    button,input,select,textarea{
+    button,
+    input,
+    select,
+    textarea{
       font:inherit;
     }
 
-    button{
+    button,
+    a{
       cursor:pointer;
     }
 
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
     .top{
+      position:relative;
+      overflow:hidden;
       color:white;
-      background:linear-gradient(135deg,#061633,#0b2f70 60%,#0863e7);
+      background:
+        radial-gradient(circle at 88% 18%,rgba(23,201,255,.28),transparent 27%),
+        linear-gradient(135deg,#061633,#0b2f70 60%,#0863e7);
     }
 
     .wrap{
       max-width:1180px;
       margin:auto;
-      padding:26px 22px 50px;
+      padding:26px 22px 54px;
     }
 
     .brandRow{
@@ -66,68 +81,75 @@
     .mark{
       width:48px;
       height:48px;
-      border-radius:14px;
-      background:linear-gradient(145deg,#18d5ff,#0877ff);
       display:grid;
       place-items:center;
-      font-size:28px;
+      border-radius:15px;
+      background:linear-gradient(145deg,#18d5ff,#0877ff);
+    }
+
+    .mark svg{
+      width:27px;
+      height:27px;
     }
 
     .adminTop{
-      border:1px solid rgba(255,255,255,.35);
-      background:rgba(255,255,255,.08);
-      color:#fff;
+      border:1px solid rgba(255,255,255,.30);
+      color:white;
+      background:rgba(255,255,255,.10);
+      border-radius:15px;
       padding:12px 16px;
-      border-radius:14px;
       font-weight:700;
     }
 
     .hero{
-      padding:60px 0 30px;
       max-width:760px;
+      padding:65px 0 35px;
     }
 
     .hero h1{
-      margin:0 0 18px;
-      font-size:62px;
+      font-size:64px;
       line-height:1;
+      margin:0 0 20px;
     }
 
     .hero p{
-      margin:0;
-      font-size:20px;
-      color:rgba(255,255,255,.85);
+      color:rgba(255,255,255,.83);
+      font-size:19px;
+      line-height:1.45;
     }
 
     .toolbar{
       max-width:1180px;
-      margin:-28px auto 0;
+      margin:-32px auto 0;
       padding:0 22px;
+      position:relative;
+      z-index:10;
     }
 
     .toolbox{
+      display:grid;
+      grid-template-columns:1fr 240px;
+      gap:12px;
+      padding:18px;
       background:white;
       border-radius:22px;
-      padding:18px;
       box-shadow:var(--shadow);
-      display:grid;
-      grid-template-columns:1fr 260px;
-      gap:12px;
     }
 
-    .toolbox input,
-    .toolbox select{
+    .search input,
+    .cat{
       width:100%;
       border:1px solid var(--line);
       border-radius:14px;
       padding:15px;
+      outline:none;
       background:white;
     }
 
     .content{
       max-width:1180px;
       margin:auto;
-      padding:55px 22px 30px;
+      padding:55px 22px 35px;
     }
 
     .sectionTitle{
@@ -139,7 +161,7 @@
 
     .sectionTitle h2{
       margin:0;
-      font-size:32px;
+      font-size:33px;
     }
 
     .count{
@@ -156,13 +178,14 @@
       background:white;
       border-radius:20px;
       overflow:hidden;
-      box-shadow:0 10px 25px rgba(0,0,0,.08);
+      box-shadow:0 9px 25px rgba(12,33,71,.08);
     }
 
     .photo{
-      aspect-ratio:4/3;
-      background:#e8edf5;
       position:relative;
+      aspect-ratio:4/3;
+      overflow:hidden;
+      background:#e9eef6;
     }
 
     .photo img{
@@ -175,70 +198,79 @@
       position:absolute;
       top:12px;
       left:12px;
-      background:#0a1d4a;
-      color:#fff;
+      background:#07132d;
+      color:white;
       padding:7px 10px;
-      border-radius:20px;
+      border-radius:999px;
       font-size:12px;
-      font-weight:700;
+      font-weight:800;
     }
 
     .body{
-      padding:16px;
+      padding:18px;
     }
 
     .name{
-      margin:0 0 8px;
+      margin:0 0 7px;
       font-size:20px;
     }
 
     .desc{
       color:var(--muted);
       min-height:42px;
+      line-height:1.4;
     }
 
     .price{
-      font-size:22px;
+      font-size:21px;
       font-weight:900;
-      margin-top:10px;
+      margin-top:12px;
     }
 
     .sub{
       color:#1764d8;
-      font-size:12px;
+      font-size:13px;
       font-weight:700;
-      margin:4px 0 12px;
+      margin:5px 0 14px;
     }
 
     .wa{
       display:block;
       text-align:center;
-      background:var(--navy);
+      background:#07132d;
       color:white;
-      text-decoration:none;
       padding:13px;
       border-radius:12px;
-      font-weight:700;
+      font-weight:800;
+    }
+
+    .empty{
+      grid-column:1/-1;
+      padding:35px;
+      text-align:center;
+      background:white;
+      border-radius:18px;
+      color:var(--muted);
     }
 
     footer{
       background:#061127;
       color:white;
-      margin-top:30px;
+      margin-top:25px;
     }
 
     .foot{
       max-width:1180px;
       margin:auto;
-      padding:24px 22px;
+      padding:25px 22px;
       display:flex;
       justify-content:space-between;
       gap:20px;
     }
 
     .small{
-      font-size:12px;
-      color:#aab5c8;
+      color:#9fb0cc;
+      font-size:13px;
       margin-top:5px;
     }
 
@@ -246,8 +278,8 @@
       display:none;
       position:fixed;
       inset:0;
-      background:rgba(5,16,39,.7);
       z-index:99999;
+      background:rgba(5,16,39,.68);
       align-items:center;
       justify-content:center;
       padding:18px;
@@ -258,19 +290,24 @@
     }
 
     .panel{
-      width:min(720px,100%);
-      max-height:90vh;
+      width:min(760px,100%);
+      max-height:94vh;
       overflow:auto;
       background:white;
-      border-radius:20px;
+      border-radius:22px;
+      box-shadow:0 30px 80px rgba(0,0,0,.28);
     }
 
     .panelHead{
       display:flex;
-      justify-content:space-between;
       align-items:center;
-      padding:18px;
+      justify-content:space-between;
       border-bottom:1px solid var(--line);
+      padding:18px 20px;
+      position:sticky;
+      top:0;
+      background:white;
+      z-index:2;
     }
 
     .panelHead h3{
@@ -278,12 +315,12 @@
     }
 
     .close{
-      width:38px;
-      height:38px;
       border:none;
-      border-radius:10px;
-      background:#f0f3f7;
-      font-size:22px;
+      background:#f2f5f9;
+      width:40px;
+      height:40px;
+      border-radius:12px;
+      font-size:24px;
     }
 
     .adminBody{
@@ -291,44 +328,74 @@
     }
 
     .loginBox{
-      max-width:420px;
+      max-width:450px;
       margin:auto;
     }
 
     .loginBox h2{
-      margin-top:0;
+      font-size:30px;
+      margin:5px 0 10px;
+    }
+
+    .loginBox p{
+      color:var(--muted);
+    }
+
+    .stack{
+      display:grid;
+      gap:12px;
+    }
+
+    .row{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
     }
 
     .field{
       width:100%;
       border:1px solid var(--line);
-      border-radius:12px;
-      padding:13px;
-      margin-bottom:12px;
+      border-radius:13px;
+      padding:14px;
+      outline:none;
+    }
+
+    textarea.field{
+      resize:vertical;
     }
 
     .btn{
       border:none;
-      border-radius:12px;
-      padding:13px 15px;
-      font-weight:700;
+      border-radius:13px;
+      padding:14px 15px;
+      font-weight:800;
     }
 
     .btnPrimary{
-      background:var(--navy);
+      background:#07132d;
       color:white;
-      width:100%;
+    }
+
+    .btnBlue{
+      background:#0b63f6;
+      color:white;
+    }
+
+    .btnGhost{
+      background:#eef3f9;
+      color:#26344f;
+    }
+
+    .btnDanger{
+      background:#fff0ef;
+      color:#d92d20;
     }
 
     .adminActions{
       display:flex;
-      gap:10px;
       flex-wrap:wrap;
+      gap:10px;
       margin-bottom:18px;
-    }
-
-    .adminActions .btn{
-      background:#eef3f9;
     }
 
     .adminList{
@@ -337,45 +404,86 @@
     }
 
     .adminItem{
-      border:1px solid var(--line);
-      border-radius:14px;
-      padding:12px;
-      display:flex;
-      justify-content:space-between;
+      display:grid;
+      grid-template-columns:70px 1fr auto;
       align-items:center;
       gap:12px;
+      border:1px solid var(--line);
+      border-radius:15px;
+      padding:12px;
+    }
+
+    .adminItem img{
+      width:70px;
+      height:70px;
+      object-fit:cover;
+      background:#eef2f7;
+      border-radius:11px;
+    }
+
+    .muted{
+      color:var(--muted);
+      font-size:13px;
+      margin-top:4px;
+    }
+
+    .itemBtns{
+      display:flex;
+      gap:7px;
+    }
+
+    .itemBtns button{
+      border:none;
+      padding:9px;
+      border-radius:9px;
+      font-weight:700;
+    }
+
+    .notice{
+      color:var(--muted);
+      font-size:13px;
+      margin-top:10px;
+    }
+
+    .formTitle{
+      font-weight:900;
+      font-size:22px;
+      margin-bottom:15px;
     }
 
     .toast{
       position:fixed;
       left:50%;
-      bottom:24px;
-      transform:translateX(-50%);
+      bottom:25px;
+      transform:translate(-50%,20px);
       background:#111827;
       color:white;
-      padding:12px 16px;
-      border-radius:10px;
-      display:none;
+      padding:13px 17px;
+      border-radius:12px;
+      opacity:0;
+      pointer-events:none;
+      transition:.2s;
       z-index:100000;
     }
 
     .toast.show{
-      display:block;
+      opacity:1;
+      transform:translate(-50%,0);
     }
 
     @media(max-width:800px){
-      .grid{
-        grid-template-columns:repeat(2,1fr);
+      .hero h1{
+        font-size:45px;
       }
 
-      .hero h1{
-        font-size:48px;
+      .grid{
+        grid-template-columns:repeat(2,1fr);
       }
     }
 
     @media(max-width:600px){
       .wrap{
-        padding:18px 14px 40px;
+        padding:18px 14px 45px;
       }
 
       .brand{
@@ -383,8 +491,8 @@
       }
 
       .mark{
-        width:40px;
-        height:40px;
+        width:42px;
+        height:42px;
       }
 
       .adminTop{
@@ -393,19 +501,15 @@
       }
 
       .hero{
-        padding:45px 0 20px;
+        padding:50px 0 25px;
       }
 
       .hero h1{
-        font-size:42px;
-      }
-
-      .hero p{
-        font-size:16px;
+        font-size:43px;
       }
 
       .toolbar{
-        padding:0 14px;
+        padding:0 13px;
       }
 
       .toolbox{
@@ -413,15 +517,36 @@
       }
 
       .content{
-        padding:45px 14px 25px;
+        padding:48px 13px 25px;
       }
 
       .grid{
         grid-template-columns:1fr;
       }
 
+      .row{
+        grid-template-columns:1fr;
+      }
+
       .foot{
         display:block;
+      }
+
+      .adminItem{
+        grid-template-columns:58px 1fr;
+      }
+
+      .adminItem img{
+        width:58px;
+        height:58px;
+      }
+
+      .itemBtns{
+        grid-column:1/-1;
+      }
+
+      .itemBtns button{
+        flex:1;
       }
     }
   </style>
@@ -433,20 +558,34 @@
   <div class="wrap">
 
     <div class="brandRow">
+
       <div class="brand">
-        <div class="mark">▣</div>
+
+        <span class="mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+            <rect x="6" y="2.5" width="12" height="19" rx="2.2"></rect>
+            <path d="M10 5h4M10 18.5h4"></path>
+          </svg>
+        </span>
+
         DAN CELL
+
       </div>
 
-      <button id="openAdminBtn" class="adminTop">
+      <button
+        class="adminTop"
+        type="button"
+        id="openAdminBtn">
         Área do lojista
       </button>
+
     </div>
 
     <div class="hero">
       <h1>Seu próximo aparelho está aqui.</h1>
       <p>
-        Confira ofertas, compare modelos e fale diretamente com a Dan Cell pelo WhatsApp.
+        Confira ofertas, compare modelos e fale diretamente
+        com a Dan Cell pelo WhatsApp.
       </p>
     </div>
 
@@ -454,76 +593,103 @@
 </header>
 
 <section class="toolbar">
-  <div class="toolbox">
-    <input
-      id="search"
-      type="search"
-      placeholder="Buscar produto, marca ou modelo..."
-    >
 
-    <select id="category">
+  <div class="toolbox">
+
+    <div class="search">
+      <input
+        id="search"
+        type="search"
+        placeholder="Buscar produto, marca ou modelo...">
+    </div>
+
+    <select class="cat" id="category">
       <option value="Todos">Todas as categorias</option>
     </select>
+
   </div>
+
 </section>
 
 <main class="content">
 
   <div class="sectionTitle">
     <h2>Produtos</h2>
-    <span id="count" class="count">0 itens</span>
+    <span class="count" id="count">0 itens</span>
   </div>
 
-  <section id="grid" class="grid"></section>
+  <section class="grid" id="grid"></section>
 
 </main>
 
 <footer>
+
   <div class="foot">
 
     <div>
-      <strong>Dan Cell</strong>
+      <b>Dan Cell</b>
       <div class="small">
         Tecnologia, acessórios e assistência.
       </div>
     </div>
 
     <div>
-      <strong>WhatsApp: (74) 98145-2762</strong>
+      <b>WhatsApp: (74) 98145-2762</b>
       <div class="small">
         Rua Santa Inês, 186 • Antônio Conselheiro
       </div>
     </div>
 
   </div>
+
 </footer>
 
-<div id="adminModal" class="modal">
+<div
+  class="modal"
+  id="adminModal"
+  aria-hidden="true">
 
   <div class="panel">
 
     <div class="panelHead">
+
       <h3>Painel da Dan Cell</h3>
-      <button id="closeAdminBtn" class="close">×</button>
+
+      <button
+        class="close"
+        id="closeAdminBtn"
+        type="button">
+        ×
+      </button>
+
     </div>
 
-    <div id="adminBody" class="adminBody"></div>
+    <div
+      class="adminBody"
+      id="adminBody">
+    </div>
 
   </div>
 
 </div>
 
-<div id="toast" class="toast"></div>
+<div class="toast" id="toast"></div>
 
 <script>
 
 const WHATSAPP = "5574981452762";
 
 let products = [];
+let filtered = [];
+
 let logged = false;
 let adminPin = "";
 
+let editingId = null;
+let apiOnline = false;
+
 const fallbackProducts = [
+
   {
     id:1,
     name:"Redmi Note 15",
@@ -534,6 +700,7 @@ const fallbackProducts = [
     installment:"Peça sua condição de pagamento",
     image:"https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=900&q=80"
   },
+
   {
     id:2,
     name:"iPhone 13 128GB",
@@ -544,6 +711,7 @@ const fallbackProducts = [
     installment:"Parcelamento disponível",
     image:"https://images.unsplash.com/photo-1605236453806-6ff36851218e?auto=format&fit=crop&w=900&q=80"
   },
+
   {
     id:3,
     name:"Caixa de Som Bluetooth",
@@ -554,132 +722,251 @@ const fallbackProducts = [
     installment:"Fale conosco pelo WhatsApp",
     image:"https://images.unsplash.com/photo-1589003077984-894e133dabab?auto=format&fit=crop&w=900&q=80"
   }
+
 ];
 
-function $(id){
-  return document.getElementById(id);
-}
+const $ = id => document.getElementById(id);
 
-function toast(text){
-  $("toast").textContent = text;
-  $("toast").classList.add("show");
+function esc(value = ""){
 
-  setTimeout(()=>{
-    $("toast").classList.remove("show");
-  },2500);
-}
-
-function esc(text){
-  return String(text || "")
+  return String(value)
     .replaceAll("&","&amp;")
     .replaceAll("<","&lt;")
     .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;");
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+
+}
+
+function toast(message){
+
+  const el = $("toast");
+
+  el.textContent = message;
+  el.classList.add("show");
+
+  clearTimeout(toast.timer);
+
+  toast.timer = setTimeout(() => {
+    el.classList.remove("show");
+  },2500);
+
+}
+
+function normalizeProduct(p,index = 0){
+
+  return {
+
+    id:
+      p.id ??
+      p._id ??
+      Date.now() + index,
+
+    name:
+      p.name ??
+      p.nome ??
+      "Produto",
+
+    brand:
+      p.brand ??
+      p.marca ??
+      p.category ??
+      p.categoria ??
+      "Dan Cell",
+
+    category:
+      p.category ??
+      p.categoria ??
+      p.brand ??
+      p.marca ??
+      "Outros",
+
+    description:
+      p.description ??
+      p.desc ??
+      p.descricao ??
+      "",
+
+    price:
+      p.price ??
+      p.preco ??
+      "Consulte",
+
+    installment:
+      p.installment ??
+      p.parcelamento ??
+      "",
+
+    image:
+      p.image ??
+      p.imagem ??
+      p.photo ??
+      ""
+
+  };
+
 }
 
 async function loadProducts(){
 
   try{
 
-    const r = await fetch("/api/products",{
-      cache:"no-store"
-    });
+    const r = await fetch(
+      "/api/products",
+      {
+        cache:"no-store"
+      }
+    );
 
     if(!r.ok){
-      throw new Error();
+      throw new Error("API indisponível");
     }
 
     const data = await r.json();
 
-    products = Array.isArray(data)
+    const lista =
+      Array.isArray(data)
       ? data
       : data.products || [];
 
+    products =
+      lista.map(normalizeProduct);
+
     if(!products.length){
-      products = fallbackProducts;
+      products =
+        fallbackProducts.map(normalizeProduct);
     }
 
-  }catch(e){
+    apiOnline = true;
 
-    products = fallbackProducts;
+  }catch(error){
+
+    products =
+      fallbackProducts.map(normalizeProduct);
+
+    apiOnline = false;
 
   }
 
   renderCategories();
-  renderProducts();
+  applyFilters();
+
 }
 
 function renderCategories(){
 
+  const atual =
+    $("category").value ||
+    "Todos";
+
   const cats = [
     ...new Set(
-      products.map(p=>p.category || p.brand)
+      products
+        .map(p => p.category)
+        .filter(Boolean)
     )
-  ];
+  ].sort();
 
   $("category").innerHTML =
     '<option value="Todos">Todas as categorias</option>' +
-    cats.map(c=>
+    cats.map(c =>
       `<option value="${esc(c)}">${esc(c)}</option>`
     ).join("");
+
+  if(
+    [...$("category").options]
+      .some(o => o.value === atual)
+  ){
+    $("category").value = atual;
+  }
+
+}
+
+function applyFilters(){
+
+  const q =
+    $("search")
+      .value
+      .trim()
+      .toLowerCase();
+
+  const cat =
+    $("category").value;
+
+  filtered =
+    products.filter(p => {
+
+      const texto = [
+        p.name,
+        p.brand,
+        p.category,
+        p.description,
+        p.price
+      ]
+      .join(" ")
+      .toLowerCase();
+
+      const busca =
+        !q ||
+        texto.includes(q);
+
+      const categoria =
+        cat === "Todos" ||
+        p.category === cat;
+
+      return busca && categoria;
+
+    });
+
+  renderProducts();
+
+}
+
+function productText(p){
+
+  return encodeURIComponent(
+    `Olá, Dan Cell! Tenho interesse no produto: ${p.name}. Poderia me passar mais informações?`
+  );
+
 }
 
 function renderProducts(){
 
-  const q = $("search").value.toLowerCase().trim();
-  const cat = $("category").value;
-
-  const list = products.filter(p=>{
-
-    const text = [
-      p.name,
-      p.brand,
-      p.category,
-      p.description
-    ].join(" ").toLowerCase();
-
-    const textOk =
-      !q ||
-      text.includes(q);
-
-    const catOk =
-      cat === "Todos" ||
-      p.category === cat ||
-      p.brand === cat;
-
-    return textOk && catOk;
-
-  });
-
   $("count").textContent =
-    `${list.length} ${list.length === 1 ? "item" : "itens"}`;
+    `${filtered.length} ${
+      filtered.length === 1
+      ? "item"
+      : "itens"
+    }`;
 
-  if(!list.length){
+  if(!filtered.length){
 
     $("grid").innerHTML =
-      "<div>Nenhum produto encontrado.</div>";
+      '<div class="empty">Nenhum produto encontrado.</div>';
 
     return;
+
   }
 
   $("grid").innerHTML =
-    list.map(p=>{
+    filtered.map(p => {
 
-      const message =
-        encodeURIComponent(
-          `Olá, Dan Cell! Tenho interesse no ${p.name}.`
-        );
+      const imagem =
+        p.image
+        ? `<img
+             src="${esc(p.image)}"
+             alt="${esc(p.name)}"
+             loading="lazy"
+             onerror="this.style.display='none'">`
+        : "";
 
       return `
+
         <article class="card">
 
           <div class="photo">
 
-            ${
-              p.image
-              ? `<img src="${esc(p.image)}">`
-              : ""
-            }
+            ${imagem}
 
             <span class="badge">
               ${esc(p.brand || p.category)}
@@ -693,94 +980,177 @@ function renderProducts(){
               ${esc(p.name)}
             </h3>
 
-            <p class="desc">
-              ${esc(p.description)}
-            </p>
+            <div class="desc">
+              ${esc(
+                p.description ||
+                "Consulte detalhes com a Dan Cell."
+              )}
+            </div>
 
             <div class="price">
               ${esc(p.price || "Consulte")}
             </div>
 
             <div class="sub">
-              ${esc(p.installment || "Condições pelo WhatsApp")}
+              ${esc(
+                p.installment ||
+                "Condições pelo WhatsApp"
+              )}
             </div>
 
             <a
               class="wa"
               target="_blank"
-              href="https://wa.me/${WHATSAPP}?text=${message}"
-            >
+              rel="noopener"
+              href="https://wa.me/${WHATSAPP}?text=${productText(p)}">
               Pedir no WhatsApp
             </a>
 
           </div>
 
         </article>
+
       `;
 
     }).join("");
+
 }
 
 function openAdmin(){
 
-  $("adminModal").classList.add("open");
+  $("adminModal")
+    .classList
+    .add("open");
 
-  document.body.style.overflow = "hidden";
+  $("adminModal")
+    .setAttribute(
+      "aria-hidden",
+      "false"
+    );
+
+  document.body.style.overflow =
+    "hidden";
 
   drawAdmin();
+
 }
 
 function closeAdmin(){
 
-  $("adminModal").classList.remove("open");
+  $("adminModal")
+    .classList
+    .remove("open");
 
-  document.body.style.overflow = "";
+  $("adminModal")
+    .setAttribute(
+      "aria-hidden",
+      "true"
+    );
+
+  document.body.style.overflow =
+    "";
+
+  editingId = null;
+
 }
 
 function drawAdmin(){
 
+  const b = $("adminBody");
+
   if(!logged){
 
-    $("adminBody").innerHTML = `
+    b.innerHTML = `
+
       <div class="loginBox">
 
-        <h2>Acesso do lojista</h2>
+        <h2>
+          Acesso do lojista
+        </h2>
 
         <p>
           Digite o PIN administrativo.
         </p>
 
-        <input
-          id="pin"
-          class="field"
-          type="password"
-          placeholder="PIN"
-        >
+        <div class="stack">
 
-        <button
-          id="loginBtn"
-          class="btn btnPrimary"
-        >
-          Entrar
-        </button>
+          <input
+            class="field"
+            id="pin"
+            type="password"
+            inputmode="numeric"
+            placeholder="PIN">
+
+          <button
+            class="btn btnPrimary"
+            type="button"
+            id="loginBtn">
+            Entrar
+          </button>
+
+          <div class="notice">
+            ${
+              apiOnline
+              ? "Catálogo conectado à API."
+              : "API não respondeu."
+            }
+          </div>
+
+        </div>
 
       </div>
+
     `;
 
-    $("loginBtn").onclick = login;
+    $("loginBtn")
+      .addEventListener(
+        "click",
+        login
+      );
+
+    $("pin")
+      .addEventListener(
+        "keydown",
+        e => {
+
+          if(e.key === "Enter"){
+            login();
+          }
+
+        }
+      );
 
     return;
+
   }
 
-  $("adminBody").innerHTML = `
+  if(editingId !== null){
+
+    drawProductForm();
+
+    return;
+
+  }
+
+  b.innerHTML = `
 
     <div class="adminActions">
 
-      <button class="btn" onclick="loadProducts()">
+      <button
+        class="btn btnBlue"
+        id="newProductBtn">
+        + Novo produto
+      </button>
+
+      <button
+        class="btn btnGhost"
+        id="refreshBtn">
         Atualizar catálogo
       </button>
 
-      <button class="btn" onclick="logout()">
+      <button
+        class="btn btnDanger"
+        id="logoutBtn">
         Sair
       </button>
 
@@ -789,24 +1159,43 @@ function drawAdmin(){
     <div class="adminList">
 
       ${
-        products.map(p=>`
+        products.map(p => `
 
           <div class="adminItem">
 
+            <img
+              src="${esc(p.image || "")}"
+              alt=""
+              onerror="this.style.visibility='hidden'">
+
             <div>
 
-              <strong>
+              <b>
                 ${esc(p.name)}
-              </strong>
+              </b>
 
-              <div class="small">
-                ${esc(p.category || p.brand)}
+              <div class="muted">
+                ${esc(p.category)}
+                •
+                ${esc(p.price || "Consulte")}
               </div>
 
             </div>
 
-            <div>
-              ${esc(p.price || "Consulte")}
+            <div class="itemBtns">
+
+              <button
+                class="btnGhost editBtn"
+                data-id="${esc(p.id)}">
+                Editar
+              </button>
+
+              <button
+                class="btnDanger deleteBtn"
+                data-id="${esc(p.id)}">
+                Excluir
+              </button>
+
             </div>
 
           </div>
@@ -817,18 +1206,84 @@ function drawAdmin(){
     </div>
 
   `;
+
+  $("newProductBtn").onclick = () => {
+
+    editingId = "new";
+
+    drawAdmin();
+
+  };
+
+  $("refreshBtn").onclick =
+    async () => {
+
+      await loadProducts();
+
+      drawAdmin();
+
+      toast(
+        "Catálogo atualizado."
+      );
+
+    };
+
+  $("logoutBtn").onclick = () => {
+
+    logged = false;
+    adminPin = "";
+    editingId = null;
+
+    drawAdmin();
+
+  };
+
+  b.querySelectorAll(".editBtn")
+    .forEach(btn => {
+
+      btn.onclick = () => {
+
+        editingId =
+          btn.dataset.id;
+
+        drawAdmin();
+
+      };
+
+    });
+
+  b.querySelectorAll(".deleteBtn")
+    .forEach(btn => {
+
+      btn.onclick = () => {
+
+        deleteProduct(
+          btn.dataset.id
+        );
+
+      };
+
+    });
+
 }
+
+/* LOGIN CORRIGIDO */
 
 async function login(){
 
   const pin =
-    $("pin").value.trim();
+    $("pin")
+      .value
+      .trim();
 
   if(!pin){
 
-    toast("Digite o PIN.");
+    toast(
+      "Digite o PIN."
+    );
 
     return;
+
   }
 
   try{
@@ -836,30 +1291,39 @@ async function login(){
     const r = await fetch(
       "/api/products?action=login",
       {
+
         method:"POST",
+
         headers:{
-          "Content-Type":"application/json"
+
+          "Content-Type":
+            "application/json",
+
+          "x-admin-pin":
+            pin
+
         },
-        body:JSON.stringify({
-          pin:pin
-        })
+
+        body:
+          JSON.stringify({
+            pin
+          })
+
       }
     );
 
     const data =
-      await r.json();
+      await r
+        .json()
+        .catch(() => ({}));
 
-    if(
-      !r.ok ||
-      data.ok === false ||
-      data.success === false
-    ){
+    if(!r.ok){
 
       throw new Error(
-        data.message ||
         data.error ||
-        "PIN inválido."
+        "PIN incorreto"
       );
+
     }
 
     adminPin = pin;
@@ -868,52 +1332,394 @@ async function login(){
 
     drawAdmin();
 
-    toast("Acesso liberado.");
+    toast(
+      "Acesso liberado."
+    );
 
-  }catch(e){
+  }catch(error){
 
     toast(
-      e.message ||
+      error.message ||
       "Não foi possível entrar."
     );
 
   }
+
 }
 
-function logout(){
+function drawProductForm(){
 
-  logged = false;
+  const isNew =
+    editingId === "new";
 
-  adminPin = "";
+  const p =
+    isNew
+    ? {
+        id:"",
+        name:"",
+        brand:"",
+        category:"",
+        description:"",
+        price:"",
+        installment:"",
+        image:""
+      }
+    : products.find(
+        item =>
+          String(item.id) ===
+          String(editingId)
+      );
 
-  drawAdmin();
-}
+  if(!p){
 
-$("openAdminBtn").onclick =
-  openAdmin;
+    editingId = null;
 
-$("closeAdminBtn").onclick =
-  closeAdmin;
+    drawAdmin();
 
-$("adminModal").onclick =
-  function(e){
+    return;
 
-    if(
-      e.target ===
-      $("adminModal")
-    ){
+  }
 
-      closeAdmin();
+  $("adminBody").innerHTML = `
 
-    }
+    <div class="formTitle">
+
+      ${
+        isNew
+        ? "Novo produto"
+        : "Editar produto"
+      }
+
+    </div>
+
+    <div class="stack">
+
+      <div class="row">
+
+        <input
+          class="field"
+          id="fName"
+          placeholder="Nome do produto"
+          value="${esc(p.name)}">
+
+        <input
+          class="field"
+          id="fBrand"
+          placeholder="Marca"
+          value="${esc(p.brand)}">
+
+      </div>
+
+      <div class="row">
+
+        <input
+          class="field"
+          id="fCategory"
+          placeholder="Categoria"
+          value="${esc(p.category)}">
+
+        <input
+          class="field"
+          id="fPrice"
+          placeholder="Preço ou condição"
+          value="${esc(p.price)}">
+
+      </div>
+
+      <input
+        class="field"
+        id="fInstallment"
+        placeholder="Parcelamento"
+        value="${esc(p.installment)}">
+
+      <input
+        class="field"
+        id="fImage"
+        placeholder="URL da imagem"
+        value="${esc(p.image)}">
+
+      <textarea
+        class="field"
+        id="fDescription"
+        rows="4"
+        placeholder="Descrição">${esc(p.description)}</textarea>
+
+      <div class="row">
+
+        <button
+          class="btn btnGhost"
+          id="cancelEditBtn">
+          Voltar
+        </button>
+
+        <button
+          class="btn btnPrimary"
+          id="saveProductBtn">
+
+          ${
+            isNew
+            ? "Adicionar produto"
+            : "Salvar alterações"
+          }
+
+        </button>
+
+      </div>
+
+    </div>
+
+  `;
+
+  $("cancelEditBtn").onclick = () => {
+
+    editingId = null;
+
+    drawAdmin();
 
   };
 
-$("search").oninput =
-  renderProducts;
+  $("saveProductBtn").onclick =
+    submitProduct;
 
-$("category").onchange =
-  renderProducts;
+}
+
+async function submitProduct(){
+
+  const payload = {
+
+    name:
+      $("fName").value.trim(),
+
+    brand:
+      $("fBrand").value.trim(),
+
+    category:
+      $("fCategory").value.trim(),
+
+    price:
+      $("fPrice").value.trim(),
+
+    installment:
+      $("fInstallment")
+        .value
+        .trim(),
+
+    image:
+      $("fImage")
+        .value
+        .trim(),
+
+    description:
+      $("fDescription")
+        .value
+        .trim()
+
+  };
+
+  if(!payload.name){
+
+    toast(
+      "Digite o nome do produto."
+    );
+
+    return;
+
+  }
+
+  const isNew =
+    editingId === "new";
+
+  if(!isNew){
+
+    payload.id =
+      editingId;
+
+  }
+
+  try{
+
+    const r = await fetch(
+      "/api/products",
+      {
+
+        method:"PUT",
+
+        headers:{
+
+          "Content-Type":
+            "application/json",
+
+          "x-admin-pin":
+            adminPin
+
+        },
+
+        body:
+          JSON.stringify({
+
+            action:
+              isNew
+              ? "create"
+              : "update",
+
+            product:
+              payload
+
+          })
+
+      }
+    );
+
+    const data =
+      await r
+        .json()
+        .catch(() => ({}));
+
+    if(!r.ok){
+
+      throw new Error(
+        data.error ||
+        "Não foi possível salvar."
+      );
+
+    }
+
+    editingId = null;
+
+    await loadProducts();
+
+    drawAdmin();
+
+    toast(
+      isNew
+      ? "Produto adicionado."
+      : "Produto atualizado."
+    );
+
+  }catch(error){
+
+    toast(
+      error.message ||
+      "Erro ao salvar."
+    );
+
+  }
+
+}
+
+async function deleteProduct(id){
+
+  if(
+    !confirm(
+      "Excluir este produto?"
+    )
+  ){
+    return;
+  }
+
+  try{
+
+    const r = await fetch(
+      "/api/products",
+      {
+
+        method:"PUT",
+
+        headers:{
+
+          "Content-Type":
+            "application/json",
+
+          "x-admin-pin":
+            adminPin
+
+        },
+
+        body:
+          JSON.stringify({
+
+            action:"delete",
+
+            id:id
+
+          })
+
+      }
+    );
+
+    const data =
+      await r
+        .json()
+        .catch(() => ({}));
+
+    if(!r.ok){
+
+      throw new Error(
+        data.error ||
+        "Não foi possível excluir."
+      );
+
+    }
+
+    await loadProducts();
+
+    drawAdmin();
+
+    toast(
+      "Produto excluído."
+    );
+
+  }catch(error){
+
+    toast(
+      error.message ||
+      "Erro ao excluir."
+    );
+
+  }
+
+}
+
+$("openAdminBtn")
+  .addEventListener(
+    "click",
+    openAdmin
+  );
+
+$("closeAdminBtn")
+  .addEventListener(
+    "click",
+    closeAdmin
+  );
+
+$("adminModal")
+  .addEventListener(
+    "click",
+    e => {
+
+      if(
+        e.target ===
+        $("adminModal")
+      ){
+
+        closeAdmin();
+
+      }
+
+    }
+  );
+
+$("search")
+  .addEventListener(
+    "input",
+    applyFilters
+  );
+
+$("category")
+  .addEventListener(
+    "change",
+    applyFilters
+  );
 
 loadProducts();
 
