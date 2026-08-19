@@ -3,34 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080808">
+<meta name="theme-color" content="#050505">
 
 <title>Dan Cell | Assistência & Acessórios</title>
 
 <style>
 :root{
-  --black:#090909;
-  --black2:#151515;
+  --black:#050505;
+  --black2:#121212;
   --yellow:#ffc400;
-  --yellow2:#ffdd55;
-  --green:#00a83b;
-  --green2:#008d32;
+  --yellow2:#ffe16a;
+  --green:#08a83e;
+  --green2:#078d36;
   --white:#ffffff;
   --bg:#f5f5f5;
-  --text:#181818;
-  --muted:#717171;
-  --line:#e7e7e7;
+  --text:#171717;
+  --muted:#737373;
+  --line:#e8e8e8;
   --danger:#d93025;
   --shadow:0 8px 28px rgba(0,0,0,.08);
 }
 
-*{
-  box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
-html{
-  scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth}
 
 body{
   margin:0;
@@ -48,16 +44,14 @@ button,a{
 }
 
 a{
-  color:inherit;
   text-decoration:none;
+  color:inherit;
 }
 
-/* ===============================
-   CABEÇALHO
-=============================== */
+/* CABEÇALHO */
 
 .header{
-  background:#050505;
+  background:var(--black);
   color:white;
   border-bottom:3px solid var(--yellow);
 }
@@ -65,14 +59,14 @@ a{
 .headerInner{
   max-width:1250px;
   margin:auto;
-  padding:15px 18px 20px;
+  padding:13px 18px 20px;
 }
 
 .headerTop{
   display:flex;
-  justify-content:space-between;
   align-items:center;
-  gap:20px;
+  justify-content:space-between;
+  gap:18px;
 }
 
 .logoArea{
@@ -82,9 +76,9 @@ a{
 }
 
 .mainLogo{
-  width:320px;
-  max-width:54vw;
-  max-height:120px;
+  width:250px;
+  max-width:56vw;
+  max-height:125px;
   object-fit:contain;
   object-position:left center;
   display:block;
@@ -93,12 +87,11 @@ a{
 .adminTop{
   flex:none;
   border:2px solid var(--yellow);
-  background:#080808;
+  background:#070707;
   color:var(--yellow);
-  border-radius:13px;
-  padding:13px 19px;
+  border-radius:14px;
+  padding:13px 18px;
   font-weight:900;
-  transition:.2s;
 }
 
 .adminTop:hover{
@@ -106,12 +99,10 @@ a{
   color:#000;
 }
 
-/* ===============================
-   BUSCA
-=============================== */
+/* BUSCA */
 
 .searchBox{
-  margin-top:15px;
+  margin-top:13px;
   position:relative;
 }
 
@@ -119,35 +110,32 @@ a{
   width:100%;
   border:0;
   outline:0;
-  border-radius:13px;
-  padding:18px 65px 18px 18px;
+  border-radius:14px;
+  padding:18px 64px 18px 18px;
   background:white;
-  color:#222;
   font-size:17px;
-  box-shadow:0 4px 16px rgba(0,0,0,.14);
+  color:#222;
 }
 
 .searchIcon{
   position:absolute;
-  right:8px;
   top:50%;
+  right:8px;
   transform:translateY(-50%);
   width:48px;
   height:48px;
   border:0;
   background:white;
-  font-size:24px;
-  border-radius:10px;
+  border-radius:11px;
+  font-size:23px;
 }
 
-/* ===============================
-   BENEFÍCIOS SUPERIORES
-=============================== */
+/* BENEFÍCIOS TOPO */
 
 .quickInfo{
   background:#050505;
   color:white;
-  border-bottom:1px solid #262626;
+  border-bottom:1px solid #252525;
 }
 
 .quickInfoInner{
@@ -162,9 +150,9 @@ a{
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:10px;
-  padding:8px 15px;
+  gap:9px;
   border-right:1px solid #333;
+  padding:8px 12px;
   font-size:13px;
 }
 
@@ -173,7 +161,6 @@ a{
 }
 
 .quickIcon{
-  color:var(--yellow);
   font-size:23px;
 }
 
@@ -181,19 +168,17 @@ a{
   color:var(--yellow);
 }
 
-/* ===============================
-   CATEGORIAS
-=============================== */
+/* CATEGORIAS */
 
 .categoriesWrap{
   background:white;
-  padding:25px 0;
+  border-bottom:1px solid var(--line);
 }
 
 .categories{
   max-width:1250px;
   margin:auto;
-  padding:0 18px;
+  padding:22px 18px;
   display:flex;
   gap:13px;
   overflow-x:auto;
@@ -206,7 +191,7 @@ a{
 
 .categoryBtn{
   flex:0 0 auto;
-  min-width:90px;
+  min-width:82px;
   border:0;
   background:transparent;
   text-align:center;
@@ -214,14 +199,14 @@ a{
 }
 
 .catCircle{
-  width:72px;
-  height:72px;
+  width:68px;
+  height:68px;
   margin:auto;
-  border-radius:50%;
-  background:#f6f6f6;
-  border:1px solid #e7e7e7;
   display:grid;
   place-items:center;
+  border-radius:50%;
+  border:1px solid #e4e4e4;
+  background:#f7f7f7;
   font-size:25px;
   transition:.2s;
 }
@@ -230,7 +215,8 @@ a{
   display:block;
   margin-top:7px;
   font-size:12px;
-  font-weight:700;
+  font-weight:800;
+  white-space:nowrap;
 }
 
 .categoryBtn.active .catCircle{
@@ -241,17 +227,14 @@ a{
 
 .categoryBtn.active .catLabel{
   color:#000;
-  font-weight:900;
 }
 
-/* ===============================
-   BLOCO DE VANTAGENS
-=============================== */
+/* VANTAGENS */
 
 .featuresSection{
   max-width:1250px;
   margin:0 auto;
-  padding:0 18px 28px;
+  padding:25px 18px 20px;
 }
 
 .features{
@@ -264,7 +247,7 @@ a{
 }
 
 .feature{
-  padding:24px;
+  padding:22px;
   border-right:1px solid var(--line);
 }
 
@@ -274,13 +257,12 @@ a{
 
 .featureIcon{
   font-size:25px;
-  margin-bottom:12px;
+  margin-bottom:10px;
 }
 
 .feature b{
   display:block;
   margin-bottom:6px;
-  font-size:15px;
 }
 
 .feature span{
@@ -289,14 +271,12 @@ a{
   line-height:1.45;
 }
 
-/* ===============================
-   PRODUTOS
-=============================== */
+/* PRODUTOS */
 
 .content{
   max-width:1250px;
   margin:auto;
-  padding:15px 18px 50px;
+  padding:18px 18px 50px;
 }
 
 .productsHead{
@@ -319,9 +299,9 @@ a{
 
 .count{
   flex:none;
-  background:#fff1a8;
-  padding:10px 16px;
-  border-radius:10px;
+  background:#fff0a6;
+  border-radius:11px;
+  padding:10px 15px;
   font-weight:900;
 }
 
@@ -335,19 +315,14 @@ a{
   background:white;
   border-radius:15px;
   overflow:hidden;
-  box-shadow:var(--shadow);
   border:1px solid #ececec;
-  transition:.2s;
-}
-
-.card:hover{
-  transform:translateY(-3px);
+  box-shadow:var(--shadow);
 }
 
 .photo{
   position:relative;
   aspect-ratio:1/1;
-  background:#f8f8f8;
+  background:#fafafa;
   overflow:hidden;
 }
 
@@ -381,7 +356,7 @@ a{
 }
 
 .desc{
-  color:#474747;
+  color:#4c4c4c;
   font-size:13px;
   line-height:1.45;
   min-height:39px;
@@ -393,8 +368,8 @@ a{
 
 .price{
   margin-top:15px;
+  font-size:24px;
   font-weight:900;
-  font-size:23px;
 }
 
 .installment{
@@ -411,7 +386,7 @@ a{
   justify-content:center;
   gap:8px;
   margin-top:15px;
-  padding:12px;
+  padding:13px;
   background:var(--green);
   color:white;
   border-radius:9px;
@@ -425,16 +400,14 @@ a{
 
 .empty{
   grid-column:1/-1;
-  padding:45px;
   background:white;
   border-radius:15px;
+  padding:45px;
   text-align:center;
   color:var(--muted);
 }
 
-/* ===============================
-   RODAPÉ
-=============================== */
+/* RODAPÉ */
 
 .footer{
   background:#050505;
@@ -447,19 +420,18 @@ a{
   margin:auto;
   padding:35px 18px;
   display:grid;
-  grid-template-columns:1fr 1fr 1fr;
+  grid-template-columns:repeat(3,1fr);
   gap:30px;
 }
 
 .footerTitle{
   color:var(--yellow);
-  font-size:16px;
   font-weight:900;
   margin-bottom:10px;
 }
 
 .footerText{
-  color:#d7d7d7;
+  color:#d6d6d6;
   font-size:13px;
   line-height:1.7;
 }
@@ -469,21 +441,19 @@ a{
   max-width:1250px;
   margin:auto;
   padding:16px 18px;
+  text-align:center;
   color:#aaa;
   font-size:12px;
-  text-align:center;
 }
 
-/* ===============================
-   MODAL ADMIN
-=============================== */
+/* ADMIN */
 
 .modal{
   display:none;
   position:fixed;
   inset:0;
   z-index:99999;
-  background:rgba(0,0,0,.75);
+  background:rgba(0,0,0,.74);
   align-items:center;
   justify-content:center;
   padding:18px;
@@ -499,19 +469,18 @@ a{
   overflow:auto;
   background:white;
   border-radius:20px;
-  box-shadow:0 30px 90px rgba(0,0,0,.4);
 }
 
 .panelHead{
   position:sticky;
   top:0;
   z-index:3;
-  background:white;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:18px 20px;
+  background:white;
   border-bottom:1px solid var(--line);
+  padding:18px 20px;
 }
 
 .panelHead h3{
@@ -537,8 +506,8 @@ a{
 }
 
 .loginBox h2{
-  margin:5px 0 9px;
   font-size:29px;
+  margin:5px 0 9px;
 }
 
 .loginBox p{
@@ -562,11 +531,6 @@ a{
   border:1px solid #ddd;
   border-radius:12px;
   outline:0;
-}
-
-.field:focus{
-  border-color:var(--yellow);
-  box-shadow:0 0 0 3px rgba(255,196,0,.12);
 }
 
 textarea.field{
@@ -613,20 +577,20 @@ textarea.field{
 }
 
 .adminItem{
-  border:1px solid var(--line);
-  border-radius:14px;
-  padding:12px;
   display:grid;
   grid-template-columns:72px 1fr auto;
   align-items:center;
   gap:12px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:12px;
 }
 
 .adminItem img{
   width:72px;
   height:72px;
-  border-radius:10px;
   object-fit:cover;
+  border-radius:10px;
   background:#eee;
 }
 
@@ -660,9 +624,7 @@ textarea.field{
   margin-bottom:15px;
 }
 
-/* ===============================
-   FOTO DO ADMIN
-=============================== */
+/* FOTO ADMIN */
 
 .imageBox{
   border:2px dashed #d0d0d0;
@@ -677,7 +639,6 @@ textarea.field{
   width:100%;
   max-height:300px;
   object-fit:contain;
-  background:#eee;
   border-radius:12px;
   margin-bottom:12px;
 }
@@ -722,14 +683,12 @@ textarea.field{
   display:none;
 }
 
-/* ===============================
-   TOAST
-=============================== */
+/* TOAST */
 
 .toast{
   position:fixed;
-  bottom:25px;
   left:50%;
+  bottom:25px;
   transform:translate(-50%,20px);
   opacity:0;
   pointer-events:none;
@@ -739,7 +698,6 @@ textarea.field{
   color:white;
   padding:13px 18px;
   border-radius:12px;
-  text-align:center;
 }
 
 .toast.show{
@@ -747,9 +705,7 @@ textarea.field{
   transform:translate(-50%,0);
 }
 
-/* ===============================
-   RESPONSIVO
-=============================== */
+/* MOBILE */
 
 @media(max-width:950px){
   .grid{
@@ -760,26 +716,14 @@ textarea.field{
     grid-template-columns:repeat(2,1fr);
   }
 
-  .feature:nth-child(2){
-    border-right:0;
-  }
-
   .quickInfoInner{
     grid-template-columns:repeat(2,1fr);
-  }
-
-  .quickItem:nth-child(2){
-    border-right:0;
   }
 }
 
 @media(max-width:700px){
   .grid{
     grid-template-columns:repeat(2,1fr);
-  }
-
-  .mainLogo{
-    width:240px;
   }
 }
 
@@ -790,9 +734,9 @@ textarea.field{
   }
 
   .mainLogo{
-    width:200px;
-    max-width:56vw;
-    max-height:80px;
+    width:210px;
+    max-width:57vw;
+    max-height:95px;
   }
 
   .adminTop{
@@ -805,11 +749,6 @@ textarea.field{
     padding:15px 55px 15px 15px;
   }
 
-  .searchIcon{
-    width:42px;
-    height:42px;
-  }
-
   .quickInfoInner{
     padding:9px 10px;
   }
@@ -817,12 +756,12 @@ textarea.field{
   .quickItem{
     display:block;
     text-align:center;
-    padding:9px 5px;
     font-size:11px;
+    padding:9px 5px;
   }
 
   .categories{
-    padding:0 13px;
+    padding:20px 13px;
   }
 
   .catCircle{
@@ -831,7 +770,7 @@ textarea.field{
   }
 
   .featuresSection{
-    padding:0 13px 22px;
+    padding:20px 13px;
   }
 
   .feature{
@@ -861,10 +800,6 @@ textarea.field{
 
   .photo{
     aspect-ratio:4/3;
-  }
-
-  .cardBody{
-    padding:17px;
   }
 
   .name{
@@ -921,12 +856,10 @@ textarea.field{
     <div class="headerTop">
 
       <div class="logoArea">
-
         <img
           class="mainLogo"
           src="/logo.jpg"
           alt="Dan Cell">
-
       </div>
 
       <button
@@ -945,7 +878,7 @@ textarea.field{
       <input
         id="search"
         type="search"
-        placeholder="Buscar celulares, acessórios e muito mais...">
+        placeholder="Buscar celulares, TVs, acessórios e muito mais...">
 
       <button
         class="searchIcon"
@@ -959,43 +892,33 @@ textarea.field{
 
 </header>
 
-
 <section class="quickInfo">
 
   <div class="quickInfoInner">
 
     <div class="quickItem">
-      <span class="quickIcon">🛡</span>
-      <span>
-        Compra <strong>segura</strong>
-      </span>
+      <span class="quickIcon">🛡️</span>
+      <span>Compra <strong>segura</strong></span>
     </div>
 
     <div class="quickItem">
       <span class="quickIcon">💳</span>
-      <span>
-        Condições <strong>no cartão</strong>
-      </span>
+      <span>Condições <strong>no cartão</strong></span>
     </div>
 
     <div class="quickItem">
       <span class="quickIcon">🚚</span>
-      <span>
-        Atendimento <strong>rápido</strong>
-      </span>
+      <span>Atendimento <strong>rápido</strong></span>
     </div>
 
     <div class="quickItem">
       <span class="quickIcon">🟢</span>
-      <span>
-        Fale conosco <strong>no WhatsApp</strong>
-      </span>
+      <span>Fale conosco <strong>no WhatsApp</strong></span>
     </div>
 
   </div>
 
 </section>
-
 
 <section class="categoriesWrap">
 
@@ -1006,86 +929,51 @@ textarea.field{
 
 </section>
 
-
 <section class="featuresSection">
 
   <div class="features">
 
     <div class="feature">
-
       <div class="featureIcon">📱</div>
-
       <b>Produtos selecionados</b>
-
-      <span>
-        Confira nossas melhores ofertas.
-      </span>
-
+      <span>Confira nossas melhores ofertas.</span>
     </div>
 
     <div class="feature">
-
       <div class="featureIcon">💳</div>
-
       <b>Condições de pagamento</b>
-
-      <span>
-        Consulte parcelamentos disponíveis.
-      </span>
-
+      <span>Consulte parcelamentos disponíveis.</span>
     </div>
 
     <div class="feature">
-
       <div class="featureIcon">💬</div>
-
       <b>Atendimento rápido</b>
-
-      <span>
-        Direto pelo WhatsApp.
-      </span>
-
+      <span>Direto pelo WhatsApp.</span>
     </div>
 
     <div class="feature">
-
       <div class="featureIcon">🛡️</div>
-
       <b>Dan Cell</b>
-
-      <span>
-        Compra com confiança.
-      </span>
-
+      <span>Compra com confiança.</span>
     </div>
 
   </div>
 
 </section>
 
-
 <main class="content">
 
   <div class="productsHead">
 
     <div>
-
-      <h2>
-        Ofertas da Dan Cell
-      </h2>
-
-      <p>
-        Encontre o produto ideal para você.
-      </p>
-
+      <h2>Ofertas da Dan Cell</h2>
+      <p>Encontre o produto ideal para você.</p>
     </div>
 
     <span
       class="count"
       id="count">
-
       0 itens
-
     </span>
 
   </div>
@@ -1097,67 +985,50 @@ textarea.field{
 
 </main>
 
-
 <footer class="footer">
 
   <div class="footerInner">
 
     <div>
-
       <div class="footerTitle">
         📍 DAN CELL
       </div>
 
       <div class="footerText">
-
         Rua Santa Inês, 186<br>
         Antônio Conselheiro - BA
-
       </div>
-
     </div>
 
     <div>
-
       <div class="footerTitle">
         🟢 WhatsApp
       </div>
 
       <div class="footerText">
-
         (74) 98145-2762<br>
-        Atendimento rápido e direto!
-
+        Atendimento rápido e direto.
       </div>
-
     </div>
 
     <div>
-
       <div class="footerTitle">
         🕐 Atendimento
       </div>
 
       <div class="footerText">
-
         Consulte nossos horários<br>
         diretamente pelo WhatsApp.
-
       </div>
-
     </div>
 
   </div>
 
   <div class="copyright">
-
     © Dan Cell Assistência & Acessórios.
-    Todos os direitos reservados.
-
   </div>
 
 </footer>
-
 
 <div
   class="modal"
@@ -1168,9 +1039,7 @@ textarea.field{
 
     <div class="panelHead">
 
-      <h3>
-        Painel da Dan Cell
-      </h3>
+      <h3>Painel da Dan Cell</h3>
 
       <button
         class="close"
@@ -1190,17 +1059,33 @@ textarea.field{
 
 </div>
 
-
 <div
   class="toast"
   id="toast">
 </div>
 
-
 <script>
 
 const WHATSAPP =
   "5574981452762";
+
+const FIXED_CATEGORIES = [
+  "Todos",
+  "Celulares",
+  "iPhone",
+  "Xiaomi",
+  "Realme",
+  "Samsung",
+  "Poco",
+  "TV",
+  "Monitores",
+  "Mouse",
+  "Teclado",
+  "Película",
+  "Tablets",
+  "Caixas de som",
+  "Acessórios"
+];
 
 let products = [];
 let filtered = [];
@@ -1208,26 +1093,16 @@ let filtered = [];
 let selectedCategory =
   "Todos";
 
-let logged =
-  false;
+let logged = false;
+let adminPin = "";
+let editingId = null;
+let apiOnline = false;
 
-let adminPin =
-  "";
-
-let editingId =
-  null;
-
-let apiOnline =
-  false;
-
-let selectedImageData =
-  "";
-
+let selectedImageData = "";
 
 const $ =
   id =>
     document.getElementById(id);
-
 
 function esc(value = ""){
 
@@ -1239,7 +1114,6 @@ function esc(value = ""){
     .replaceAll("'","&#039;");
 
 }
-
 
 function toast(message){
 
@@ -1266,11 +1140,9 @@ function toast(message){
 
 }
 
-
 function normalizeProduct(p,index=0){
 
   return {
-
     id:
       p.id ??
       p._id ??
@@ -1314,11 +1186,9 @@ function normalizeProduct(p,index=0){
       p.imagem ??
       p.photo ??
       ""
-
   };
 
 }
-
 
 async function loadProducts(){
 
@@ -1333,11 +1203,9 @@ async function loadProducts(){
       );
 
     if(!r.ok){
-
       throw new Error(
         "API indisponível"
       );
-
     }
 
     const data =
@@ -1360,11 +1228,9 @@ async function loadProducts(){
 
   catch(error){
 
-    products =
-      [];
+    products = [];
 
-    apiOnline =
-      false;
+    apiOnline = false;
 
   }
 
@@ -1373,30 +1239,64 @@ async function loadProducts(){
 
 }
 
-
 function categoryIcon(cat){
 
   const c =
     cat.toLowerCase();
 
-  if(c.includes("iphone")){
+  if(cat === "Todos"){
+    return "▦";
+  }
+
+  if(c.includes("celular")){
     return "📱";
+  }
+
+  if(c.includes("iphone")){
+    return "🍎";
   }
 
   if(c.includes("xiaomi")){
     return "🟧";
   }
 
-  if(c.includes("samsung")){
-    return "🔵";
-  }
-
   if(c.includes("realme")){
     return "🟨";
   }
 
+  if(c.includes("samsung")){
+    return "🔵";
+  }
+
   if(c.includes("poco")){
     return "🟨";
+  }
+
+  if(
+    c === "tv" ||
+    c.includes("televis")
+  ){
+    return "📺";
+  }
+
+  if(c.includes("monitor")){
+    return "🖥️";
+  }
+
+  if(c.includes("mouse")){
+    return "🖱️";
+  }
+
+  if(c.includes("teclado")){
+    return "⌨️";
+  }
+
+  if(c.includes("película") || c.includes("pelicula")){
+    return "🛡️";
+  }
+
+  if(c.includes("tablet")){
+    return "📲";
   }
 
   if(c.includes("som")){
@@ -1407,26 +1307,108 @@ function categoryIcon(cat){
     return "🎧";
   }
 
-  if(c.includes("tablet")){
-    return "📲";
-  }
-
   return "📦";
 
 }
 
+function categoryMatches(product, category){
+
+  const pCategory =
+    String(
+      product.category || ""
+    ).toLowerCase();
+
+  const pBrand =
+    String(
+      product.brand || ""
+    ).toLowerCase();
+
+  const pName =
+    String(
+      product.name || ""
+    ).toLowerCase();
+
+  const selected =
+    category.toLowerCase();
+
+  if(
+    selected === "todos"
+  ){
+    return true;
+  }
+
+  if(
+    selected === "celulares"
+  ){
+
+    const mobileTerms = [
+      "iphone",
+      "xiaomi",
+      "realme",
+      "samsung",
+      "poco",
+      "infinix",
+      "motorola",
+      "celular",
+      "smartphone"
+    ];
+
+    return mobileTerms.some(
+      term =>
+        pCategory.includes(term) ||
+        pBrand.includes(term) ||
+        pName.includes(term)
+    );
+  }
+
+  if(
+    selected === "tv"
+  ){
+
+    return (
+      pCategory === "tv" ||
+      pCategory.includes("televis") ||
+      pName.includes("smart tv") ||
+      pName.startsWith("tv ")
+    );
+  }
+
+  if(
+    selected === "película"
+  ){
+
+    return (
+      pCategory.includes("película") ||
+      pCategory.includes("pelicula") ||
+      pName.includes("película") ||
+      pName.includes("pelicula")
+    );
+  }
+
+  return (
+    pCategory === selected ||
+    pCategory.includes(selected) ||
+    pBrand === selected ||
+    pBrand.includes(selected)
+  );
+
+}
 
 function renderCategories(){
 
-  const categories = [
-    "Todos",
-    ...new Set(
-      products
-        .map(p => p.category)
-        .filter(Boolean)
-    )
-  ];
+  const automatic =
+    products
+      .map(
+        p => p.category
+      )
+      .filter(Boolean);
 
+  const categories = [
+    ...new Set([
+      ...FIXED_CATEGORIES,
+      ...automatic
+    ])
+  ];
 
   $("categoryButtons").innerHTML =
     categories.map(
@@ -1442,13 +1424,7 @@ function renderCategories(){
           type="button">
 
           <span class="catCircle">
-
-            ${
-              cat === "Todos"
-              ? "▦"
-              : categoryIcon(cat)
-            }
-
+            ${categoryIcon(cat)}
           </span>
 
           <span class="catLabel">
@@ -1459,7 +1435,6 @@ function renderCategories(){
 
       `
     ).join("");
-
 
   $("categoryButtons")
     .querySelectorAll(
@@ -1484,7 +1459,6 @@ function renderCategories(){
 
 }
 
-
 function applyFilters(){
 
   const q =
@@ -1492,7 +1466,6 @@ function applyFilters(){
       .value
       .trim()
       .toLowerCase();
-
 
   filtered =
     products.filter(
@@ -1509,16 +1482,15 @@ function applyFilters(){
         .join(" ")
         .toLowerCase();
 
-
         const matchSearch =
           !q ||
           text.includes(q);
 
-
         const matchCategory =
-          selectedCategory === "Todos" ||
-          p.category === selectedCategory;
-
+          categoryMatches(
+            p,
+            selectedCategory
+          );
 
         return (
           matchSearch &&
@@ -1528,11 +1500,9 @@ function applyFilters(){
       }
     );
 
-
   renderProducts();
 
 }
-
 
 function productText(p){
 
@@ -1541,7 +1511,6 @@ function productText(p){
   );
 
 }
-
 
 function renderProducts(){
 
@@ -1552,15 +1521,12 @@ function renderProducts(){
       : "itens"
     }`;
 
-
   if(!filtered.length){
 
     $("grid").innerHTML = `
 
       <div class="empty">
-
-        Nenhum produto encontrado.
-
+        Nenhum produto encontrado nesta categoria.
       </div>
 
     `;
@@ -1568,7 +1534,6 @@ function renderProducts(){
     return;
 
   }
-
 
   $("grid").innerHTML =
     filtered.map(
@@ -1648,6 +1613,7 @@ function renderProducts(){
 
 }
 
+/* ADMIN */
 
 function openAdmin(){
 
@@ -1655,19 +1621,12 @@ function openAdmin(){
     .classList
     .add("open");
 
-  $("adminModal")
-    .setAttribute(
-      "aria-hidden",
-      "false"
-    );
-
   document.body.style.overflow =
     "hidden";
 
   drawAdmin();
 
 }
-
 
 function closeAdmin(){
 
@@ -1678,20 +1637,15 @@ function closeAdmin(){
   document.body.style.overflow =
     "";
 
-  editingId =
-    null;
-
-  selectedImageData =
-    "";
+  editingId = null;
+  selectedImageData = "";
 
 }
-
 
 function drawAdmin(){
 
   const b =
     $("adminBody");
-
 
   if(!logged){
 
@@ -1741,10 +1695,8 @@ function drawAdmin(){
 
     `;
 
-
     $("loginBtn").onclick =
       login;
-
 
     $("pin").addEventListener(
       "keydown",
@@ -1757,11 +1709,9 @@ function drawAdmin(){
       }
     );
 
-
     return;
 
   }
-
 
   if(editingId !== null){
 
@@ -1770,7 +1720,6 @@ function drawAdmin(){
     return;
 
   }
-
 
   b.innerHTML = `
 
@@ -1801,7 +1750,6 @@ function drawAdmin(){
       </button>
 
     </div>
-
 
     <div class="adminList">
 
@@ -1868,7 +1816,6 @@ function drawAdmin(){
 
   `;
 
-
   $("newProductBtn").onclick =
     () => {
 
@@ -1881,7 +1828,6 @@ function drawAdmin(){
       drawAdmin();
 
     };
-
 
   $("refreshBtn").onclick =
     async () => {
@@ -1896,23 +1842,16 @@ function drawAdmin(){
 
     };
 
-
   $("logoutBtn").onclick =
     () => {
 
-      logged =
-        false;
-
-      adminPin =
-        "";
-
-      editingId =
-        null;
+      logged = false;
+      adminPin = "";
+      editingId = null;
 
       drawAdmin();
 
     };
-
 
   b.querySelectorAll(
     ".editBtn"
@@ -1936,7 +1875,6 @@ function drawAdmin(){
     }
   );
 
-
   b.querySelectorAll(
     ".deleteBtn"
   )
@@ -1954,14 +1892,12 @@ function drawAdmin(){
 
 }
 
-
 async function login(){
 
   const pin =
     $("pin")
       .value
       .trim();
-
 
   if(!pin){
 
@@ -1972,7 +1908,6 @@ async function login(){
     return;
 
   }
-
 
   try{
 
@@ -1997,14 +1932,12 @@ async function login(){
         }
       );
 
-
     const data =
       await r
         .json()
         .catch(
           () => ({})
         );
-
 
     if(!r.ok){
 
@@ -2015,12 +1948,8 @@ async function login(){
 
     }
 
-
-    adminPin =
-      pin;
-
-    logged =
-      true;
+    adminPin = pin;
+    logged = true;
 
     drawAdmin();
 
@@ -2041,7 +1970,6 @@ async function login(){
 
 }
 
-
 function compressImage(file){
 
   return new Promise(
@@ -2050,13 +1978,11 @@ function compressImage(file){
       const reader =
         new FileReader();
 
-
       reader.onload =
         event => {
 
           const img =
             new Image();
-
 
           img.onload =
             () => {
@@ -2069,7 +1995,6 @@ function compressImage(file){
 
               const max =
                 900;
-
 
               if(
                 width > height &&
@@ -2104,7 +2029,6 @@ function compressImage(file){
 
               }
 
-
               const canvas =
                 document.createElement(
                   "canvas"
@@ -2116,7 +2040,6 @@ function compressImage(file){
               canvas.height =
                 height;
 
-
               canvas
                 .getContext("2d")
                 .drawImage(
@@ -2127,7 +2050,6 @@ function compressImage(file){
                   height
                 );
 
-
               resolve(
                 canvas.toDataURL(
                   "image/jpeg",
@@ -2137,20 +2059,16 @@ function compressImage(file){
 
             };
 
-
           img.onerror =
             reject;
-
 
           img.src =
             event.target.result;
 
         };
 
-
       reader.onerror =
         reject;
-
 
       reader.readAsDataURL(
         file
@@ -2161,7 +2079,6 @@ function compressImage(file){
 
 }
 
-
 async function handleImageSelect(
   event
 ){
@@ -2169,11 +2086,9 @@ async function handleImageSelect(
   const file =
     event.target.files[0];
 
-
   if(!file){
     return;
   }
-
 
   try{
 
@@ -2181,26 +2096,21 @@ async function handleImageSelect(
       "Preparando imagem..."
     );
 
-
     selectedImageData =
       await compressImage(
         file
       );
 
-
     $("imagePreview").src =
       selectedImageData;
-
 
     $("imagePreview")
       .classList
       .add("show");
 
-
     $("removeImageBtn")
       .classList
       .add("show");
-
 
     toast(
       "Foto selecionada."
@@ -2218,16 +2128,12 @@ async function handleImageSelect(
 
 }
 
-
 function removeSelectedImage(){
 
-  selectedImageData =
-    "";
+  selectedImageData = "";
 
   $("imagePreview")
-    .removeAttribute(
-      "src"
-    );
+    .removeAttribute("src");
 
   $("imagePreview")
     .classList
@@ -2239,12 +2145,10 @@ function removeSelectedImage(){
 
 }
 
-
 function drawProductForm(){
 
   const isNew =
     editingId === "new";
-
 
   const p =
     isNew
@@ -2264,18 +2168,15 @@ function drawProductForm(){
           String(editingId)
       );
 
-
   if(!p){
 
-    editingId =
-      null;
+    editingId = null;
 
     drawAdmin();
 
     return;
 
   }
-
 
   if(
     !selectedImageData &&
@@ -2286,7 +2187,6 @@ function drawProductForm(){
       p.image;
 
   }
-
 
   $("adminBody").innerHTML = `
 
@@ -2300,9 +2200,7 @@ function drawProductForm(){
 
     </div>
 
-
     <div class="stack">
-
 
       <div class="row">
 
@@ -2320,14 +2218,31 @@ function drawProductForm(){
 
       </div>
 
-
       <div class="row">
 
         <input
           class="field"
           id="fCategory"
+          list="categorySuggestions"
           placeholder="Categoria"
           value="${esc(p.category)}">
+
+        <datalist id="categorySuggestions">
+          <option value="Celulares">
+          <option value="iPhone">
+          <option value="Xiaomi">
+          <option value="Realme">
+          <option value="Samsung">
+          <option value="Poco">
+          <option value="TV">
+          <option value="Monitores">
+          <option value="Mouse">
+          <option value="Teclado">
+          <option value="Película">
+          <option value="Tablets">
+          <option value="Caixas de som">
+          <option value="Acessórios">
+        </datalist>
 
         <input
           class="field"
@@ -2337,13 +2252,11 @@ function drawProductForm(){
 
       </div>
 
-
       <input
         class="field"
         id="fInstallment"
         placeholder="Parcelamento"
         value="${esc(p.installment)}">
-
 
       <div class="imageBox">
 
@@ -2363,12 +2276,10 @@ function drawProductForm(){
             : ""
           }>
 
-
         <input
           id="fImageFile"
           type="file"
           accept="image/*">
-
 
         <button
           class="chooseImage"
@@ -2378,7 +2289,6 @@ function drawProductForm(){
           📷 Escolher foto da galeria
 
         </button>
-
 
         <button
           class="removeImage ${
@@ -2393,15 +2303,11 @@ function drawProductForm(){
 
         </button>
 
-
         <div class="imageHelp">
-
           Escolha uma foto diretamente do celular.
-
         </div>
 
       </div>
-
 
       <textarea
         class="field"
@@ -2410,7 +2316,6 @@ function drawProductForm(){
         placeholder="Descrição">${esc(
           p.description
         )}</textarea>
-
 
       <div class="row">
 
@@ -2421,7 +2326,6 @@ function drawProductForm(){
           Voltar
 
         </button>
-
 
         <button
           class="btn btnPrimary"
@@ -2441,12 +2345,10 @@ function drawProductForm(){
 
   `;
 
-
   $("chooseImageBtn").onclick =
     () =>
       $("fImageFile")
         .click();
-
 
   $("fImageFile")
     .addEventListener(
@@ -2454,30 +2356,23 @@ function drawProductForm(){
       handleImageSelect
     );
 
-
   $("removeImageBtn").onclick =
     removeSelectedImage;
-
 
   $("cancelEditBtn").onclick =
     () => {
 
-      editingId =
-        null;
-
-      selectedImageData =
-        "";
+      editingId = null;
+      selectedImageData = "";
 
       drawAdmin();
 
     };
 
-
   $("saveProductBtn").onclick =
     submitProduct;
 
 }
-
 
 async function submitProduct(){
 
@@ -2506,7 +2401,6 @@ async function submitProduct(){
 
   };
 
-
   if(!payload.name){
 
     toast(
@@ -2517,10 +2411,8 @@ async function submitProduct(){
 
   }
 
-
   const isNew =
     editingId === "new";
-
 
   if(!isNew){
 
@@ -2529,17 +2421,11 @@ async function submitProduct(){
 
   }
 
-
   const btn =
     $("saveProductBtn");
 
-
-  btn.disabled =
-    true;
-
-  btn.textContent =
-    "Salvando...";
-
+  btn.disabled = true;
+  btn.textContent = "Salvando...";
 
   try{
 
@@ -2570,14 +2456,12 @@ async function submitProduct(){
         }
       );
 
-
     const data =
       await r
         .json()
         .catch(
           () => ({})
         );
-
 
     if(!r.ok){
 
@@ -2588,18 +2472,12 @@ async function submitProduct(){
 
     }
 
-
-    editingId =
-      null;
-
-    selectedImageData =
-      "";
-
+    editingId = null;
+    selectedImageData = "";
 
     await loadProducts();
 
     drawAdmin();
-
 
     toast(
       isNew
@@ -2611,14 +2489,12 @@ async function submitProduct(){
 
   catch(error){
 
-    btn.disabled =
-      false;
+    btn.disabled = false;
 
     btn.textContent =
       isNew
       ? "Adicionar produto"
       : "Salvar alterações";
-
 
     toast(
       error.message ||
@@ -2629,7 +2505,6 @@ async function submitProduct(){
 
 }
 
-
 async function deleteProduct(id){
 
   if(
@@ -2639,7 +2514,6 @@ async function deleteProduct(id){
   ){
     return;
   }
-
 
   try{
 
@@ -2665,14 +2539,12 @@ async function deleteProduct(id){
         }
       );
 
-
     const data =
       await r
         .json()
         .catch(
           () => ({})
         );
-
 
     if(!r.ok){
 
@@ -2682,7 +2554,6 @@ async function deleteProduct(id){
       );
 
     }
-
 
     await loadProducts();
 
@@ -2705,20 +2576,17 @@ async function deleteProduct(id){
 
 }
 
-
 $("openAdminBtn")
   .addEventListener(
     "click",
     openAdmin
   );
 
-
 $("closeAdminBtn")
   .addEventListener(
     "click",
     closeAdmin
   );
-
 
 $("adminModal")
   .addEventListener(
@@ -2737,17 +2605,15 @@ $("adminModal")
     }
   );
 
-
 $("search")
   .addEventListener(
     "input",
     applyFilters
   );
 
-
 loadProducts();
 
 </script>
 
 </body>
-  </html>
+      </html>
