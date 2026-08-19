@@ -1,850 +1,896 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#07132d">
-
-  <title>Dan Cell | Catálogo Online</title>
-
-  <style>
-
-    :root{
-      --bg:#f4f7fb;
-      --card:#ffffff;
-      --ink:#0e1830;
-      --muted:#67738b;
-      --navy:#07132d;
-      --blue:#0b63f6;
-      --cyan:#17c9ff;
-      --line:#e6ebf2;
-      --danger:#d92d20;
-      --shadow:0 14px 40px rgba(5,21,53,.12);
-    }
-
-    *{
-      box-sizing:border-box;
-    }
-
-    body{
-      margin:0;
-      font-family:Arial,sans-serif;
-      background:var(--bg);
-      color:var(--ink);
-    }
-
-    button,
-    input,
-    select,
-    textarea{
-      font:inherit;
-    }
-
-    button,
-    a{
-      cursor:pointer;
-    }
-
-    a{
-      text-decoration:none;
-      color:inherit;
-    }
-
-    .top{
-      position:relative;
-      overflow:hidden;
-      color:white;
-
-      background:
-        radial-gradient(
-          circle at 88% 18%,
-          rgba(23,201,255,.28),
-          transparent 27%
-        ),
-        linear-gradient(
-          135deg,
-          #061633,
-          #0b2f70 60%,
-          #0863e7
-        );
-    }
-
-    .wrap{
-      max-width:1180px;
-      margin:auto;
-      padding:26px 22px 54px;
-    }
-
-    .brandRow{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:16px;
-    }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      font-size:28px;
-      font-weight:900;
-    }
-
-    .mark{
-      width:48px;
-      height:48px;
-
-      display:grid;
-      place-items:center;
-
-      border-radius:15px;
-
-      background:
-        linear-gradient(
-          145deg,
-          #18d5ff,
-          #0877ff
-        );
-    }
-
-    .mark svg{
-      width:27px;
-      height:27px;
-    }
-
-    .adminTop{
-      border:
-        1px solid
-        rgba(255,255,255,.30);
-
-      color:white;
-
-      background:
-        rgba(255,255,255,.10);
-
-      border-radius:15px;
-      padding:12px 16px;
-      font-weight:700;
-    }
-
-    .hero{
-      max-width:760px;
-      padding:65px 0 35px;
-    }
-
-    .hero h1{
-      font-size:64px;
-      line-height:1;
-      margin:0 0 20px;
-    }
-
-    .hero p{
-      color:
-        rgba(255,255,255,.83);
-
-      font-size:19px;
-      line-height:1.45;
-    }
-
-    .toolbar{
-      max-width:1180px;
-      margin:-32px auto 0;
-      padding:0 22px;
-      position:relative;
-      z-index:10;
-    }
-
-    .toolbox{
-      display:grid;
-      grid-template-columns:
-        1fr 240px;
-
-      gap:12px;
-      padding:18px;
-
-      background:white;
-      border-radius:22px;
-
-      box-shadow:
-        var(--shadow);
-    }
-
-    .search input,
-    .cat{
-      width:100%;
-
-      border:
-        1px solid
-        var(--line);
-
-      border-radius:14px;
-
-      padding:15px;
-
-      outline:none;
-
-      background:white;
-    }
-
-    .content{
-      max-width:1180px;
-      margin:auto;
-      padding:55px 22px 35px;
-    }
-
-    .sectionTitle{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      margin-bottom:20px;
-    }
-
-    .sectionTitle h2{
-      margin:0;
-      font-size:33px;
-    }
-
-    .count{
-      color:var(--muted);
-    }
-
-    .grid{
-      display:grid;
-
-      grid-template-columns:
-        repeat(3,1fr);
-
-      gap:20px;
-    }
-
-    .card{
-      background:white;
-
-      border-radius:20px;
-
-      overflow:hidden;
-
-      box-shadow:
-        0 9px 25px
-        rgba(12,33,71,.08);
-    }
-
-    .photo{
-      position:relative;
-
-      aspect-ratio:4/3;
-
-      overflow:hidden;
-
-      background:#e9eef6;
-    }
-
-    .photo img{
-      width:100%;
-      height:100%;
-
-      object-fit:cover;
-    }
-
-    .badge{
-      position:absolute;
-      top:12px;
-      left:12px;
-
-      background:#07132d;
-      color:white;
-
-      padding:7px 10px;
-
-      border-radius:999px;
-
-      font-size:12px;
-      font-weight:800;
-    }
-
-    .body{
-      padding:18px;
-    }
-
-    .name{
-      margin:0 0 7px;
-
-      font-size:20px;
-    }
-
-    .desc{
-      color:var(--muted);
-
-      min-height:42px;
-
-      line-height:1.4;
-    }
-
-    .price{
-      font-size:21px;
-      font-weight:900;
-
-      margin-top:12px;
-    }
-
-    .sub{
-      color:#1764d8;
-
-      font-size:13px;
-      font-weight:700;
-
-      margin:5px 0 14px;
-    }
-
-    .wa{
-      display:block;
-
-      text-align:center;
-
-      background:#07132d;
-      color:white;
-
-      padding:13px;
-
-      border-radius:12px;
-
-      font-weight:800;
-    }
-
-    .empty{
-      grid-column:1/-1;
-
-      padding:35px;
-
-      text-align:center;
-
-      background:white;
-
-      border-radius:18px;
-
-      color:var(--muted);
-    }
-
-    footer{
-      background:#061127;
-      color:white;
-      margin-top:25px;
-    }
-
-    .foot{
-      max-width:1180px;
-
-      margin:auto;
-
-      padding:25px 22px;
-
-      display:flex;
-
-      justify-content:
-        space-between;
-
-      gap:20px;
-    }
-
-    .small{
-      color:#9fb0cc;
-
-      font-size:13px;
-
-      margin-top:5px;
-    }
-
-    .modal{
-      display:none;
-
-      position:fixed;
-
-      inset:0;
-
-      z-index:99999;
-
-      background:
-        rgba(5,16,39,.68);
-
-      align-items:center;
-
-      justify-content:center;
-
-      padding:18px;
-    }
-
-    .modal.open{
-      display:flex;
-    }
-
-    .panel{
-      width:min(760px,100%);
-
-      max-height:94vh;
-
-      overflow:auto;
-
-      background:white;
-
-      border-radius:22px;
-
-      box-shadow:
-        0 30px 80px
-        rgba(0,0,0,.28);
-    }
-
-    .panelHead{
-      display:flex;
-
-      align-items:center;
-
-      justify-content:
-        space-between;
-
-      border-bottom:
-        1px solid
-        var(--line);
-
-      padding:18px 20px;
-
-      position:sticky;
-
-      top:0;
-
-      background:white;
-
-      z-index:2;
-    }
-
-    .panelHead h3{
-      margin:0;
-    }
-
-    .close{
-      border:none;
-
-      background:#f2f5f9;
-
-      width:40px;
-      height:40px;
-
-      border-radius:12px;
-
-      font-size:24px;
-    }
-
-    .adminBody{
-      padding:20px;
-    }
-
-    .loginBox{
-      max-width:450px;
-      margin:auto;
-    }
-
-    .loginBox h2{
-      font-size:30px;
-      margin:5px 0 10px;
-    }
-
-    .loginBox p{
-      color:var(--muted);
-    }
-
-    .stack{
-      display:grid;
-      gap:12px;
-    }
-
-    .row{
-      display:grid;
-
-      grid-template-columns:
-        1fr 1fr;
-
-      gap:12px;
-    }
-
-    .field{
-      width:100%;
-
-      border:
-        1px solid
-        var(--line);
-
-      border-radius:13px;
-
-      padding:14px;
-
-      outline:none;
-    }
-
-    textarea.field{
-      resize:vertical;
-    }
-
-    .btn{
-      border:none;
-
-      border-radius:13px;
-
-      padding:14px 15px;
-
-      font-weight:800;
-    }
-
-    .btnPrimary{
-      background:#07132d;
-      color:white;
-    }
-
-    .btnBlue{
-      background:#0b63f6;
-      color:white;
-    }
-
-    .btnGhost{
-      background:#eef3f9;
-      color:#26344f;
-    }
-
-    .btnDanger{
-      background:#fff0ef;
-      color:#d92d20;
-    }
-
-    .adminActions{
-      display:flex;
-
-      flex-wrap:wrap;
-
-      gap:10px;
-
-      margin-bottom:18px;
-    }
-
-    .adminList{
-      display:grid;
-      gap:12px;
-    }
-
-    .adminItem{
-      display:grid;
-
-      grid-template-columns:
-        70px 1fr auto;
-
-      align-items:center;
-
-      gap:12px;
-
-      border:
-        1px solid
-        var(--line);
-
-      border-radius:15px;
-
-      padding:12px;
-    }
-
-    .adminItem img{
-      width:70px;
-      height:70px;
-
-      object-fit:cover;
-
-      background:#eef2f7;
-
-      border-radius:11px;
-    }
-
-    .muted{
-      color:var(--muted);
-
-      font-size:13px;
-
-      margin-top:4px;
-    }
-
-    .itemBtns{
-      display:flex;
-      gap:7px;
-    }
-
-    .itemBtns button{
-      border:none;
-
-      padding:9px;
-
-      border-radius:9px;
-
-      font-weight:700;
-    }
-
-    .notice{
-      color:var(--muted);
-
-      font-size:13px;
-
-      margin-top:10px;
-    }
-
-    .formTitle{
-      font-weight:900;
-
-      font-size:22px;
-
-      margin-bottom:15px;
-    }
-
-    /* FOTO */
-
-    .imageBox{
-      border:
-        2px dashed
-        #cdd8ea;
-
-      border-radius:16px;
-
-      padding:16px;
-
-      text-align:center;
-
-      background:#f8faff;
-    }
-
-    .imagePreview{
-      width:100%;
-      max-height:280px;
-
-      object-fit:contain;
-
-      border-radius:14px;
-
-      background:#eef2f7;
-
-      display:none;
-
-      margin-bottom:12px;
-    }
-
-    .imagePreview.show{
-      display:block;
-    }
-
-    .chooseImage{
-      width:100%;
-
-      border:none;
-
-      background:#0b63f6;
-
-      color:white;
-
-      padding:15px;
-
-      border-radius:13px;
-
-      font-weight:900;
-
-      cursor:pointer;
-    }
-
-    .removeImage{
-      width:100%;
-
-      margin-top:8px;
-
-      border:none;
-
-      background:#fff0ef;
-
-      color:#d92d20;
-
-      padding:12px;
-
-      border-radius:13px;
-
-      font-weight:800;
-
-      display:none;
-    }
-
-    .removeImage.show{
-      display:block;
-    }
-
-    .imageHelp{
-      color:var(--muted);
-
-      font-size:12px;
-
-      margin-top:10px;
-    }
-
-    #fImageFile{
-      display:none;
-    }
-
-    .toast{
-      position:fixed;
-
-      left:50%;
-
-      bottom:25px;
-
-      transform:
-        translate(-50%,20px);
-
-      background:#111827;
-
-      color:white;
-
-      padding:13px 17px;
-
-      border-radius:12px;
-
-      opacity:0;
-
-      pointer-events:none;
-
-      transition:.2s;
-
-      z-index:100000;
-    }
-
-    .toast.show{
-      opacity:1;
-
-      transform:
-        translate(-50%,0);
-    }
-
-    @media(max-width:800px){
-
-      .hero h1{
-        font-size:45px;
-      }
-
-      .grid{
-        grid-template-columns:
-          repeat(2,1fr);
-      }
-
-    }
-
-    @media(max-width:600px){
-
-      .wrap{
-        padding:
-          18px 14px 45px;
-      }
-
-      .brand{
-        font-size:20px;
-      }
-
-      .mark{
-        width:42px;
-        height:42px;
-      }
-
-      .adminTop{
-        padding:10px 12px;
-        font-size:13px;
-      }
-
-      .hero{
-        padding:50px 0 25px;
-      }
-
-      .hero h1{
-        font-size:43px;
-      }
-
-      .toolbar{
-        padding:0 13px;
-      }
-
-      .toolbox{
-        grid-template-columns:1fr;
-      }
-
-      .content{
-        padding:
-          48px 13px 25px;
-      }
-
-      .grid{
-        grid-template-columns:1fr;
-      }
-
-      .row{
-        grid-template-columns:1fr;
-      }
-
-      .foot{
-        display:block;
-      }
-
-      .adminItem{
-        grid-template-columns:
-          58px 1fr;
-      }
-
-      .adminItem img{
-        width:58px;
-        height:58px;
-      }
-
-      .itemBtns{
-        grid-column:1/-1;
-      }
-
-      .itemBtns button{
-        flex:1;
-      }
-
-    }
-
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#071a3d">
+
+<title>Dan Cell | Catálogo Online</title>
+
+<style>
+:root{
+  --navy:#071a3d;
+  --navy2:#0b285b;
+  --blue:#1267e8;
+  --cyan:#18bff5;
+  --bg:#f3f5f8;
+  --card:#ffffff;
+  --text:#172033;
+  --muted:#6b7280;
+  --line:#e5e7eb;
+  --green:#00a650;
+  --danger:#d92d20;
+  --shadow:0 4px 16px rgba(15,23,42,.08);
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+
+button,input,select,textarea{
+  font:inherit;
+}
+
+button,a{
+  cursor:pointer;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+/* ============================
+   CABEÇALHO
+============================ */
+
+.header{
+  background:
+    radial-gradient(circle at 80% 10%,rgba(24,191,245,.25),transparent 30%),
+    linear-gradient(135deg,#061735,#0a3375);
+  color:white;
+}
+
+.headerInner{
+  max-width:1250px;
+  margin:auto;
+  padding:18px 18px 28px;
+}
+
+.topbar{
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-width:max-content;
+  font-size:25px;
+  font-weight:900;
+}
+
+.logoIcon{
+  width:46px;
+  height:46px;
+  display:grid;
+  place-items:center;
+  border-radius:13px;
+  background:linear-gradient(145deg,#18d5ff,#0877ff);
+}
+
+.logoIcon svg{
+  width:25px;
+  height:25px;
+}
+
+.searchHeader{
+  flex:1;
+  display:flex;
+  background:white;
+  border-radius:10px;
+  overflow:hidden;
+  box-shadow:0 5px 20px rgba(0,0,0,.15);
+}
+
+.searchHeader input{
+  width:100%;
+  border:0;
+  outline:0;
+  padding:15px 16px;
+  font-size:15px;
+}
+
+.searchButton{
+  width:56px;
+  border:0;
+  background:white;
+  font-size:20px;
+}
+
+.adminTop{
+  border:1px solid rgba(255,255,255,.35);
+  color:white;
+  background:rgba(255,255,255,.10);
+  border-radius:10px;
+  padding:13px 16px;
+  font-weight:800;
+  white-space:nowrap;
+}
+
+.heroMini{
+  padding-top:25px;
+}
+
+.heroMini h1{
+  font-size:35px;
+  margin:0 0 7px;
+}
+
+.heroMini p{
+  margin:0;
+  color:rgba(255,255,255,.78);
+}
+
+/* ============================
+   CATEGORIAS
+============================ */
+
+.categorySection{
+  background:white;
+  border-bottom:1px solid var(--line);
+  box-shadow:0 2px 6px rgba(0,0,0,.03);
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+
+.categories{
+  max-width:1250px;
+  margin:auto;
+  padding:12px 18px;
+  display:flex;
+  align-items:center;
+  gap:9px;
+  overflow-x:auto;
+  scrollbar-width:none;
+}
+
+.categories::-webkit-scrollbar{
+  display:none;
+}
+
+.categoryBtn{
+  flex:none;
+  border:1px solid #dde3ec;
+  background:white;
+  color:#374151;
+  padding:10px 15px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:700;
+}
+
+.categoryBtn:hover{
+  border-color:var(--blue);
+  color:var(--blue);
+}
+
+.categoryBtn.active{
+  border-color:var(--navy);
+  background:var(--navy);
+  color:white;
+}
+
+/* ============================
+   BENEFÍCIOS
+============================ */
+
+.benefitsWrap{
+  max-width:1250px;
+  margin:22px auto 0;
+  padding:0 18px;
+}
+
+.benefits{
+  background:white;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border-radius:14px;
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+
+.benefit{
+  padding:20px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  border-right:1px solid var(--line);
+}
+
+.benefit:last-child{
+  border-right:0;
+}
+
+.benefitIcon{
+  font-size:25px;
+}
+
+.benefit b{
+  display:block;
+  font-size:14px;
+}
+
+.benefit span{
+  color:var(--muted);
+  font-size:12px;
+}
+
+/* ============================
+   PRODUTOS
+============================ */
+
+.content{
+  max-width:1250px;
+  margin:auto;
+  padding:34px 18px 50px;
+}
+
+.sectionHeader{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:15px;
+  margin-bottom:19px;
+}
+
+.sectionHeader h2{
+  margin:0;
+  font-size:27px;
+}
+
+.sectionHeader p{
+  margin:5px 0 0;
+  color:var(--muted);
+  font-size:14px;
+}
+
+.count{
+  color:var(--muted);
+  font-size:14px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:16px;
+}
+
+.card{
+  background:white;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  border:1px solid #edf0f4;
+  transition:.18s;
+}
+
+.card:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 28px rgba(15,23,42,.11);
+}
+
+.photo{
+  position:relative;
+  height:240px;
+  background:#f8fafc;
+  overflow:hidden;
+}
+
+.photo img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
+}
+
+.badge{
+  position:absolute;
+  top:12px;
+  left:12px;
+  padding:7px 10px;
+  border-radius:7px;
+  background:var(--navy);
+  color:white;
+  font-size:11px;
+  font-weight:800;
+}
+
+.cardBody{
+  padding:16px;
+  border-top:1px solid #f1f3f5;
+}
+
+.name{
+  font-size:17px;
+  line-height:1.25;
+  margin:0 0 8px;
+  min-height:42px;
+}
+
+.desc{
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.4;
+  min-height:37px;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+
+.price{
+  margin-top:15px;
+  font-size:25px;
+  font-weight:900;
+  color:#111827;
+}
+
+.installment{
+  color:var(--green);
+  font-size:13px;
+  margin-top:4px;
+  font-weight:700;
+  min-height:18px;
+}
+
+.wa{
+  display:block;
+  margin-top:15px;
+  text-align:center;
+  padding:12px;
+  border-radius:9px;
+  background:var(--navy);
+  color:white;
+  font-size:14px;
+  font-weight:800;
+}
+
+.wa:hover{
+  background:#0c2b62;
+}
+
+.empty{
+  grid-column:1/-1;
+  background:white;
+  border-radius:12px;
+  padding:45px 20px;
+  text-align:center;
+  color:var(--muted);
+}
+
+/* ============================
+   RODAPÉ
+============================ */
+
+footer{
+  background:#061127;
+  color:white;
+}
+
+.footerInner{
+  max-width:1250px;
+  margin:auto;
+  padding:32px 18px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+}
+
+.footerTitle{
+  font-weight:900;
+  font-size:19px;
+}
+
+.small{
+  color:#9fb0cc;
+  line-height:1.6;
+  font-size:13px;
+  margin-top:7px;
+}
+
+/* ============================
+   MODAL ADMIN
+============================ */
+
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:99999;
+  background:rgba(5,16,39,.72);
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+}
+
+.modal.open{
+  display:flex;
+}
+
+.panel{
+  width:min(760px,100%);
+  max-height:94vh;
+  overflow:auto;
+  background:white;
+  border-radius:20px;
+  box-shadow:0 30px 80px rgba(0,0,0,.28);
+}
+
+.panelHead{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid var(--line);
+  padding:18px 20px;
+  position:sticky;
+  top:0;
+  background:white;
+  z-index:2;
+}
+
+.panelHead h3{
+  margin:0;
+}
+
+.close{
+  border:0;
+  background:#f2f5f9;
+  width:42px;
+  height:42px;
+  border-radius:12px;
+  font-size:24px;
+}
+
+.adminBody{
+  padding:20px;
+}
+
+.loginBox{
+  max-width:450px;
+  margin:auto;
+}
+
+.loginBox h2{
+  font-size:29px;
+  margin:5px 0 10px;
+}
+
+.loginBox p{
+  color:var(--muted);
+}
+
+.stack{
+  display:grid;
+  gap:12px;
+}
+
+.row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.field{
+  width:100%;
+  border:1px solid var(--line);
+  border-radius:13px;
+  padding:14px;
+  outline:none;
+  background:white;
+}
+
+.field:focus{
+  border-color:var(--blue);
+  box-shadow:0 0 0 3px rgba(18,103,232,.08);
+}
+
+textarea.field{
+  resize:vertical;
+}
+
+.btn{
+  border:0;
+  border-radius:12px;
+  padding:14px 15px;
+  font-weight:800;
+}
+
+.btnPrimary{
+  background:var(--navy);
+  color:white;
+}
+
+.btnBlue{
+  background:var(--blue);
+  color:white;
+}
+
+.btnGhost{
+  background:#eef3f9;
+  color:#26344f;
+}
+
+.btnDanger{
+  background:#fff0ef;
+  color:var(--danger);
+}
+
+.adminActions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:18px;
+}
+
+.adminList{
+  display:grid;
+  gap:12px;
+}
+
+.adminItem{
+  display:grid;
+  grid-template-columns:75px 1fr auto;
+  align-items:center;
+  gap:12px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:12px;
+}
+
+.adminItem img{
+  width:75px;
+  height:75px;
+  object-fit:cover;
+  background:#eef2f7;
+  border-radius:11px;
+}
+
+.muted{
+  color:var(--muted);
+  font-size:13px;
+  margin-top:4px;
+}
+
+.itemBtns{
+  display:flex;
+  gap:7px;
+}
+
+.itemBtns button{
+  border:0;
+  padding:9px;
+  border-radius:9px;
+  font-weight:700;
+}
+
+.notice{
+  color:var(--muted);
+  font-size:13px;
+  margin-top:10px;
+}
+
+.formTitle{
+  font-weight:900;
+  font-size:22px;
+  margin-bottom:15px;
+}
+
+/* ============================
+   FOTO ADMIN
+============================ */
+
+.imageBox{
+  border:2px dashed #cad5e4;
+  border-radius:15px;
+  padding:14px;
+  text-align:center;
+  background:#f8faff;
+}
+
+.imagePreview{
+  width:100%;
+  max-height:300px;
+  object-fit:contain;
+  border-radius:12px;
+  background:#eef2f7;
+  display:none;
+  margin-bottom:12px;
+}
+
+.imagePreview.show{
+  display:block;
+}
+
+.chooseImage{
+  width:100%;
+  border:0;
+  background:var(--blue);
+  color:white;
+  padding:15px;
+  border-radius:12px;
+  font-weight:900;
+}
+
+.removeImage{
+  width:100%;
+  margin-top:8px;
+  border:0;
+  background:#fff0ef;
+  color:var(--danger);
+  padding:12px;
+  border-radius:12px;
+  font-weight:800;
+  display:none;
+}
+
+.removeImage.show{
+  display:block;
+}
+
+.imageHelp{
+  color:var(--muted);
+  font-size:12px;
+  margin-top:10px;
+}
+
+#fImageFile{
+  display:none;
+}
+
+/* ============================
+   TOAST
+============================ */
+
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:25px;
+  transform:translate(-50%,20px);
+  background:#111827;
+  color:white;
+  padding:13px 17px;
+  border-radius:12px;
+  opacity:0;
+  pointer-events:none;
+  transition:.2s;
+  z-index:100000;
+  text-align:center;
+}
+
+.toast.show{
+  opacity:1;
+  transform:translate(-50%,0);
+}
+
+/* ============================
+   MOBILE
+============================ */
+
+@media(max-width:1000px){
+  .grid{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+
+  .benefits{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .benefit:nth-child(2){
+    border-right:0;
+  }
+}
+
+@media(max-width:750px){
+  .topbar{
+    display:grid;
+    grid-template-columns:1fr auto;
+  }
+
+  .searchHeader{
+    grid-column:1/-1;
+    grid-row:2;
+  }
+
+  .heroMini h1{
+    font-size:28px;
+  }
+
+  .grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .photo{
+    height:210px;
+  }
+}
+
+@media(max-width:560px){
+  .headerInner{
+    padding:14px 13px 24px;
+  }
+
+  .logo{
+    font-size:20px;
+  }
+
+  .logoIcon{
+    width:40px;
+    height:40px;
+  }
+
+  .adminTop{
+    padding:10px 11px;
+    font-size:12px;
+  }
+
+  .heroMini{
+    padding-top:20px;
+  }
+
+  .heroMini h1{
+    font-size:25px;
+  }
+
+  .categories{
+    padding:10px 13px;
+  }
+
+  .benefitsWrap{
+    padding:0 13px;
+    margin-top:15px;
+  }
+
+  .benefits{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .benefit{
+    display:block;
+    padding:14px;
+  }
+
+  .benefitIcon{
+    margin-bottom:5px;
+  }
+
+  .content{
+    padding:27px 13px 40px;
+  }
+
+  .sectionHeader h2{
+    font-size:24px;
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+    gap:15px;
+  }
+
+  .photo{
+    height:auto;
+    aspect-ratio:1/1;
+  }
+
+  .card{
+    border-radius:15px;
+  }
+
+  .name{
+    min-height:auto;
+    font-size:20px;
+  }
+
+  .desc{
+    font-size:14px;
+  }
+
+  .price{
+    font-size:26px;
+  }
+
+  .wa{
+    font-size:16px;
+    padding:14px;
+  }
+
+  .row{
+    grid-template-columns:1fr;
+  }
+
+  .adminItem{
+    grid-template-columns:60px 1fr;
+  }
+
+  .adminItem img{
+    width:60px;
+    height:60px;
+  }
+
+  .itemBtns{
+    grid-column:1/-1;
+  }
+
+  .itemBtns button{
+    flex:1;
+  }
+
+  .footerInner{
+    grid-template-columns:1fr;
+  }
+}
+</style>
 </head>
 
 <body>
 
-<header class="top">
+<header class="header">
 
-  <div class="wrap">
+  <div class="headerInner">
 
-    <div class="brandRow">
+    <div class="topbar">
 
-      <div class="brand">
+      <div class="logo">
 
-        <span class="mark">
+        <span class="logoIcon">
 
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="white"
-            stroke-width="2">
+          <svg viewBox="0 0 24 24"
+               fill="none"
+               stroke="white"
+               stroke-width="2">
 
-            <rect
-              x="6"
-              y="2.5"
-              width="12"
-              height="19"
-              rx="2.2">
-            </rect>
+            <rect x="6"
+                  y="2.5"
+                  width="12"
+                  height="19"
+                  rx="2.2"></rect>
 
-            <path
-              d="M10 5h4M10 18.5h4">
-            </path>
+            <path d="M10 5h4M10 18.5h4"></path>
 
           </svg>
 
         </span>
 
         DAN CELL
+
+      </div>
+
+      <div class="searchHeader">
+
+        <input
+          id="search"
+          type="search"
+          placeholder="Buscar celulares, acessórios e muito mais">
+
+        <button
+          class="searchButton"
+          type="button">
+          🔍
+        </button>
 
       </div>
 
@@ -859,15 +905,14 @@
 
     </div>
 
-    <div class="hero">
+    <div class="heroMini">
 
       <h1>
-        Seu próximo aparelho está aqui.
+        Tecnologia com ofertas de verdade.
       </h1>
 
       <p>
-        Confira ofertas, compare modelos e fale diretamente
-        com a Dan Cell pelo WhatsApp.
+        Celulares, acessórios e eletrônicos com atendimento direto pelo WhatsApp.
       </p>
 
     </div>
@@ -876,38 +921,83 @@
 
 </header>
 
-<section class="toolbar">
 
-  <div class="toolbox">
+<nav class="categorySection">
 
-    <div class="search">
+  <div
+    class="categories"
+    id="categoryButtons">
+  </div>
 
-      <input
-        id="search"
-        type="search"
-        placeholder="Buscar produto, marca ou modelo...">
+</nav>
+
+
+<section class="benefitsWrap">
+
+  <div class="benefits">
+
+    <div class="benefit">
+
+      <div class="benefitIcon">📱</div>
+
+      <div>
+        <b>Produtos selecionados</b>
+        <span>Confira nossas ofertas</span>
+      </div>
 
     </div>
 
-    <select
-      class="cat"
-      id="category">
+    <div class="benefit">
 
-      <option value="Todos">
-        Todas as categorias
-      </option>
+      <div class="benefitIcon">💳</div>
 
-    </select>
+      <div>
+        <b>Condições de pagamento</b>
+        <span>Consulte parcelamentos</span>
+      </div>
+
+    </div>
+
+    <div class="benefit">
+
+      <div class="benefitIcon">💬</div>
+
+      <div>
+        <b>Atendimento rápido</b>
+        <span>Direto pelo WhatsApp</span>
+      </div>
+
+    </div>
+
+    <div class="benefit">
+
+      <div class="benefitIcon">🛡️</div>
+
+      <div>
+        <b>Dan Cell</b>
+        <span>Compra com confiança</span>
+      </div>
+
+    </div>
 
   </div>
 
 </section>
 
+
 <main class="content">
 
-  <div class="sectionTitle">
+  <div class="sectionHeader">
 
-    <h2>Produtos</h2>
+    <div>
+
+      <h2>Ofertas da Dan Cell</h2>
+
+      <p>
+        Encontre o produto ideal para você.
+      </p>
+
+    </div>
 
     <span
       class="count"
@@ -924,28 +1014,34 @@
 
 </main>
 
+
 <footer>
 
-  <div class="foot">
+  <div class="footerInner">
 
     <div>
 
-      <b>Dan Cell</b>
+      <div class="footerTitle">
+        DAN CELL
+      </div>
 
       <div class="small">
-        Tecnologia, acessórios e assistência.
+        Tecnologia, acessórios e assistência.<br>
+        Atendimento rápido e direto.
       </div>
 
     </div>
 
     <div>
 
-      <b>
-        WhatsApp: (74) 98145-2762
-      </b>
+      <div class="footerTitle">
+        Fale conosco
+      </div>
 
       <div class="small">
-        Rua Santa Inês, 186 • Antônio Conselheiro
+        WhatsApp: (74) 98145-2762<br>
+        Rua Santa Inês, 186<br>
+        Antônio Conselheiro
       </div>
 
     </div>
@@ -953,6 +1049,7 @@
   </div>
 
 </footer>
+
 
 <div
   class="modal"
@@ -971,9 +1068,7 @@
         class="close"
         id="closeAdminBtn"
         type="button">
-
         ×
-
       </button>
 
     </div>
@@ -987,18 +1082,21 @@
 
 </div>
 
+
 <div
   class="toast"
   id="toast">
 </div>
 
+
 <script>
 
-const WHATSAPP =
-  "5574981452762";
+const WHATSAPP = "5574981452762";
 
 let products = [];
 let filtered = [];
+
+let selectedCategory = "Todos";
 
 let logged = false;
 let adminPin = "";
@@ -1006,11 +1104,8 @@ let adminPin = "";
 let editingId = null;
 let apiOnline = false;
 
-/*
-  Guarda a imagem escolhida
-  na galeria.
-*/
 let selectedImageData = "";
+
 
 const fallbackProducts = [
 
@@ -1019,13 +1114,10 @@ const fallbackProducts = [
     name:"Redmi Note 15",
     brand:"Xiaomi",
     category:"Xiaomi",
-    description:
-      "Desempenho, bateria e ótimo custo-benefício.",
+    description:"Desempenho, bateria e ótimo custo-benefício.",
     price:"Consulte",
-    installment:
-      "Peça sua condição de pagamento",
-    image:
-      "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=900&q=80"
+    installment:"Peça sua condição de pagamento",
+    image:"https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=900&q=80"
   },
 
   {
@@ -1033,13 +1125,10 @@ const fallbackProducts = [
     name:"iPhone 13 128GB",
     brand:"iPhone",
     category:"iPhone",
-    description:
-      "Qualidade Apple com excelente conjunto de câmeras.",
+    description:"Qualidade Apple com excelente conjunto de câmeras.",
     price:"Consulte",
-    installment:
-      "Parcelamento disponível",
-    image:
-      "https://images.unsplash.com/photo-1605236453806-6ff36851218e?auto=format&fit=crop&w=900&q=80"
+    installment:"Parcelamento disponível",
+    image:"https://images.unsplash.com/photo-1605236453806-6ff36851218e?auto=format&fit=crop&w=900&q=80"
   },
 
   {
@@ -1047,20 +1136,19 @@ const fallbackProducts = [
     name:"Caixa de Som Bluetooth",
     brand:"Acessórios",
     category:"Acessórios",
-    description:
-      "Som potente e portátil para o dia a dia.",
+    description:"Som potente e portátil para o dia a dia.",
     price:"Consulte",
-    installment:
-      "Fale conosco pelo WhatsApp",
-    image:
-      "https://images.unsplash.com/photo-1589003077984-894e133dabab?auto=format&fit=crop&w=900&q=80"
+    installment:"Fale conosco pelo WhatsApp",
+    image:"https://images.unsplash.com/photo-1589003077984-894e133dabab?auto=format&fit=crop&w=900&q=80"
   }
 
 ];
 
+
 const $ =
   id =>
     document.getElementById(id);
+
 
 function esc(value = ""){
 
@@ -1073,6 +1161,7 @@ function esc(value = ""){
 
 }
 
+
 function toast(message){
 
   const el =
@@ -1081,32 +1170,22 @@ function toast(message){
   el.textContent =
     message;
 
-  el.classList.add(
-    "show"
-  );
+  el.classList.add("show");
 
-  clearTimeout(
-    toast.timer
-  );
+  clearTimeout(toast.timer);
 
   toast.timer =
     setTimeout(
       () => {
-
-        el.classList.remove(
-          "show"
-        );
-
+        el.classList.remove("show");
       },
       2500
     );
 
 }
 
-function normalizeProduct(
-  p,
-  index = 0
-){
+
+function normalizeProduct(p,index = 0){
 
   return {
 
@@ -1160,6 +1239,7 @@ function normalizeProduct(
 
 }
 
+
 async function loadProducts(){
 
   try{
@@ -1173,11 +1253,7 @@ async function loadProducts(){
       );
 
     if(!r.ok){
-
-      throw new Error(
-        "API indisponível"
-      );
-
+      throw new Error("API indisponível");
     }
 
     const data =
@@ -1185,13 +1261,11 @@ async function loadProducts(){
 
     const lista =
       Array.isArray(data)
-        ? data
-        : data.products || [];
+      ? data
+      : data.products || [];
 
     products =
-      lista.map(
-        normalizeProduct
-      );
+      lista.map(normalizeProduct);
 
     if(!products.length){
 
@@ -1220,43 +1294,55 @@ async function loadProducts(){
 
 }
 
+
 function renderCategories(){
 
-  const atual =
-    $("category").value ||
-    "Todos";
-
-  const cats = [
+  const categories = [
+    "Todos",
     ...new Set(
       products
-        .map(
-          p => p.category
-        )
+        .map(p => p.category)
         .filter(Boolean)
     )
-  ].sort();
+  ];
 
-  $("category").innerHTML =
-    '<option value="Todos">Todas as categorias</option>' +
+  $("categoryButtons").innerHTML =
+    categories.map(cat => `
 
-    cats.map(
-      c =>
-        `<option value="${esc(c)}">${esc(c)}</option>`
-    ).join("");
+      <button
+        type="button"
+        class="categoryBtn ${
+          cat === selectedCategory
+          ? "active"
+          : ""
+        }"
+        data-category="${esc(cat)}">
 
-  if(
-    [...$("category").options]
-      .some(
-        o => o.value === atual
-      )
-  ){
+        ${esc(cat)}
 
-    $("category").value =
-      atual;
+      </button>
 
-  }
+    `).join("");
+
+
+  $("categoryButtons")
+    .querySelectorAll(".categoryBtn")
+    .forEach(btn => {
+
+      btn.onclick = () => {
+
+        selectedCategory =
+          btn.dataset.category;
+
+        renderCategories();
+        applyFilters();
+
+      };
+
+    });
 
 }
+
 
 function applyFilters(){
 
@@ -1266,154 +1352,162 @@ function applyFilters(){
       .trim()
       .toLowerCase();
 
-  const cat =
-    $("category").value;
-
   filtered =
-    products.filter(
-      p => {
+    products.filter(p => {
 
-        const texto = [
-          p.name,
-          p.brand,
-          p.category,
-          p.description,
-          p.price
-        ]
-        .join(" ")
-        .toLowerCase();
+      const text = [
+        p.name,
+        p.brand,
+        p.category,
+        p.description,
+        p.price,
+        p.installment
+      ]
+      .join(" ")
+      .toLowerCase();
 
-        const busca =
-          !q ||
-          texto.includes(q);
+      const matchesSearch =
+        !q ||
+        text.includes(q);
 
-        const categoria =
-          cat === "Todos" ||
-          p.category === cat;
+      const matchesCategory =
+        selectedCategory === "Todos" ||
+        p.category === selectedCategory;
 
-        return (
-          busca &&
-          categoria
-        );
+      return (
+        matchesSearch &&
+        matchesCategory
+      );
 
-      }
-    );
+    });
+
 
   renderProducts();
 
 }
 
+
 function productText(p){
 
   return encodeURIComponent(
-
     `Olá, Dan Cell! Tenho interesse no produto: ${p.name}. Poderia me passar mais informações?`
-
   );
 
 }
+
 
 function renderProducts(){
 
   $("count").textContent =
     `${filtered.length} ${
       filtered.length === 1
-        ? "item"
-        : "itens"
+      ? "item"
+      : "itens"
     }`;
+
 
   if(!filtered.length){
 
-    $("grid").innerHTML =
-      '<div class="empty">Nenhum produto encontrado.</div>';
+    $("grid").innerHTML = `
+
+      <div class="empty">
+
+        Nenhum produto encontrado.
+
+      </div>
+
+    `;
 
     return;
 
   }
 
+
   $("grid").innerHTML =
-    filtered.map(
-      p => {
+    filtered.map(p => {
 
-        const imagem =
-          p.image
-            ? `
-              <img
-                src="${esc(p.image)}"
-                alt="${esc(p.name)}"
-                loading="lazy"
-                onerror="this.style.display='none'">
-            `
-            : "";
+      const image =
+        p.image
+        ? `
+          <img
+            src="${esc(p.image)}"
+            alt="${esc(p.name)}"
+            loading="lazy"
+            onerror="this.style.display='none'">
+        `
+        : "";
 
-        return `
 
-          <article class="card">
+      return `
 
-            <div class="photo">
+        <article class="card">
 
-              ${imagem}
+          <div class="photo">
 
-              <span class="badge">
-                ${esc(
-                  p.brand ||
-                  p.category
-                )}
-              </span>
+            ${image}
 
-            </div>
+            <span class="badge">
+              ${esc(
+                p.category ||
+                p.brand
+              )}
+            </span>
 
-            <div class="body">
+          </div>
 
-              <h3 class="name">
-                ${esc(p.name)}
-              </h3>
+          <div class="cardBody">
 
-              <div class="desc">
+            <h3 class="name">
+              ${esc(p.name)}
+            </h3>
 
-                ${esc(
-                  p.description ||
-                  "Consulte detalhes com a Dan Cell."
-                )}
+            <div class="desc">
 
-              </div>
-
-              <div class="price">
-                ${esc(
-                  p.price ||
-                  "Consulte"
-                )}
-              </div>
-
-              <div class="sub">
-
-                ${esc(
-                  p.installment ||
-                  "Condições pelo WhatsApp"
-                )}
-
-              </div>
-
-              <a
-                class="wa"
-                target="_blank"
-                rel="noopener"
-                href="https://wa.me/${WHATSAPP}?text=${productText(p)}">
-
-                Pedir no WhatsApp
-
-              </a>
+              ${esc(
+                p.description ||
+                "Consulte detalhes com a Dan Cell."
+              )}
 
             </div>
 
-          </article>
+            <div class="price">
 
-        `;
+              ${esc(
+                p.price ||
+                "Consulte"
+              )}
 
-      }
-    ).join("");
+            </div>
+
+            <div class="installment">
+
+              ${esc(
+                p.installment ||
+                "Consulte as condições"
+              )}
+
+            </div>
+
+            <a
+              class="wa"
+              target="_blank"
+              rel="noopener"
+              href="https://wa.me/${WHATSAPP}?text=${productText(p)}">
+
+              Pedir pelo WhatsApp
+
+            </a>
+
+          </div>
+
+        </article>
+
+      `;
+
+    }).join("");
 
 }
+
 
 function openAdmin(){
 
@@ -1434,6 +1528,7 @@ function openAdmin(){
 
 }
 
+
 function closeAdmin(){
 
   $("adminModal")
@@ -1450,15 +1545,16 @@ function closeAdmin(){
     "";
 
   editingId = null;
-
   selectedImageData = "";
 
 }
+
 
 function drawAdmin(){
 
   const b =
     $("adminBody");
+
 
   if(!logged){
 
@@ -1496,8 +1592,8 @@ function drawAdmin(){
 
             ${
               apiOnline
-                ? "Catálogo conectado à API."
-                : "API não respondeu."
+              ? "Catálogo conectado à API."
+              : "API não respondeu."
             }
 
           </div>
@@ -1508,31 +1604,27 @@ function drawAdmin(){
 
     `;
 
-    $("loginBtn")
-      .addEventListener(
-        "click",
-        login
-      );
 
-    $("pin")
-      .addEventListener(
-        "keydown",
-        e => {
+    $("loginBtn").onclick =
+      login;
 
-          if(
-            e.key === "Enter"
-          ){
 
-            login();
+    $("pin").addEventListener(
+      "keydown",
+      e => {
 
-          }
-
+        if(e.key === "Enter"){
+          login();
         }
-      );
+
+      }
+    );
+
 
     return;
 
   }
+
 
   if(editingId !== null){
 
@@ -1541,6 +1633,7 @@ function drawAdmin(){
     return;
 
   }
+
 
   b.innerHTML = `
 
@@ -1572,80 +1665,80 @@ function drawAdmin(){
 
     </div>
 
+
     <div class="adminList">
 
       ${
-        products.map(
-          p => `
 
-            <div class="adminItem">
+        products.map(p => `
 
-              <img
-                src="${esc(
-                  p.image || ""
-                )}"
-                alt=""
-                onerror="this.style.visibility='hidden'">
+          <div class="adminItem">
 
-              <div>
+            <img
+              src="${esc(p.image || "")}"
+              alt=""
+              onerror="this.style.visibility='hidden'">
 
-                <b>
-                  ${esc(p.name)}
-                </b>
+            <div>
 
-                <div class="muted">
+              <b>
+                ${esc(p.name)}
+              </b>
 
-                  ${esc(p.category)}
-                  •
-                  ${esc(
-                    p.price ||
-                    "Consulte"
-                  )}
+              <div class="muted">
 
-                </div>
-
-              </div>
-
-              <div class="itemBtns">
-
-                <button
-                  class="btnGhost editBtn"
-                  data-id="${esc(p.id)}">
-
-                  Editar
-
-                </button>
-
-                <button
-                  class="btnDanger deleteBtn"
-                  data-id="${esc(p.id)}">
-
-                  Excluir
-
-                </button>
+                ${esc(p.category)}
+                •
+                ${esc(
+                  p.price ||
+                  "Consulte"
+                )}
 
               </div>
 
             </div>
 
-          `
-        ).join("")
+            <div class="itemBtns">
+
+              <button
+                class="btnGhost editBtn"
+                data-id="${esc(p.id)}">
+
+                Editar
+
+              </button>
+
+              <button
+                class="btnDanger deleteBtn"
+                data-id="${esc(p.id)}">
+
+                Excluir
+
+              </button>
+
+            </div>
+
+          </div>
+
+        `).join("")
+
       }
 
     </div>
 
   `;
 
+
   $("newProductBtn").onclick =
     () => {
 
       editingId = "new";
-
       selectedImageData = "";
 
       drawAdmin();
 
     };
+
 
   $("refreshBtn").onclick =
     async () => {
@@ -1660,61 +1753,52 @@ function drawAdmin(){
 
     };
 
+
   $("logoutBtn").onclick =
     () => {
 
       logged = false;
-
       adminPin = "";
-
       editingId = null;
-
       selectedImageData = "";
 
       drawAdmin();
 
     };
 
-  b.querySelectorAll(
-    ".editBtn"
-  )
-  .forEach(
-    btn => {
 
-      btn.onclick =
-        () => {
+  b.querySelectorAll(".editBtn")
+    .forEach(btn => {
 
-          editingId =
-            btn.dataset.id;
+      btn.onclick = () => {
 
-          selectedImageData = "";
+        editingId =
+          btn.dataset.id;
 
-          drawAdmin();
+        selectedImageData = "";
 
-        };
+        drawAdmin();
 
-    }
-  );
+      };
 
-  b.querySelectorAll(
-    ".deleteBtn"
-  )
-  .forEach(
-    btn => {
+    });
 
-      btn.onclick =
-        () => {
 
-          deleteProduct(
-            btn.dataset.id
-          );
+  b.querySelectorAll(".deleteBtn")
+    .forEach(btn => {
 
-        };
+      btn.onclick = () => {
 
-    }
-  );
+        deleteProduct(
+          btn.dataset.id
+        );
+
+      };
+
+    });
 
 }
+
 
 async function login(){
 
@@ -1722,6 +1806,7 @@ async function login(){
     $("pin")
       .value
       .trim();
+
 
   if(!pin){
 
@@ -1732,6 +1817,7 @@ async function login(){
     return;
 
   }
+
 
   try{
 
@@ -1760,12 +1846,14 @@ async function login(){
         }
       );
 
+
     const data =
       await r
         .json()
         .catch(
           () => ({})
         );
+
 
     if(!r.ok){
 
@@ -1776,8 +1864,8 @@ async function login(){
 
     }
 
-    adminPin = pin;
 
+    adminPin = pin;
     logged = true;
 
     drawAdmin();
@@ -1785,6 +1873,7 @@ async function login(){
     toast(
       "Acesso liberado."
     );
+
 
   }catch(error){
 
@@ -1797,11 +1886,7 @@ async function login(){
 
 }
 
-/*
-  Comprime a foto escolhida.
-  Isso deixa o arquivo menor
-  antes de salvar.
-*/
+
 function compressImage(file){
 
   return new Promise(
@@ -1810,11 +1895,13 @@ function compressImage(file){
       const reader =
         new FileReader();
 
+
       reader.onload =
         event => {
 
           const img =
             new Image();
+
 
           img.onload =
             () => {
@@ -1827,6 +1914,7 @@ function compressImage(file){
 
               const maxSize =
                 900;
+
 
               if(
                 width > height &&
@@ -1843,7 +1931,9 @@ function compressImage(file){
                 width =
                   maxSize;
 
-              }else if(
+              }
+
+              else if(
                 height > maxSize
               ){
 
@@ -1859,6 +1949,7 @@ function compressImage(file){
 
               }
 
+
               const canvas =
                 document.createElement(
                   "canvas"
@@ -1870,10 +1961,12 @@ function compressImage(file){
               canvas.height =
                 height;
 
+
               const ctx =
                 canvas.getContext(
                   "2d"
                 );
+
 
               ctx.drawImage(
                 img,
@@ -1883,42 +1976,40 @@ function compressImage(file){
                 height
               );
 
-              const data =
+
+              resolve(
                 canvas.toDataURL(
                   "image/jpeg",
-                  0.70
-                );
-
-              resolve(data);
+                  .70
+                )
+              );
 
             };
 
-          img.onerror =
-            () => {
 
+          img.onerror =
+            () =>
               reject(
                 new Error(
                   "Não foi possível abrir a imagem."
                 )
               );
 
-            };
 
           img.src =
             event.target.result;
 
         };
 
-      reader.onerror =
-        () => {
 
+      reader.onerror =
+        () =>
           reject(
             new Error(
               "Erro ao ler a imagem."
             )
           );
 
-        };
 
       reader.readAsDataURL(
         file
@@ -1929,6 +2020,7 @@ function compressImage(file){
 
 }
 
+
 async function handleImageSelect(
   event
 ){
@@ -1936,9 +2028,11 @@ async function handleImageSelect(
   const file =
     event.target.files[0];
 
+
   if(!file){
     return;
   }
+
 
   if(
     !file.type.startsWith(
@@ -1954,9 +2048,11 @@ async function handleImageSelect(
 
   }
 
+
   toast(
     "Preparando imagem..."
   );
+
 
   try{
 
@@ -1965,23 +2061,29 @@ async function handleImageSelect(
         file
       );
 
+
     const preview =
       $("imagePreview");
 
+
     preview.src =
       selectedImageData;
+
 
     preview.classList.add(
       "show"
     );
 
+
     $("removeImageBtn")
       .classList
       .add("show");
 
+
     toast(
       "Foto selecionada."
     );
+
 
   }catch(error){
 
@@ -1994,27 +2096,34 @@ async function handleImageSelect(
 
 }
 
+
 function removeSelectedImage(){
 
   selectedImageData = "";
 
+
   const preview =
     $("imagePreview");
+
 
   preview.removeAttribute(
     "src"
   );
 
+
   preview.classList.remove(
     "show"
   );
+
 
   $("removeImageBtn")
     .classList
     .remove("show");
 
+
   $("fImageFile").value =
     "";
+
 
   toast(
     "Imagem removida."
@@ -2022,28 +2131,32 @@ function removeSelectedImage(){
 
 }
 
+
 function drawProductForm(){
 
   const isNew =
     editingId === "new";
 
+
   const p =
     isNew
-      ? {
-          id:"",
-          name:"",
-          brand:"",
-          category:"",
-          description:"",
-          price:"",
-          installment:"",
-          image:""
-        }
-      : products.find(
-          item =>
-            String(item.id) ===
-            String(editingId)
-        );
+    ? {
+        id:"",
+        name:"",
+        brand:"",
+        category:"",
+        description:"",
+        price:"",
+        installment:"",
+        image:""
+      }
+
+    : products.find(
+        item =>
+          String(item.id) ===
+          String(editingId)
+      );
+
 
   if(!p){
 
@@ -2055,10 +2168,7 @@ function drawProductForm(){
 
   }
 
-  /*
-    Ao editar, mantém a foto
-    que já existe.
-  */
+
   if(
     !selectedImageData &&
     p.image
@@ -2069,19 +2179,22 @@ function drawProductForm(){
 
   }
 
+
   $("adminBody").innerHTML = `
 
     <div class="formTitle">
 
       ${
         isNew
-          ? "Novo produto"
-          : "Editar produto"
+        ? "Novo produto"
+        : "Editar produto"
       }
 
     </div>
 
+
     <div class="stack">
+
 
       <div class="row">
 
@@ -2099,6 +2212,7 @@ function drawProductForm(){
 
       </div>
 
+
       <div class="row">
 
         <input
@@ -2110,10 +2224,11 @@ function drawProductForm(){
         <input
           class="field"
           id="fPrice"
-          placeholder="Preço ou condição"
+          placeholder="Preço"
           value="${esc(p.price)}">
 
       </div>
+
 
       <input
         class="field"
@@ -2121,28 +2236,29 @@ function drawProductForm(){
         placeholder="Parcelamento"
         value="${esc(p.installment)}">
 
+
       <div class="imageBox">
 
         <img
           id="imagePreview"
           class="imagePreview ${
             selectedImageData
-              ? "show"
-              : ""
+            ? "show"
+            : ""
           }"
           ${
             selectedImageData
-              ? `src="${esc(
-                  selectedImageData
-                )}"`
-              : ""
+            ? `src="${esc(selectedImageData)}"`
+            : ""
           }
           alt="Prévia da imagem">
+
 
         <input
           id="fImageFile"
           type="file"
           accept="image/*">
+
 
         <button
           type="button"
@@ -2153,12 +2269,13 @@ function drawProductForm(){
 
         </button>
 
+
         <button
           type="button"
           class="removeImage ${
             selectedImageData
-              ? "show"
-              : ""
+            ? "show"
+            : ""
           }"
           id="removeImageBtn">
 
@@ -2166,22 +2283,22 @@ function drawProductForm(){
 
         </button>
 
+
         <div class="imageHelp">
 
-          Escolha uma foto do produto
-          diretamente do seu celular.
+          Escolha uma foto diretamente do seu celular.
 
         </div>
 
       </div>
 
+
       <textarea
         class="field"
         id="fDescription"
         rows="4"
-        placeholder="Descrição">${esc(
-          p.description
-        )}</textarea>
+        placeholder="Descrição">${esc(p.description)}</textarea>
+
 
       <div class="row">
 
@@ -2193,14 +2310,15 @@ function drawProductForm(){
 
         </button>
 
+
         <button
           class="btn btnPrimary"
           id="saveProductBtn">
 
           ${
             isNew
-              ? "Adicionar produto"
-              : "Salvar alterações"
+            ? "Adicionar produto"
+            : "Salvar alterações"
           }
 
         </button>
@@ -2211,6 +2329,7 @@ function drawProductForm(){
 
   `;
 
+
   $("chooseImageBtn").onclick =
     () => {
 
@@ -2218,30 +2337,34 @@ function drawProductForm(){
 
     };
 
+
   $("fImageFile")
     .addEventListener(
       "change",
       handleImageSelect
     );
 
+
   $("removeImageBtn").onclick =
     removeSelectedImage;
+
 
   $("cancelEditBtn").onclick =
     () => {
 
       editingId = null;
-
       selectedImageData = "";
 
       drawAdmin();
 
     };
 
+
   $("saveProductBtn").onclick =
     submitProduct;
 
 }
+
 
 async function submitProduct(){
 
@@ -2273,7 +2396,8 @@ async function submitProduct(){
         .trim(),
 
     image:
-      selectedImageData || "",
+      selectedImageData ||
+      "",
 
     description:
       $("fDescription")
@@ -2281,6 +2405,7 @@ async function submitProduct(){
         .trim()
 
   };
+
 
   if(!payload.name){
 
@@ -2292,8 +2417,10 @@ async function submitProduct(){
 
   }
 
+
   const isNew =
     editingId === "new";
+
 
   if(!isNew){
 
@@ -2302,13 +2429,16 @@ async function submitProduct(){
 
   }
 
+
   const saveButton =
     $("saveProductBtn");
+
 
   saveButton.disabled = true;
 
   saveButton.textContent =
     "Salvando...";
+
 
   try{
 
@@ -2334,8 +2464,8 @@ async function submitProduct(){
 
               action:
                 isNew
-                  ? "create"
-                  : "update",
+                ? "create"
+                : "update",
 
               product:
                 payload
@@ -2345,12 +2475,14 @@ async function submitProduct(){
         }
       );
 
+
     const data =
       await r
         .json()
         .catch(
           () => ({})
         );
+
 
     if(!r.ok){
 
@@ -2361,29 +2493,35 @@ async function submitProduct(){
 
     }
 
-    editingId = null;
 
+    editingId = null;
     selectedImageData = "";
+
 
     await loadProducts();
 
+
     drawAdmin();
+
 
     toast(
       isNew
-        ? "Produto adicionado."
-        : "Produto atualizado."
+      ? "Produto adicionado."
+      : "Produto atualizado."
     );
+
 
   }catch(error){
 
     saveButton.disabled =
       false;
 
+
     saveButton.textContent =
       isNew
-        ? "Adicionar produto"
-        : "Salvar alterações";
+      ? "Adicionar produto"
+      : "Salvar alterações";
+
 
     toast(
       error.message ||
@@ -2394,6 +2532,7 @@ async function submitProduct(){
 
 }
 
+
 async function deleteProduct(id){
 
   if(
@@ -2401,10 +2540,9 @@ async function deleteProduct(id){
       "Excluir este produto?"
     )
   ){
-
     return;
-
   }
+
 
   try{
 
@@ -2430,12 +2568,13 @@ async function deleteProduct(id){
 
               action:"delete",
 
-              id:id
+              id
 
             })
 
         }
       );
+
 
     const data =
       await r
@@ -2443,6 +2582,7 @@ async function deleteProduct(id){
         .catch(
           () => ({})
         );
+
 
     if(!r.ok){
 
@@ -2453,13 +2593,16 @@ async function deleteProduct(id){
 
     }
 
+
     await loadProducts();
 
     drawAdmin();
 
+
     toast(
       "Produto excluído."
     );
+
 
   }catch(error){
 
@@ -2472,17 +2615,20 @@ async function deleteProduct(id){
 
 }
 
+
 $("openAdminBtn")
   .addEventListener(
     "click",
     openAdmin
   );
 
+
 $("closeAdminBtn")
   .addEventListener(
     "click",
     closeAdmin
   );
+
 
 $("adminModal")
   .addEventListener(
@@ -2501,17 +2647,13 @@ $("adminModal")
     }
   );
 
+
 $("search")
   .addEventListener(
     "input",
     applyFilters
   );
 
-$("category")
-  .addEventListener(
-    "change",
-    applyFilters
-  );
 
 loadProducts();
 
