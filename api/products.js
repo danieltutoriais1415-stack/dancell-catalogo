@@ -5,12 +5,11 @@ const IMAGE_PREFIX = 'dancell/images/';
 const ADMIN_PIN = '06109899';
 
 
-/* =========================
+/* =========================================
    PRODUTOS INICIAIS
-========================= */
+========================================= */
 
 const starter = [
-
   {
     id: 1,
     name: 'Redmi Note 15',
@@ -21,7 +20,6 @@ const starter = [
     description: 'Desempenho, bateria e ótimo custo-benefício.',
     image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=900&q=80'
   },
-
   {
     id: 2,
     name: 'iPhone 13 128GB',
@@ -32,7 +30,6 @@ const starter = [
     description: 'Qualidade Apple com excelente conjunto de câmeras.',
     image: 'https://images.unsplash.com/photo-1605236453806-6ff36851218e?auto=format&fit=crop&w=900&q=80'
   },
-
   {
     id: 3,
     name: 'Caixa de Som Bluetooth',
@@ -43,13 +40,12 @@ const starter = [
     description: 'Som potente e portátil para o dia a dia.',
     image: 'https://images.unsplash.com/photo-1589003077984-894e133dabab?auto=format&fit=crop&w=900&q=80'
   }
-
 ];
 
 
-/* =========================
-   CONFIGURAÇÃO DO BLOB
-========================= */
+/* =========================================
+   CONFIGURAÇÃO DO BLOB PÚBLICO
+========================================= */
 
 function blobConfig() {
 
@@ -57,7 +53,7 @@ function blobConfig() {
     process.env.IMAGES_STORE_ID;
 
   const token =
-    process.env.IMAGES_READ_WRITE_TOKEN;
+    process.env.IMAGES_TOKEN;
 
   if (!storeId || !token) {
 
@@ -68,20 +64,18 @@ function blobConfig() {
       'STORAGE_NOT_CONFIGURED';
 
     throw error;
-
   }
 
   return {
     storeId,
     token
   };
-
 }
 
 
-/* =========================
-   AUTORIZAÇÃO
-========================= */
+/* =========================================
+   AUTORIZAÇÃO DO PAINEL
+========================================= */
 
 function authorized(req) {
 
@@ -91,13 +85,12 @@ function authorized(req) {
     );
 
   return pin === ADMIN_PIN;
-
 }
 
 
-/* =========================
+/* =========================================
    NORMALIZAR PRODUTO
-========================= */
+========================================= */
 
 function normalizeProduct(product = {}) {
 
@@ -153,13 +146,12 @@ function normalizeProduct(product = {}) {
       ).trim()
 
   };
-
 }
 
 
-/* =========================
+/* =========================================
    LER PRODUTOS
-========================= */
+========================================= */
 
 async function readProducts() {
 
@@ -170,15 +162,10 @@ async function readProducts() {
 
   const result =
     await list({
-
       prefix: PREFIX,
-
       limit: 100,
-
       storeId,
-
       token
-
     });
 
   if (
@@ -187,7 +174,6 @@ async function readProducts() {
   ) {
 
     return starter;
-
   }
 
   const latest =
@@ -211,7 +197,6 @@ async function readProducts() {
     throw new Error(
       'Não foi possível carregar o catálogo.'
     );
-
   }
 
   const data =
@@ -220,13 +205,12 @@ async function readProducts() {
   return Array.isArray(data)
     ? data
     : starter;
-
 }
 
 
-/* =========================
+/* =========================================
    SALVAR CATÁLOGO
-========================= */
+========================================= */
 
 async function writeProducts(products) {
 
@@ -242,41 +226,37 @@ async function writeProducts(products) {
     JSON.stringify(products),
 
     {
-
       access: 'public',
 
       contentType:
         'application/json',
 
-      addRandomSuffix: true,
+      addRandomSuffix:
+        true,
 
       storeId,
-
       token
-
     }
 
   );
-
 }
 
 
-/* =========================
-   SALVAR IMAGEM
-========================= */
+/* =========================================
+   SALVAR IMAGEM DA GALERIA
+========================================= */
 
 async function saveImage(image) {
 
   if (!image) {
 
     return '';
-
   }
 
 
   /*
-    Se a imagem já for uma URL,
-    não envia novamente.
+    Se já for uma URL,
+    mantém a mesma foto.
   */
 
   if (
@@ -285,13 +265,12 @@ async function saveImage(image) {
   ) {
 
     return image;
-
   }
 
 
   /*
-    Foto selecionada da galeria
-    chega como Base64.
+    A foto escolhida da galeria
+    chega em Base64.
   */
 
   if (
@@ -299,7 +278,6 @@ async function saveImage(image) {
   ) {
 
     return image;
-
   }
 
 
@@ -314,7 +292,6 @@ async function saveImage(image) {
     throw new Error(
       'INVALID_IMAGE'
     );
-
   }
 
 
@@ -333,7 +310,8 @@ async function saveImage(image) {
 
 
   /*
-    Limite de segurança.
+    Limite de aproximadamente 4 MB.
+    O HTML já reduz a foto antes do envio.
   */
 
   if (
@@ -344,39 +322,35 @@ async function saveImage(image) {
     throw new Error(
       'IMAGE_TOO_LARGE'
     );
-
   }
 
 
-  let extension =
-    'jpg';
+  let extension = 'jpg';
 
 
   if (
     mimeType === 'image/png'
   ) {
 
-    extension =
-      'png';
+    extension = 'png';
 
-  }
-
-  else if (
+  } else if (
     mimeType === 'image/webp'
   ) {
 
-    extension =
-      'webp';
+    extension = 'webp';
 
-  }
-
-  else if (
+  } else if (
     mimeType === 'image/gif'
   ) {
 
-    extension =
-      'gif';
+    extension = 'gif';
 
+  } else if (
+    mimeType === 'image/jpeg'
+  ) {
+
+    extension = 'jpg';
   }
 
 
@@ -386,15 +360,18 @@ async function saveImage(image) {
   } = blobConfig();
 
 
+  const fileName =
+    `${IMAGE_PREFIX}${Date.now()}.${extension}`;
+
+
   const blob =
     await put(
 
-      `${IMAGE_PREFIX}${Date.now()}.${extension}`,
+      fileName,
 
       buffer,
 
       {
-
         access: 'public',
 
         contentType:
@@ -404,26 +381,21 @@ async function saveImage(image) {
           true,
 
         storeId,
-
         token
-
       }
 
     );
 
 
   return blob.url;
-
 }
 
 
-/* =========================
-   PREPARAR PRODUTO
-========================= */
+/* =========================================
+   PREPARAR PRODUTO PARA SALVAR
+========================================= */
 
-async function prepareProduct(
-  product = {}
-) {
+async function prepareProduct(product = {}) {
 
   const normalized =
     normalizeProduct(
@@ -436,13 +408,12 @@ async function prepareProduct(
     );
 
   return normalized;
-
 }
 
 
-/* =========================
+/* =========================================
    API
-========================= */
+========================================= */
 
 export default async function handler(
   req,
@@ -452,9 +423,9 @@ export default async function handler(
   try {
 
 
-    /* =====================
-       GET
-    ===================== */
+    /* =====================================
+       CARREGAR CATÁLOGO
+    ===================================== */
 
     if (
       req.method === 'GET'
@@ -466,19 +437,15 @@ export default async function handler(
       return res
         .status(200)
         .json({
-
           products,
-
           online: true
-
         });
-
     }
 
 
-    /* =====================
+    /* =====================================
        LOGIN
-    ===================== */
+    ===================================== */
 
     if (
       req.method === 'POST' &&
@@ -494,27 +461,21 @@ export default async function handler(
           .json({
             ok: true
           });
-
       }
 
 
       return res
         .status(401)
         .json({
-
           ok: false,
-
-          error:
-            'PIN incorreto'
-
+          error: 'PIN incorreto'
         });
-
     }
 
 
-    /* =====================
-       SEGURANÇA
-    ===================== */
+    /* =====================================
+       PROTEGER ALTERAÇÕES
+    ===================================== */
 
     if (
       !authorized(req)
@@ -523,20 +484,15 @@ export default async function handler(
       return res
         .status(401)
         .json({
-
           ok: false,
-
-          error:
-            'Não autorizado'
-
+          error: 'Não autorizado'
         });
-
     }
 
 
-    /* =====================
-       PUT
-    ===================== */
+    /* =====================================
+       ALTERAÇÕES
+    ===================================== */
 
     if (
       req.method === 'PUT'
@@ -549,16 +505,323 @@ export default async function handler(
         await readProducts();
 
 
-      /* =================
-         CRIAR PRODUTO
-      ================= */
+      /* =================================
+         CRIAR NOVO PRODUTO
+      ================================= */
 
       if (
-        body.action ===
-        'create'
+        body.action === 'create'
       ) {
 
         const product =
           await prepareProduct({
+            ...body.product,
 
-            ...body.product
+            id:
+              body.product?.id ??
+              Date.now()
+          });
+
+
+        if (
+          !product.name
+        ) {
+
+          return res
+            .status(400)
+            .json({
+              ok: false,
+              error:
+                'Nome do produto é obrigatório'
+            });
+        }
+
+
+        const next = [
+          product,
+          ...current
+        ].slice(
+          0,
+          500
+        );
+
+
+        await writeProducts(
+          next
+        );
+
+
+        return res
+          .status(200)
+          .json({
+            ok: true,
+            products: next
+          });
+      }
+
+
+      /* =================================
+         EDITAR PRODUTO
+      ================================= */
+
+      if (
+        body.action === 'update'
+      ) {
+
+        const product =
+          await prepareProduct(
+            body.product
+          );
+
+
+        if (
+          !product.name
+        ) {
+
+          return res
+            .status(400)
+            .json({
+              ok: false,
+              error:
+                'Nome do produto é obrigatório'
+            });
+        }
+
+
+        const id =
+          String(
+            product.id
+          );
+
+
+        let found =
+          false;
+
+
+        const next =
+          current.map(
+            item => {
+
+              if (
+                String(
+                  item.id
+                ) === id
+              ) {
+
+                found =
+                  true;
+
+                return {
+                  ...item,
+                  ...product
+                };
+              }
+
+
+              return item;
+            }
+          );
+
+
+        if (
+          !found
+        ) {
+
+          return res
+            .status(404)
+            .json({
+              ok: false,
+              error:
+                'Produto não encontrado'
+            });
+        }
+
+
+        await writeProducts(
+          next
+        );
+
+
+        return res
+          .status(200)
+          .json({
+            ok: true,
+            products: next
+          });
+      }
+
+
+      /* =================================
+         EXCLUIR PRODUTO
+      ================================= */
+
+      if (
+        body.action === 'delete'
+      ) {
+
+        const id =
+          String(
+            body.id ?? ''
+          );
+
+
+        const next =
+          current.filter(
+            item =>
+              String(
+                item.id
+              ) !== id
+          );
+
+
+        await writeProducts(
+          next
+        );
+
+
+        return res
+          .status(200)
+          .json({
+            ok: true,
+            products: next
+          });
+      }
+
+
+      /* =================================
+         SUBSTITUIR LISTA COMPLETA
+      ================================= */
+
+      if (
+        Array.isArray(
+          body.products
+        )
+      ) {
+
+        const next = [];
+
+
+        for (
+          const product
+          of body.products.slice(
+            0,
+            500
+          )
+        ) {
+
+          next.push(
+            await prepareProduct(
+              product
+            )
+          );
+        }
+
+
+        await writeProducts(
+          next
+        );
+
+
+        return res
+          .status(200)
+          .json({
+            ok: true,
+            products: next
+          });
+      }
+
+
+      return res
+        .status(400)
+        .json({
+          ok: false,
+          error: 'Ação inválida'
+        });
+    }
+
+
+    /* =====================================
+       MÉTODO NÃO PERMITIDO
+    ===================================== */
+
+    res.setHeader(
+      'Allow',
+      'GET, POST, PUT'
+    );
+
+
+    return res
+      .status(405)
+      .json({
+        ok: false,
+        error:
+          'Método não permitido'
+      });
+
+
+  } catch (error) {
+
+
+    console.error(
+      'ERRO DAN CELL:',
+      error
+    );
+
+
+    if (
+      error.code ===
+      'STORAGE_NOT_CONFIGURED'
+    ) {
+
+      return res
+        .status(503)
+        .json({
+          ok: false,
+          error:
+            'O armazenamento de imagens ainda não está configurado corretamente.'
+        });
+    }
+
+
+    if (
+      error.message ===
+      'IMAGE_TOO_LARGE'
+    ) {
+
+      return res
+        .status(413)
+        .json({
+          ok: false,
+          error:
+            'A foto é muito grande. Escolha outra imagem.'
+        });
+    }
+
+
+    if (
+      error.message ===
+      'INVALID_IMAGE'
+    ) {
+
+      return res
+        .status(400)
+        .json({
+          ok: false,
+          error:
+            'A imagem selecionada é inválida.'
+        });
+    }
+
+
+    return res
+      .status(500)
+      .json({
+        ok: false,
+        error:
+          error?.message ||
+          'Erro interno do catálogo'
+      });
+
+  }
+
+                }
