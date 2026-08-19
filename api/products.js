@@ -1,7 +1,7 @@
 import { list, put } from '@vercel/blob';
 
 const PREFIX = 'dancell/products-';
-const ADMIN_PIN = process.env.ADMIN_PIN || '2026';
+const ADMIN_PIN = 'Daniel07@';
 const starter = [
   { id: 1, name: 'Redmi Note 15', category: 'Xiaomi', price: 'Consulte', installment: 'Peça sua condição de pagamento', desc: 'Desempenho, bateria e ótimo custo-benefício.', image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=900&q=80' },
   { id: 2, name: 'iPhone 13 128GB', category: 'iPhone', price: 'Consulte', installment: 'Parcelamento disponível', desc: 'Qualidade Apple com excelente conjunto de câmeras.', image: 'https://images.unsplash.com/photo-1632661674596-df8be070a5c5?auto=format&fit=crop&w=900&q=80' },
