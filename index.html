@@ -4,9 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#07132d">
+
   <title>Dan Cell | Catálogo Online</title>
 
   <style>
+
     :root{
       --bg:#f4f7fb;
       --card:#ffffff;
@@ -52,9 +54,19 @@
       position:relative;
       overflow:hidden;
       color:white;
+
       background:
-        radial-gradient(circle at 88% 18%,rgba(23,201,255,.28),transparent 27%),
-        linear-gradient(135deg,#061633,#0b2f70 60%,#0863e7);
+        radial-gradient(
+          circle at 88% 18%,
+          rgba(23,201,255,.28),
+          transparent 27%
+        ),
+        linear-gradient(
+          135deg,
+          #061633,
+          #0b2f70 60%,
+          #0863e7
+        );
     }
 
     .wrap{
@@ -81,10 +93,18 @@
     .mark{
       width:48px;
       height:48px;
+
       display:grid;
       place-items:center;
+
       border-radius:15px;
-      background:linear-gradient(145deg,#18d5ff,#0877ff);
+
+      background:
+        linear-gradient(
+          145deg,
+          #18d5ff,
+          #0877ff
+        );
     }
 
     .mark svg{
@@ -93,9 +113,15 @@
     }
 
     .adminTop{
-      border:1px solid rgba(255,255,255,.30);
+      border:
+        1px solid
+        rgba(255,255,255,.30);
+
       color:white;
-      background:rgba(255,255,255,.10);
+
+      background:
+        rgba(255,255,255,.10);
+
       border-radius:15px;
       padding:12px 16px;
       font-weight:700;
@@ -113,7 +139,9 @@
     }
 
     .hero p{
-      color:rgba(255,255,255,.83);
+      color:
+        rgba(255,255,255,.83);
+
       font-size:19px;
       line-height:1.45;
     }
@@ -128,21 +156,33 @@
 
     .toolbox{
       display:grid;
-      grid-template-columns:1fr 240px;
+      grid-template-columns:
+        1fr 240px;
+
       gap:12px;
       padding:18px;
+
       background:white;
       border-radius:22px;
-      box-shadow:var(--shadow);
+
+      box-shadow:
+        var(--shadow);
     }
 
     .search input,
     .cat{
       width:100%;
-      border:1px solid var(--line);
+
+      border:
+        1px solid
+        var(--line);
+
       border-radius:14px;
+
       padding:15px;
+
       outline:none;
+
       background:white;
     }
 
@@ -170,27 +210,39 @@
 
     .grid{
       display:grid;
-      grid-template-columns:repeat(3,1fr);
+
+      grid-template-columns:
+        repeat(3,1fr);
+
       gap:20px;
     }
 
     .card{
       background:white;
+
       border-radius:20px;
+
       overflow:hidden;
-      box-shadow:0 9px 25px rgba(12,33,71,.08);
+
+      box-shadow:
+        0 9px 25px
+        rgba(12,33,71,.08);
     }
 
     .photo{
       position:relative;
+
       aspect-ratio:4/3;
+
       overflow:hidden;
+
       background:#e9eef6;
     }
 
     .photo img{
       width:100%;
       height:100%;
+
       object-fit:cover;
     }
 
@@ -198,10 +250,14 @@
       position:absolute;
       top:12px;
       left:12px;
+
       background:#07132d;
       color:white;
+
       padding:7px 10px;
+
       border-radius:999px;
+
       font-size:12px;
       font-weight:800;
     }
@@ -212,44 +268,60 @@
 
     .name{
       margin:0 0 7px;
+
       font-size:20px;
     }
 
     .desc{
       color:var(--muted);
+
       min-height:42px;
+
       line-height:1.4;
     }
 
     .price{
       font-size:21px;
       font-weight:900;
+
       margin-top:12px;
     }
 
     .sub{
       color:#1764d8;
+
       font-size:13px;
       font-weight:700;
+
       margin:5px 0 14px;
     }
 
     .wa{
       display:block;
+
       text-align:center;
+
       background:#07132d;
       color:white;
+
       padding:13px;
+
       border-radius:12px;
+
       font-weight:800;
     }
 
     .empty{
       grid-column:1/-1;
+
       padding:35px;
+
       text-align:center;
+
       background:white;
+
       border-radius:18px;
+
       color:var(--muted);
     }
 
@@ -261,27 +333,43 @@
 
     .foot{
       max-width:1180px;
+
       margin:auto;
+
       padding:25px 22px;
+
       display:flex;
-      justify-content:space-between;
+
+      justify-content:
+        space-between;
+
       gap:20px;
     }
 
     .small{
       color:#9fb0cc;
+
       font-size:13px;
+
       margin-top:5px;
     }
 
     .modal{
       display:none;
+
       position:fixed;
+
       inset:0;
+
       z-index:99999;
-      background:rgba(5,16,39,.68);
+
+      background:
+        rgba(5,16,39,.68);
+
       align-items:center;
+
       justify-content:center;
+
       padding:18px;
     }
 
@@ -291,22 +379,40 @@
 
     .panel{
       width:min(760px,100%);
+
       max-height:94vh;
+
       overflow:auto;
+
       background:white;
+
       border-radius:22px;
-      box-shadow:0 30px 80px rgba(0,0,0,.28);
+
+      box-shadow:
+        0 30px 80px
+        rgba(0,0,0,.28);
     }
 
     .panelHead{
       display:flex;
+
       align-items:center;
-      justify-content:space-between;
-      border-bottom:1px solid var(--line);
+
+      justify-content:
+        space-between;
+
+      border-bottom:
+        1px solid
+        var(--line);
+
       padding:18px 20px;
+
       position:sticky;
+
       top:0;
+
       background:white;
+
       z-index:2;
     }
 
@@ -316,10 +422,14 @@
 
     .close{
       border:none;
+
       background:#f2f5f9;
+
       width:40px;
       height:40px;
+
       border-radius:12px;
+
       font-size:24px;
     }
 
@@ -348,15 +458,24 @@
 
     .row{
       display:grid;
-      grid-template-columns:1fr 1fr;
+
+      grid-template-columns:
+        1fr 1fr;
+
       gap:12px;
     }
 
     .field{
       width:100%;
-      border:1px solid var(--line);
+
+      border:
+        1px solid
+        var(--line);
+
       border-radius:13px;
+
       padding:14px;
+
       outline:none;
     }
 
@@ -366,8 +485,11 @@
 
     .btn{
       border:none;
+
       border-radius:13px;
+
       padding:14px 15px;
+
       font-weight:800;
     }
 
@@ -393,8 +515,11 @@
 
     .adminActions{
       display:flex;
+
       flex-wrap:wrap;
+
       gap:10px;
+
       margin-bottom:18px;
     }
 
@@ -405,25 +530,39 @@
 
     .adminItem{
       display:grid;
-      grid-template-columns:70px 1fr auto;
+
+      grid-template-columns:
+        70px 1fr auto;
+
       align-items:center;
+
       gap:12px;
-      border:1px solid var(--line);
+
+      border:
+        1px solid
+        var(--line);
+
       border-radius:15px;
+
       padding:12px;
     }
 
     .adminItem img{
       width:70px;
       height:70px;
+
       object-fit:cover;
+
       background:#eef2f7;
+
       border-radius:11px;
     }
 
     .muted{
       color:var(--muted);
+
       font-size:13px;
+
       margin-top:4px;
     }
 
@@ -434,56 +573,171 @@
 
     .itemBtns button{
       border:none;
+
       padding:9px;
+
       border-radius:9px;
+
       font-weight:700;
     }
 
     .notice{
       color:var(--muted);
+
       font-size:13px;
+
       margin-top:10px;
     }
 
     .formTitle{
       font-weight:900;
+
       font-size:22px;
+
       margin-bottom:15px;
+    }
+
+    /* FOTO */
+
+    .imageBox{
+      border:
+        2px dashed
+        #cdd8ea;
+
+      border-radius:16px;
+
+      padding:16px;
+
+      text-align:center;
+
+      background:#f8faff;
+    }
+
+    .imagePreview{
+      width:100%;
+      max-height:280px;
+
+      object-fit:contain;
+
+      border-radius:14px;
+
+      background:#eef2f7;
+
+      display:none;
+
+      margin-bottom:12px;
+    }
+
+    .imagePreview.show{
+      display:block;
+    }
+
+    .chooseImage{
+      width:100%;
+
+      border:none;
+
+      background:#0b63f6;
+
+      color:white;
+
+      padding:15px;
+
+      border-radius:13px;
+
+      font-weight:900;
+
+      cursor:pointer;
+    }
+
+    .removeImage{
+      width:100%;
+
+      margin-top:8px;
+
+      border:none;
+
+      background:#fff0ef;
+
+      color:#d92d20;
+
+      padding:12px;
+
+      border-radius:13px;
+
+      font-weight:800;
+
+      display:none;
+    }
+
+    .removeImage.show{
+      display:block;
+    }
+
+    .imageHelp{
+      color:var(--muted);
+
+      font-size:12px;
+
+      margin-top:10px;
+    }
+
+    #fImageFile{
+      display:none;
     }
 
     .toast{
       position:fixed;
+
       left:50%;
+
       bottom:25px;
-      transform:translate(-50%,20px);
+
+      transform:
+        translate(-50%,20px);
+
       background:#111827;
+
       color:white;
+
       padding:13px 17px;
+
       border-radius:12px;
+
       opacity:0;
+
       pointer-events:none;
+
       transition:.2s;
+
       z-index:100000;
     }
 
     .toast.show{
       opacity:1;
-      transform:translate(-50%,0);
+
+      transform:
+        translate(-50%,0);
     }
 
     @media(max-width:800px){
+
       .hero h1{
         font-size:45px;
       }
 
       .grid{
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns:
+          repeat(2,1fr);
       }
+
     }
 
     @media(max-width:600px){
+
       .wrap{
-        padding:18px 14px 45px;
+        padding:
+          18px 14px 45px;
       }
 
       .brand{
@@ -517,7 +771,8 @@
       }
 
       .content{
-        padding:48px 13px 25px;
+        padding:
+          48px 13px 25px;
       }
 
       .grid{
@@ -533,7 +788,8 @@
       }
 
       .adminItem{
-        grid-template-columns:58px 1fr;
+        grid-template-columns:
+          58px 1fr;
       }
 
       .adminItem img{
@@ -548,13 +804,16 @@
       .itemBtns button{
         flex:1;
       }
+
     }
+
   </style>
 </head>
 
 <body>
 
 <header class="top">
+
   <div class="wrap">
 
     <div class="brandRow">
@@ -562,10 +821,27 @@
       <div class="brand">
 
         <span class="mark">
-          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-            <rect x="6" y="2.5" width="12" height="19" rx="2.2"></rect>
-            <path d="M10 5h4M10 18.5h4"></path>
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="white"
+            stroke-width="2">
+
+            <rect
+              x="6"
+              y="2.5"
+              width="12"
+              height="19"
+              rx="2.2">
+            </rect>
+
+            <path
+              d="M10 5h4M10 18.5h4">
+            </path>
+
           </svg>
+
         </span>
 
         DAN CELL
@@ -576,20 +852,28 @@
         class="adminTop"
         type="button"
         id="openAdminBtn">
+
         Área do lojista
+
       </button>
 
     </div>
 
     <div class="hero">
-      <h1>Seu próximo aparelho está aqui.</h1>
+
+      <h1>
+        Seu próximo aparelho está aqui.
+      </h1>
+
       <p>
         Confira ofertas, compare modelos e fale diretamente
         com a Dan Cell pelo WhatsApp.
       </p>
+
     </div>
 
   </div>
+
 </header>
 
 <section class="toolbar">
@@ -597,14 +881,22 @@
   <div class="toolbox">
 
     <div class="search">
+
       <input
         id="search"
         type="search"
         placeholder="Buscar produto, marca ou modelo...">
+
     </div>
 
-    <select class="cat" id="category">
-      <option value="Todos">Todas as categorias</option>
+    <select
+      class="cat"
+      id="category">
+
+      <option value="Todos">
+        Todas as categorias
+      </option>
+
     </select>
 
   </div>
@@ -614,11 +906,21 @@
 <main class="content">
 
   <div class="sectionTitle">
+
     <h2>Produtos</h2>
-    <span class="count" id="count">0 itens</span>
+
+    <span
+      class="count"
+      id="count">
+      0 itens
+    </span>
+
   </div>
 
-  <section class="grid" id="grid"></section>
+  <section
+    class="grid"
+    id="grid">
+  </section>
 
 </main>
 
@@ -627,17 +929,25 @@
   <div class="foot">
 
     <div>
+
       <b>Dan Cell</b>
+
       <div class="small">
         Tecnologia, acessórios e assistência.
       </div>
+
     </div>
 
     <div>
-      <b>WhatsApp: (74) 98145-2762</b>
+
+      <b>
+        WhatsApp: (74) 98145-2762
+      </b>
+
       <div class="small">
         Rua Santa Inês, 186 • Antônio Conselheiro
       </div>
+
     </div>
 
   </div>
@@ -653,13 +963,17 @@
 
     <div class="panelHead">
 
-      <h3>Painel da Dan Cell</h3>
+      <h3>
+        Painel da Dan Cell
+      </h3>
 
       <button
         class="close"
         id="closeAdminBtn"
         type="button">
+
         ×
+
       </button>
 
     </div>
@@ -673,11 +987,15 @@
 
 </div>
 
-<div class="toast" id="toast"></div>
+<div
+  class="toast"
+  id="toast">
+</div>
 
 <script>
 
-const WHATSAPP = "5574981452762";
+const WHATSAPP =
+  "5574981452762";
 
 let products = [];
 let filtered = [];
@@ -688,6 +1006,12 @@ let adminPin = "";
 let editingId = null;
 let apiOnline = false;
 
+/*
+  Guarda a imagem escolhida
+  na galeria.
+*/
+let selectedImageData = "";
+
 const fallbackProducts = [
 
   {
@@ -695,10 +1019,13 @@ const fallbackProducts = [
     name:"Redmi Note 15",
     brand:"Xiaomi",
     category:"Xiaomi",
-    description:"Desempenho, bateria e ótimo custo-benefício.",
+    description:
+      "Desempenho, bateria e ótimo custo-benefício.",
     price:"Consulte",
-    installment:"Peça sua condição de pagamento",
-    image:"https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=900&q=80"
+    installment:
+      "Peça sua condição de pagamento",
+    image:
+      "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=900&q=80"
   },
 
   {
@@ -706,10 +1033,13 @@ const fallbackProducts = [
     name:"iPhone 13 128GB",
     brand:"iPhone",
     category:"iPhone",
-    description:"Qualidade Apple com excelente conjunto de câmeras.",
+    description:
+      "Qualidade Apple com excelente conjunto de câmeras.",
     price:"Consulte",
-    installment:"Parcelamento disponível",
-    image:"https://images.unsplash.com/photo-1605236453806-6ff36851218e?auto=format&fit=crop&w=900&q=80"
+    installment:
+      "Parcelamento disponível",
+    image:
+      "https://images.unsplash.com/photo-1605236453806-6ff36851218e?auto=format&fit=crop&w=900&q=80"
   },
 
   {
@@ -717,15 +1047,20 @@ const fallbackProducts = [
     name:"Caixa de Som Bluetooth",
     brand:"Acessórios",
     category:"Acessórios",
-    description:"Som potente e portátil para o dia a dia.",
+    description:
+      "Som potente e portátil para o dia a dia.",
     price:"Consulte",
-    installment:"Fale conosco pelo WhatsApp",
-    image:"https://images.unsplash.com/photo-1589003077984-894e133dabab?auto=format&fit=crop&w=900&q=80"
+    installment:
+      "Fale conosco pelo WhatsApp",
+    image:
+      "https://images.unsplash.com/photo-1589003077984-894e133dabab?auto=format&fit=crop&w=900&q=80"
   }
 
 ];
 
-const $ = id => document.getElementById(id);
+const $ =
+  id =>
+    document.getElementById(id);
 
 function esc(value = ""){
 
@@ -740,20 +1075,38 @@ function esc(value = ""){
 
 function toast(message){
 
-  const el = $("toast");
+  const el =
+    $("toast");
 
-  el.textContent = message;
-  el.classList.add("show");
+  el.textContent =
+    message;
 
-  clearTimeout(toast.timer);
+  el.classList.add(
+    "show"
+  );
 
-  toast.timer = setTimeout(() => {
-    el.classList.remove("show");
-  },2500);
+  clearTimeout(
+    toast.timer
+  );
+
+  toast.timer =
+    setTimeout(
+      () => {
+
+        el.classList.remove(
+          "show"
+        );
+
+      },
+      2500
+    );
 
 }
 
-function normalizeProduct(p,index = 0){
+function normalizeProduct(
+  p,
+  index = 0
+){
 
   return {
 
@@ -811,30 +1164,42 @@ async function loadProducts(){
 
   try{
 
-    const r = await fetch(
-      "/api/products",
-      {
-        cache:"no-store"
-      }
-    );
+    const r =
+      await fetch(
+        "/api/products",
+        {
+          cache:"no-store"
+        }
+      );
 
     if(!r.ok){
-      throw new Error("API indisponível");
+
+      throw new Error(
+        "API indisponível"
+      );
+
     }
 
-    const data = await r.json();
+    const data =
+      await r.json();
 
     const lista =
       Array.isArray(data)
-      ? data
-      : data.products || [];
+        ? data
+        : data.products || [];
 
     products =
-      lista.map(normalizeProduct);
+      lista.map(
+        normalizeProduct
+      );
 
     if(!products.length){
+
       products =
-        fallbackProducts.map(normalizeProduct);
+        fallbackProducts.map(
+          normalizeProduct
+        );
+
     }
 
     apiOnline = true;
@@ -842,7 +1207,9 @@ async function loadProducts(){
   }catch(error){
 
     products =
-      fallbackProducts.map(normalizeProduct);
+      fallbackProducts.map(
+        normalizeProduct
+      );
 
     apiOnline = false;
 
@@ -862,22 +1229,31 @@ function renderCategories(){
   const cats = [
     ...new Set(
       products
-        .map(p => p.category)
+        .map(
+          p => p.category
+        )
         .filter(Boolean)
     )
   ].sort();
 
   $("category").innerHTML =
     '<option value="Todos">Todas as categorias</option>' +
-    cats.map(c =>
-      `<option value="${esc(c)}">${esc(c)}</option>`
+
+    cats.map(
+      c =>
+        `<option value="${esc(c)}">${esc(c)}</option>`
     ).join("");
 
   if(
     [...$("category").options]
-      .some(o => o.value === atual)
+      .some(
+        o => o.value === atual
+      )
   ){
-    $("category").value = atual;
+
+    $("category").value =
+      atual;
+
   }
 
 }
@@ -894,29 +1270,34 @@ function applyFilters(){
     $("category").value;
 
   filtered =
-    products.filter(p => {
+    products.filter(
+      p => {
 
-      const texto = [
-        p.name,
-        p.brand,
-        p.category,
-        p.description,
-        p.price
-      ]
-      .join(" ")
-      .toLowerCase();
+        const texto = [
+          p.name,
+          p.brand,
+          p.category,
+          p.description,
+          p.price
+        ]
+        .join(" ")
+        .toLowerCase();
 
-      const busca =
-        !q ||
-        texto.includes(q);
+        const busca =
+          !q ||
+          texto.includes(q);
 
-      const categoria =
-        cat === "Todos" ||
-        p.category === cat;
+        const categoria =
+          cat === "Todos" ||
+          p.category === cat;
 
-      return busca && categoria;
+        return (
+          busca &&
+          categoria
+        );
 
-    });
+      }
+    );
 
   renderProducts();
 
@@ -925,7 +1306,9 @@ function applyFilters(){
 function productText(p){
 
   return encodeURIComponent(
+
     `Olá, Dan Cell! Tenho interesse no produto: ${p.name}. Poderia me passar mais informações?`
+
   );
 
 }
@@ -935,8 +1318,8 @@ function renderProducts(){
   $("count").textContent =
     `${filtered.length} ${
       filtered.length === 1
-      ? "item"
-      : "itens"
+        ? "item"
+        : "itens"
     }`;
 
   if(!filtered.length){
@@ -949,70 +1332,86 @@ function renderProducts(){
   }
 
   $("grid").innerHTML =
-    filtered.map(p => {
+    filtered.map(
+      p => {
 
-      const imagem =
-        p.image
-        ? `<img
-             src="${esc(p.image)}"
-             alt="${esc(p.name)}"
-             loading="lazy"
-             onerror="this.style.display='none'">`
-        : "";
+        const imagem =
+          p.image
+            ? `
+              <img
+                src="${esc(p.image)}"
+                alt="${esc(p.name)}"
+                loading="lazy"
+                onerror="this.style.display='none'">
+            `
+            : "";
 
-      return `
+        return `
 
-        <article class="card">
+          <article class="card">
 
-          <div class="photo">
+            <div class="photo">
 
-            ${imagem}
+              ${imagem}
 
-            <span class="badge">
-              ${esc(p.brand || p.category)}
-            </span>
+              <span class="badge">
+                ${esc(
+                  p.brand ||
+                  p.category
+                )}
+              </span>
 
-          </div>
-
-          <div class="body">
-
-            <h3 class="name">
-              ${esc(p.name)}
-            </h3>
-
-            <div class="desc">
-              ${esc(
-                p.description ||
-                "Consulte detalhes com a Dan Cell."
-              )}
             </div>
 
-            <div class="price">
-              ${esc(p.price || "Consulte")}
+            <div class="body">
+
+              <h3 class="name">
+                ${esc(p.name)}
+              </h3>
+
+              <div class="desc">
+
+                ${esc(
+                  p.description ||
+                  "Consulte detalhes com a Dan Cell."
+                )}
+
+              </div>
+
+              <div class="price">
+                ${esc(
+                  p.price ||
+                  "Consulte"
+                )}
+              </div>
+
+              <div class="sub">
+
+                ${esc(
+                  p.installment ||
+                  "Condições pelo WhatsApp"
+                )}
+
+              </div>
+
+              <a
+                class="wa"
+                target="_blank"
+                rel="noopener"
+                href="https://wa.me/${WHATSAPP}?text=${productText(p)}">
+
+                Pedir no WhatsApp
+
+              </a>
+
             </div>
 
-            <div class="sub">
-              ${esc(
-                p.installment ||
-                "Condições pelo WhatsApp"
-              )}
-            </div>
+          </article>
 
-            <a
-              class="wa"
-              target="_blank"
-              rel="noopener"
-              href="https://wa.me/${WHATSAPP}?text=${productText(p)}">
-              Pedir no WhatsApp
-            </a>
+        `;
 
-          </div>
-
-        </article>
-
-      `;
-
-    }).join("");
+      }
+    ).join("");
 
 }
 
@@ -1052,11 +1451,14 @@ function closeAdmin(){
 
   editingId = null;
 
+  selectedImageData = "";
+
 }
 
 function drawAdmin(){
 
-  const b = $("adminBody");
+  const b =
+    $("adminBody");
 
   if(!logged){
 
@@ -1085,15 +1487,19 @@ function drawAdmin(){
             class="btn btnPrimary"
             type="button"
             id="loginBtn">
+
             Entrar
+
           </button>
 
           <div class="notice">
+
             ${
               apiOnline
-              ? "Catálogo conectado à API."
-              : "API não respondeu."
+                ? "Catálogo conectado à API."
+                : "API não respondeu."
             }
+
           </div>
 
         </div>
@@ -1113,8 +1519,12 @@ function drawAdmin(){
         "keydown",
         e => {
 
-          if(e.key === "Enter"){
+          if(
+            e.key === "Enter"
+          ){
+
             login();
+
           }
 
         }
@@ -1139,19 +1549,25 @@ function drawAdmin(){
       <button
         class="btn btnBlue"
         id="newProductBtn">
+
         + Novo produto
+
       </button>
 
       <button
         class="btn btnGhost"
         id="refreshBtn">
+
         Atualizar catálogo
+
       </button>
 
       <button
         class="btn btnDanger"
         id="logoutBtn">
+
         Sair
+
       </button>
 
     </div>
@@ -1159,61 +1575,77 @@ function drawAdmin(){
     <div class="adminList">
 
       ${
-        products.map(p => `
+        products.map(
+          p => `
 
-          <div class="adminItem">
+            <div class="adminItem">
 
-            <img
-              src="${esc(p.image || "")}"
-              alt=""
-              onerror="this.style.visibility='hidden'">
+              <img
+                src="${esc(
+                  p.image || ""
+                )}"
+                alt=""
+                onerror="this.style.visibility='hidden'">
 
-            <div>
+              <div>
 
-              <b>
-                ${esc(p.name)}
-              </b>
+                <b>
+                  ${esc(p.name)}
+                </b>
 
-              <div class="muted">
-                ${esc(p.category)}
-                •
-                ${esc(p.price || "Consulte")}
+                <div class="muted">
+
+                  ${esc(p.category)}
+                  •
+                  ${esc(
+                    p.price ||
+                    "Consulte"
+                  )}
+
+                </div>
+
+              </div>
+
+              <div class="itemBtns">
+
+                <button
+                  class="btnGhost editBtn"
+                  data-id="${esc(p.id)}">
+
+                  Editar
+
+                </button>
+
+                <button
+                  class="btnDanger deleteBtn"
+                  data-id="${esc(p.id)}">
+
+                  Excluir
+
+                </button>
+
               </div>
 
             </div>
 
-            <div class="itemBtns">
-
-              <button
-                class="btnGhost editBtn"
-                data-id="${esc(p.id)}">
-                Editar
-              </button>
-
-              <button
-                class="btnDanger deleteBtn"
-                data-id="${esc(p.id)}">
-                Excluir
-              </button>
-
-            </div>
-
-          </div>
-
-        `).join("")
+          `
+        ).join("")
       }
 
     </div>
 
   `;
 
-  $("newProductBtn").onclick = () => {
+  $("newProductBtn").onclick =
+    () => {
 
-    editingId = "new";
+      editingId = "new";
 
-    drawAdmin();
+      selectedImageData = "";
 
-  };
+      drawAdmin();
+
+    };
 
   $("refreshBtn").onclick =
     async () => {
@@ -1228,46 +1660,61 @@ function drawAdmin(){
 
     };
 
-  $("logoutBtn").onclick = () => {
+  $("logoutBtn").onclick =
+    () => {
 
-    logged = false;
-    adminPin = "";
-    editingId = null;
+      logged = false;
 
-    drawAdmin();
+      adminPin = "";
 
-  };
+      editingId = null;
 
-  b.querySelectorAll(".editBtn")
-    .forEach(btn => {
+      selectedImageData = "";
 
-      btn.onclick = () => {
+      drawAdmin();
 
-        editingId =
-          btn.dataset.id;
+    };
 
-        drawAdmin();
+  b.querySelectorAll(
+    ".editBtn"
+  )
+  .forEach(
+    btn => {
 
-      };
+      btn.onclick =
+        () => {
 
-    });
+          editingId =
+            btn.dataset.id;
 
-  b.querySelectorAll(".deleteBtn")
-    .forEach(btn => {
+          selectedImageData = "";
 
-      btn.onclick = () => {
+          drawAdmin();
 
-        deleteProduct(
-          btn.dataset.id
-        );
+        };
 
-      };
+    }
+  );
 
-    });
+  b.querySelectorAll(
+    ".deleteBtn"
+  )
+  .forEach(
+    btn => {
+
+      btn.onclick =
+        () => {
+
+          deleteProduct(
+            btn.dataset.id
+          );
+
+        };
+
+    }
+  );
 
 }
-
-/* LOGIN CORRIGIDO */
 
 async function login(){
 
@@ -1288,34 +1735,37 @@ async function login(){
 
   try{
 
-    const r = await fetch(
-      "/api/products?action=login",
-      {
+    const r =
+      await fetch(
+        "/api/products?action=login",
+        {
 
-        method:"POST",
+          method:"POST",
 
-        headers:{
+          headers:{
 
-          "Content-Type":
-            "application/json",
+            "Content-Type":
+              "application/json",
 
-          "x-admin-pin":
-            pin
+            "x-admin-pin":
+              pin
 
-        },
+          },
 
-        body:
-          JSON.stringify({
-            pin
-          })
+          body:
+            JSON.stringify({
+              pin
+            })
 
-      }
-    );
+        }
+      );
 
     const data =
       await r
         .json()
-        .catch(() => ({}));
+        .catch(
+          () => ({})
+        );
 
     if(!r.ok){
 
@@ -1347,6 +1797,231 @@ async function login(){
 
 }
 
+/*
+  Comprime a foto escolhida.
+  Isso deixa o arquivo menor
+  antes de salvar.
+*/
+function compressImage(file){
+
+  return new Promise(
+    (resolve,reject) => {
+
+      const reader =
+        new FileReader();
+
+      reader.onload =
+        event => {
+
+          const img =
+            new Image();
+
+          img.onload =
+            () => {
+
+              let width =
+                img.width;
+
+              let height =
+                img.height;
+
+              const maxSize =
+                900;
+
+              if(
+                width > height &&
+                width > maxSize
+              ){
+
+                height =
+                  Math.round(
+                    height *
+                    maxSize /
+                    width
+                  );
+
+                width =
+                  maxSize;
+
+              }else if(
+                height > maxSize
+              ){
+
+                width =
+                  Math.round(
+                    width *
+                    maxSize /
+                    height
+                  );
+
+                height =
+                  maxSize;
+
+              }
+
+              const canvas =
+                document.createElement(
+                  "canvas"
+                );
+
+              canvas.width =
+                width;
+
+              canvas.height =
+                height;
+
+              const ctx =
+                canvas.getContext(
+                  "2d"
+                );
+
+              ctx.drawImage(
+                img,
+                0,
+                0,
+                width,
+                height
+              );
+
+              const data =
+                canvas.toDataURL(
+                  "image/jpeg",
+                  0.70
+                );
+
+              resolve(data);
+
+            };
+
+          img.onerror =
+            () => {
+
+              reject(
+                new Error(
+                  "Não foi possível abrir a imagem."
+                )
+              );
+
+            };
+
+          img.src =
+            event.target.result;
+
+        };
+
+      reader.onerror =
+        () => {
+
+          reject(
+            new Error(
+              "Erro ao ler a imagem."
+            )
+          );
+
+        };
+
+      reader.readAsDataURL(
+        file
+      );
+
+    }
+  );
+
+}
+
+async function handleImageSelect(
+  event
+){
+
+  const file =
+    event.target.files[0];
+
+  if(!file){
+    return;
+  }
+
+  if(
+    !file.type.startsWith(
+      "image/"
+    )
+  ){
+
+    toast(
+      "Escolha uma imagem."
+    );
+
+    return;
+
+  }
+
+  toast(
+    "Preparando imagem..."
+  );
+
+  try{
+
+    selectedImageData =
+      await compressImage(
+        file
+      );
+
+    const preview =
+      $("imagePreview");
+
+    preview.src =
+      selectedImageData;
+
+    preview.classList.add(
+      "show"
+    );
+
+    $("removeImageBtn")
+      .classList
+      .add("show");
+
+    toast(
+      "Foto selecionada."
+    );
+
+  }catch(error){
+
+    toast(
+      error.message ||
+      "Erro ao carregar imagem."
+    );
+
+  }
+
+}
+
+function removeSelectedImage(){
+
+  selectedImageData = "";
+
+  const preview =
+    $("imagePreview");
+
+  preview.removeAttribute(
+    "src"
+  );
+
+  preview.classList.remove(
+    "show"
+  );
+
+  $("removeImageBtn")
+    .classList
+    .remove("show");
+
+  $("fImageFile").value =
+    "";
+
+  toast(
+    "Imagem removida."
+  );
+
+}
+
 function drawProductForm(){
 
   const isNew =
@@ -1354,21 +2029,21 @@ function drawProductForm(){
 
   const p =
     isNew
-    ? {
-        id:"",
-        name:"",
-        brand:"",
-        category:"",
-        description:"",
-        price:"",
-        installment:"",
-        image:""
-      }
-    : products.find(
-        item =>
-          String(item.id) ===
-          String(editingId)
-      );
+      ? {
+          id:"",
+          name:"",
+          brand:"",
+          category:"",
+          description:"",
+          price:"",
+          installment:"",
+          image:""
+        }
+      : products.find(
+          item =>
+            String(item.id) ===
+            String(editingId)
+        );
 
   if(!p){
 
@@ -1380,14 +2055,28 @@ function drawProductForm(){
 
   }
 
+  /*
+    Ao editar, mantém a foto
+    que já existe.
+  */
+  if(
+    !selectedImageData &&
+    p.image
+  ){
+
+    selectedImageData =
+      p.image;
+
+  }
+
   $("adminBody").innerHTML = `
 
     <div class="formTitle">
 
       ${
         isNew
-        ? "Novo produto"
-        : "Editar produto"
+          ? "Novo produto"
+          : "Editar produto"
       }
 
     </div>
@@ -1432,24 +2121,76 @@ function drawProductForm(){
         placeholder="Parcelamento"
         value="${esc(p.installment)}">
 
-      <input
-        class="field"
-        id="fImage"
-        placeholder="URL da imagem"
-        value="${esc(p.image)}">
+      <div class="imageBox">
+
+        <img
+          id="imagePreview"
+          class="imagePreview ${
+            selectedImageData
+              ? "show"
+              : ""
+          }"
+          ${
+            selectedImageData
+              ? `src="${esc(
+                  selectedImageData
+                )}"`
+              : ""
+          }
+          alt="Prévia da imagem">
+
+        <input
+          id="fImageFile"
+          type="file"
+          accept="image/*">
+
+        <button
+          type="button"
+          class="chooseImage"
+          id="chooseImageBtn">
+
+          📷 Escolher foto da galeria
+
+        </button>
+
+        <button
+          type="button"
+          class="removeImage ${
+            selectedImageData
+              ? "show"
+              : ""
+          }"
+          id="removeImageBtn">
+
+          Remover imagem
+
+        </button>
+
+        <div class="imageHelp">
+
+          Escolha uma foto do produto
+          diretamente do seu celular.
+
+        </div>
+
+      </div>
 
       <textarea
         class="field"
         id="fDescription"
         rows="4"
-        placeholder="Descrição">${esc(p.description)}</textarea>
+        placeholder="Descrição">${esc(
+          p.description
+        )}</textarea>
 
       <div class="row">
 
         <button
           class="btn btnGhost"
           id="cancelEditBtn">
+
           Voltar
+
         </button>
 
         <button
@@ -1458,8 +2199,8 @@ function drawProductForm(){
 
           ${
             isNew
-            ? "Adicionar produto"
-            : "Salvar alterações"
+              ? "Adicionar produto"
+              : "Salvar alterações"
           }
 
         </button>
@@ -1470,13 +2211,32 @@ function drawProductForm(){
 
   `;
 
-  $("cancelEditBtn").onclick = () => {
+  $("chooseImageBtn").onclick =
+    () => {
 
-    editingId = null;
+      $("fImageFile").click();
 
-    drawAdmin();
+    };
 
-  };
+  $("fImageFile")
+    .addEventListener(
+      "change",
+      handleImageSelect
+    );
+
+  $("removeImageBtn").onclick =
+    removeSelectedImage;
+
+  $("cancelEditBtn").onclick =
+    () => {
+
+      editingId = null;
+
+      selectedImageData = "";
+
+      drawAdmin();
+
+    };
 
   $("saveProductBtn").onclick =
     submitProduct;
@@ -1488,16 +2248,24 @@ async function submitProduct(){
   const payload = {
 
     name:
-      $("fName").value.trim(),
+      $("fName")
+        .value
+        .trim(),
 
     brand:
-      $("fBrand").value.trim(),
+      $("fBrand")
+        .value
+        .trim(),
 
     category:
-      $("fCategory").value.trim(),
+      $("fCategory")
+        .value
+        .trim(),
 
     price:
-      $("fPrice").value.trim(),
+      $("fPrice")
+        .value
+        .trim(),
 
     installment:
       $("fInstallment")
@@ -1505,9 +2273,7 @@ async function submitProduct(){
         .trim(),
 
     image:
-      $("fImage")
-        .value
-        .trim(),
+      selectedImageData || "",
 
     description:
       $("fDescription")
@@ -1536,44 +2302,55 @@ async function submitProduct(){
 
   }
 
+  const saveButton =
+    $("saveProductBtn");
+
+  saveButton.disabled = true;
+
+  saveButton.textContent =
+    "Salvando...";
+
   try{
 
-    const r = await fetch(
-      "/api/products",
-      {
+    const r =
+      await fetch(
+        "/api/products",
+        {
 
-        method:"PUT",
+          method:"PUT",
 
-        headers:{
+          headers:{
 
-          "Content-Type":
-            "application/json",
+            "Content-Type":
+              "application/json",
 
-          "x-admin-pin":
-            adminPin
+            "x-admin-pin":
+              adminPin
 
-        },
+          },
 
-        body:
-          JSON.stringify({
+          body:
+            JSON.stringify({
 
-            action:
-              isNew
-              ? "create"
-              : "update",
+              action:
+                isNew
+                  ? "create"
+                  : "update",
 
-            product:
-              payload
+              product:
+                payload
 
-          })
+            })
 
-      }
-    );
+        }
+      );
 
     const data =
       await r
         .json()
-        .catch(() => ({}));
+        .catch(
+          () => ({})
+        );
 
     if(!r.ok){
 
@@ -1586,17 +2363,27 @@ async function submitProduct(){
 
     editingId = null;
 
+    selectedImageData = "";
+
     await loadProducts();
 
     drawAdmin();
 
     toast(
       isNew
-      ? "Produto adicionado."
-      : "Produto atualizado."
+        ? "Produto adicionado."
+        : "Produto atualizado."
     );
 
   }catch(error){
+
+    saveButton.disabled =
+      false;
+
+    saveButton.textContent =
+      isNew
+        ? "Adicionar produto"
+        : "Salvar alterações";
 
     toast(
       error.message ||
@@ -1614,43 +2401,48 @@ async function deleteProduct(id){
       "Excluir este produto?"
     )
   ){
+
     return;
+
   }
 
   try{
 
-    const r = await fetch(
-      "/api/products",
-      {
+    const r =
+      await fetch(
+        "/api/products",
+        {
 
-        method:"PUT",
+          method:"PUT",
 
-        headers:{
+          headers:{
 
-          "Content-Type":
-            "application/json",
+            "Content-Type":
+              "application/json",
 
-          "x-admin-pin":
-            adminPin
+            "x-admin-pin":
+              adminPin
 
-        },
+          },
 
-        body:
-          JSON.stringify({
+          body:
+            JSON.stringify({
 
-            action:"delete",
+              action:"delete",
 
-            id:id
+              id:id
 
-          })
+            })
 
-      }
-    );
+        }
+      );
 
     const data =
       await r
         .json()
-        .catch(() => ({}));
+        .catch(
+          () => ({})
+        );
 
     if(!r.ok){
 
@@ -1726,4 +2518,4 @@ loadProducts();
 </script>
 
 </body>
-</html>
+  </html>
