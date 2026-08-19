@@ -3,24 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#071a3d">
+<meta name="theme-color" content="#080808">
 
-<title>Dan Cell | Catálogo Online</title>
+<title>Dan Cell | Assistência & Acessórios</title>
 
 <style>
 :root{
-  --navy:#071a3d;
-  --navy2:#0b285b;
-  --blue:#1267e8;
-  --cyan:#18bff5;
-  --bg:#f3f5f8;
-  --card:#ffffff;
-  --text:#172033;
-  --muted:#6b7280;
-  --line:#e5e7eb;
-  --green:#00a650;
-  --danger:#d92d20;
-  --shadow:0 4px 16px rgba(15,23,42,.08);
+  --black:#090909;
+  --black2:#151515;
+  --yellow:#ffc400;
+  --yellow2:#ffdd55;
+  --green:#00a83b;
+  --green2:#008d32;
+  --white:#ffffff;
+  --bg:#f5f5f5;
+  --text:#181818;
+  --muted:#717171;
+  --line:#e7e7e7;
+  --danger:#d93025;
+  --shadow:0 8px 28px rgba(0,0,0,.08);
 }
 
 *{
@@ -33,12 +34,12 @@ html{
 
 body{
   margin:0;
-  font-family:Arial,Helvetica,sans-serif;
   background:var(--bg);
   color:var(--text);
+  font-family:Arial,Helvetica,sans-serif;
 }
 
-button,input,select,textarea{
+button,input,textarea{
   font:inherit;
 }
 
@@ -47,124 +48,154 @@ button,a{
 }
 
 a{
-  text-decoration:none;
   color:inherit;
+  text-decoration:none;
 }
 
-/* ============================
+/* ===============================
    CABEÇALHO
-============================ */
+=============================== */
 
 .header{
-  background:
-    radial-gradient(circle at 80% 10%,rgba(24,191,245,.25),transparent 30%),
-    linear-gradient(135deg,#061735,#0a3375);
+  background:#050505;
   color:white;
+  border-bottom:3px solid var(--yellow);
 }
 
 .headerInner{
   max-width:1250px;
   margin:auto;
-  padding:18px 18px 28px;
+  padding:15px 18px 20px;
 }
 
-.topbar{
+.headerTop{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+}
+
+.logoArea{
   display:flex;
   align-items:center;
-  gap:18px;
+  min-width:0;
 }
 
-.logo{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  min-width:max-content;
-  font-size:25px;
-  font-weight:900;
-}
-
-.logoIcon{
-  width:46px;
-  height:46px;
-  display:grid;
-  place-items:center;
-  border-radius:13px;
-  background:linear-gradient(145deg,#18d5ff,#0877ff);
-}
-
-.logoIcon svg{
-  width:25px;
-  height:25px;
-}
-
-.searchHeader{
-  flex:1;
-  display:flex;
-  background:white;
-  border-radius:10px;
-  overflow:hidden;
-  box-shadow:0 5px 20px rgba(0,0,0,.15);
-}
-
-.searchHeader input{
-  width:100%;
-  border:0;
-  outline:0;
-  padding:15px 16px;
-  font-size:15px;
-}
-
-.searchButton{
-  width:56px;
-  border:0;
-  background:white;
-  font-size:20px;
+.mainLogo{
+  width:320px;
+  max-width:54vw;
+  max-height:120px;
+  object-fit:contain;
+  object-position:left center;
+  display:block;
 }
 
 .adminTop{
-  border:1px solid rgba(255,255,255,.35);
-  color:white;
-  background:rgba(255,255,255,.10);
-  border-radius:10px;
-  padding:13px 16px;
-  font-weight:800;
-  white-space:nowrap;
+  flex:none;
+  border:2px solid var(--yellow);
+  background:#080808;
+  color:var(--yellow);
+  border-radius:13px;
+  padding:13px 19px;
+  font-weight:900;
+  transition:.2s;
 }
 
-.heroMini{
-  padding-top:25px;
+.adminTop:hover{
+  background:var(--yellow);
+  color:#000;
 }
 
-.heroMini h1{
-  font-size:35px;
-  margin:0 0 7px;
+/* ===============================
+   BUSCA
+=============================== */
+
+.searchBox{
+  margin-top:15px;
+  position:relative;
 }
 
-.heroMini p{
-  margin:0;
-  color:rgba(255,255,255,.78);
-}
-
-/* ============================
-   CATEGORIAS
-============================ */
-
-.categorySection{
+.searchBox input{
+  width:100%;
+  border:0;
+  outline:0;
+  border-radius:13px;
+  padding:18px 65px 18px 18px;
   background:white;
-  border-bottom:1px solid var(--line);
-  box-shadow:0 2px 6px rgba(0,0,0,.03);
-  position:sticky;
-  top:0;
-  z-index:100;
+  color:#222;
+  font-size:17px;
+  box-shadow:0 4px 16px rgba(0,0,0,.14);
+}
+
+.searchIcon{
+  position:absolute;
+  right:8px;
+  top:50%;
+  transform:translateY(-50%);
+  width:48px;
+  height:48px;
+  border:0;
+  background:white;
+  font-size:24px;
+  border-radius:10px;
+}
+
+/* ===============================
+   BENEFÍCIOS SUPERIORES
+=============================== */
+
+.quickInfo{
+  background:#050505;
+  color:white;
+  border-bottom:1px solid #262626;
+}
+
+.quickInfoInner{
+  max-width:1250px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  padding:13px 18px;
+}
+
+.quickItem{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:8px 15px;
+  border-right:1px solid #333;
+  font-size:13px;
+}
+
+.quickItem:last-child{
+  border-right:0;
+}
+
+.quickIcon{
+  color:var(--yellow);
+  font-size:23px;
+}
+
+.quickItem strong{
+  color:var(--yellow);
+}
+
+/* ===============================
+   CATEGORIAS
+=============================== */
+
+.categoriesWrap{
+  background:white;
+  padding:25px 0;
 }
 
 .categories{
   max-width:1250px;
   margin:auto;
-  padding:12px 18px;
+  padding:0 18px;
   display:flex;
-  align-items:center;
-  gap:9px;
+  gap:13px;
   overflow-x:auto;
   scrollbar-width:none;
 }
@@ -174,169 +205,186 @@ a{
 }
 
 .categoryBtn{
-  flex:none;
-  border:1px solid #dde3ec;
-  background:white;
-  color:#374151;
-  padding:10px 15px;
-  border-radius:999px;
-  font-size:13px;
+  flex:0 0 auto;
+  min-width:90px;
+  border:0;
+  background:transparent;
+  text-align:center;
+  color:#333;
+}
+
+.catCircle{
+  width:72px;
+  height:72px;
+  margin:auto;
+  border-radius:50%;
+  background:#f6f6f6;
+  border:1px solid #e7e7e7;
+  display:grid;
+  place-items:center;
+  font-size:25px;
+  transition:.2s;
+}
+
+.catLabel{
+  display:block;
+  margin-top:7px;
+  font-size:12px;
   font-weight:700;
 }
 
-.categoryBtn:hover{
-  border-color:var(--blue);
-  color:var(--blue);
+.categoryBtn.active .catCircle{
+  background:#050505;
+  color:var(--yellow);
+  border-color:#050505;
 }
 
-.categoryBtn.active{
-  border-color:var(--navy);
-  background:var(--navy);
-  color:white;
+.categoryBtn.active .catLabel{
+  color:#000;
+  font-weight:900;
 }
 
-/* ============================
-   BENEFÍCIOS
-============================ */
+/* ===============================
+   BLOCO DE VANTAGENS
+=============================== */
 
-.benefitsWrap{
+.featuresSection{
   max-width:1250px;
-  margin:22px auto 0;
-  padding:0 18px;
+  margin:0 auto;
+  padding:0 18px 28px;
 }
 
-.benefits{
-  background:white;
+.features{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  border-radius:14px;
-  box-shadow:var(--shadow);
+  background:white;
+  border-radius:16px;
   overflow:hidden;
+  box-shadow:var(--shadow);
 }
 
-.benefit{
-  padding:20px;
-  display:flex;
-  align-items:center;
-  gap:12px;
+.feature{
+  padding:24px;
   border-right:1px solid var(--line);
 }
 
-.benefit:last-child{
+.feature:last-child{
   border-right:0;
 }
 
-.benefitIcon{
+.featureIcon{
   font-size:25px;
+  margin-bottom:12px;
 }
 
-.benefit b{
+.feature b{
   display:block;
-  font-size:14px;
+  margin-bottom:6px;
+  font-size:15px;
 }
 
-.benefit span{
+.feature span{
   color:var(--muted);
-  font-size:12px;
+  font-size:13px;
+  line-height:1.45;
 }
 
-/* ============================
+/* ===============================
    PRODUTOS
-============================ */
+=============================== */
 
 .content{
   max-width:1250px;
   margin:auto;
-  padding:34px 18px 50px;
+  padding:15px 18px 50px;
 }
 
-.sectionHeader{
+.productsHead{
   display:flex;
+  align-items:flex-end;
   justify-content:space-between;
-  align-items:end;
-  gap:15px;
-  margin-bottom:19px;
+  gap:20px;
+  margin-bottom:20px;
 }
 
-.sectionHeader h2{
+.productsHead h2{
   margin:0;
-  font-size:27px;
+  font-size:31px;
 }
 
-.sectionHeader p{
-  margin:5px 0 0;
+.productsHead p{
+  margin:6px 0 0;
   color:var(--muted);
-  font-size:14px;
 }
 
 .count{
-  color:var(--muted);
-  font-size:14px;
+  flex:none;
+  background:#fff1a8;
+  padding:10px 16px;
+  border-radius:10px;
+  font-weight:900;
 }
 
 .grid{
   display:grid;
   grid-template-columns:repeat(4,minmax(0,1fr));
-  gap:16px;
+  gap:17px;
 }
 
 .card{
   background:white;
-  border-radius:12px;
+  border-radius:15px;
   overflow:hidden;
   box-shadow:var(--shadow);
-  border:1px solid #edf0f4;
-  transition:.18s;
+  border:1px solid #ececec;
+  transition:.2s;
 }
 
 .card:hover{
-  transform:translateY(-2px);
-  box-shadow:0 10px 28px rgba(15,23,42,.11);
+  transform:translateY(-3px);
 }
 
 .photo{
   position:relative;
-  height:240px;
-  background:#f8fafc;
+  aspect-ratio:1/1;
+  background:#f8f8f8;
   overflow:hidden;
 }
 
 .photo img{
   width:100%;
   height:100%;
-  object-fit:contain;
+  object-fit:cover;
   display:block;
 }
 
 .badge{
   position:absolute;
-  top:12px;
-  left:12px;
-  padding:7px 10px;
-  border-radius:7px;
-  background:var(--navy);
+  top:10px;
+  left:10px;
+  background:#050505;
   color:white;
+  border-radius:999px;
+  padding:7px 11px;
   font-size:11px;
   font-weight:800;
 }
 
 .cardBody{
-  padding:16px;
-  border-top:1px solid #f1f3f5;
+  padding:15px;
 }
 
 .name{
+  margin:0 0 9px;
   font-size:17px;
-  line-height:1.25;
-  margin:0 0 8px;
-  min-height:42px;
+  line-height:1.2;
 }
 
 .desc{
-  color:var(--muted);
+  color:#474747;
   font-size:13px;
-  line-height:1.4;
-  min-height:37px;
+  line-height:1.45;
+  min-height:39px;
   display:-webkit-box;
   -webkit-line-clamp:2;
   -webkit-box-orient:vertical;
@@ -345,84 +393,97 @@ a{
 
 .price{
   margin-top:15px;
-  font-size:25px;
   font-weight:900;
-  color:#111827;
+  font-size:23px;
 }
 
 .installment{
   color:var(--green);
   font-size:13px;
-  margin-top:4px;
   font-weight:700;
+  margin-top:5px;
   min-height:18px;
 }
 
 .wa{
-  display:block;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
   margin-top:15px;
-  text-align:center;
   padding:12px;
-  border-radius:9px;
-  background:var(--navy);
+  background:var(--green);
   color:white;
-  font-size:14px;
-  font-weight:800;
+  border-radius:9px;
+  font-weight:900;
+  font-size:13px;
 }
 
 .wa:hover{
-  background:#0c2b62;
+  background:var(--green2);
 }
 
 .empty{
   grid-column:1/-1;
+  padding:45px;
   background:white;
-  border-radius:12px;
-  padding:45px 20px;
+  border-radius:15px;
   text-align:center;
   color:var(--muted);
 }
 
-/* ============================
+/* ===============================
    RODAPÉ
-============================ */
+=============================== */
 
-footer{
-  background:#061127;
+.footer{
+  background:#050505;
   color:white;
+  border-top:3px solid var(--yellow);
 }
 
 .footerInner{
   max-width:1250px;
   margin:auto;
-  padding:32px 18px;
+  padding:35px 18px;
   display:grid;
-  grid-template-columns:1fr 1fr;
+  grid-template-columns:1fr 1fr 1fr;
   gap:30px;
 }
 
 .footerTitle{
+  color:var(--yellow);
+  font-size:16px;
   font-weight:900;
-  font-size:19px;
+  margin-bottom:10px;
 }
 
-.small{
-  color:#9fb0cc;
-  line-height:1.6;
+.footerText{
+  color:#d7d7d7;
   font-size:13px;
-  margin-top:7px;
+  line-height:1.7;
 }
 
-/* ============================
+.copyright{
+  border-top:1px solid #292929;
+  max-width:1250px;
+  margin:auto;
+  padding:16px 18px;
+  color:#aaa;
+  font-size:12px;
+  text-align:center;
+}
+
+/* ===============================
    MODAL ADMIN
-============================ */
+=============================== */
 
 .modal{
   display:none;
   position:fixed;
   inset:0;
   z-index:99999;
-  background:rgba(5,16,39,.72);
+  background:rgba(0,0,0,.75);
   align-items:center;
   justify-content:center;
   padding:18px;
@@ -438,19 +499,19 @@ footer{
   overflow:auto;
   background:white;
   border-radius:20px;
-  box-shadow:0 30px 80px rgba(0,0,0,.28);
+  box-shadow:0 30px 90px rgba(0,0,0,.4);
 }
 
 .panelHead{
+  position:sticky;
+  top:0;
+  z-index:3;
+  background:white;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  border-bottom:1px solid var(--line);
   padding:18px 20px;
-  position:sticky;
-  top:0;
-  background:white;
-  z-index:2;
+  border-bottom:1px solid var(--line);
 }
 
 .panelHead h3{
@@ -459,11 +520,11 @@ footer{
 
 .close{
   border:0;
-  background:#f2f5f9;
   width:42px;
   height:42px;
-  border-radius:12px;
-  font-size:24px;
+  border-radius:11px;
+  background:#f2f2f2;
+  font-size:25px;
 }
 
 .adminBody{
@@ -476,8 +537,8 @@ footer{
 }
 
 .loginBox h2{
+  margin:5px 0 9px;
   font-size:29px;
-  margin:5px 0 10px;
 }
 
 .loginBox p{
@@ -497,16 +558,15 @@ footer{
 
 .field{
   width:100%;
-  border:1px solid var(--line);
-  border-radius:13px;
   padding:14px;
-  outline:none;
-  background:white;
+  border:1px solid #ddd;
+  border-radius:12px;
+  outline:0;
 }
 
 .field:focus{
-  border-color:var(--blue);
-  box-shadow:0 0 0 3px rgba(18,103,232,.08);
+  border-color:var(--yellow);
+  box-shadow:0 0 0 3px rgba(255,196,0,.12);
 }
 
 textarea.field{
@@ -515,24 +575,24 @@ textarea.field{
 
 .btn{
   border:0;
-  border-radius:12px;
-  padding:14px 15px;
-  font-weight:800;
+  border-radius:11px;
+  padding:14px;
+  font-weight:900;
 }
 
 .btnPrimary{
-  background:var(--navy);
-  color:white;
+  background:#050505;
+  color:var(--yellow);
 }
 
 .btnBlue{
-  background:var(--blue);
-  color:white;
+  background:var(--yellow);
+  color:#000;
 }
 
 .btnGhost{
-  background:#eef3f9;
-  color:#26344f;
+  background:#f1f3f6;
+  color:#303747;
 }
 
 .btnDanger{
@@ -542,8 +602,8 @@ textarea.field{
 
 .adminActions{
   display:flex;
-  flex-wrap:wrap;
   gap:10px;
+  flex-wrap:wrap;
   margin-bottom:18px;
 }
 
@@ -553,27 +613,27 @@ textarea.field{
 }
 
 .adminItem{
-  display:grid;
-  grid-template-columns:75px 1fr auto;
-  align-items:center;
-  gap:12px;
   border:1px solid var(--line);
   border-radius:14px;
   padding:12px;
+  display:grid;
+  grid-template-columns:72px 1fr auto;
+  align-items:center;
+  gap:12px;
 }
 
 .adminItem img{
-  width:75px;
-  height:75px;
+  width:72px;
+  height:72px;
+  border-radius:10px;
   object-fit:cover;
-  background:#eef2f7;
-  border-radius:11px;
+  background:#eee;
 }
 
 .muted{
   color:var(--muted);
   font-size:13px;
-  margin-top:4px;
+  margin-top:5px;
 }
 
 .itemBtns{
@@ -583,9 +643,9 @@ textarea.field{
 
 .itemBtns button{
   border:0;
+  border-radius:8px;
   padding:9px;
-  border-radius:9px;
-  font-weight:700;
+  font-weight:800;
 }
 
 .notice{
@@ -595,30 +655,30 @@ textarea.field{
 }
 
 .formTitle{
-  font-weight:900;
   font-size:22px;
+  font-weight:900;
   margin-bottom:15px;
 }
 
-/* ============================
-   FOTO ADMIN
-============================ */
+/* ===============================
+   FOTO DO ADMIN
+=============================== */
 
 .imageBox{
-  border:2px dashed #cad5e4;
+  border:2px dashed #d0d0d0;
   border-radius:15px;
+  background:#fafafa;
   padding:14px;
   text-align:center;
-  background:#f8faff;
 }
 
 .imagePreview{
+  display:none;
   width:100%;
   max-height:300px;
   object-fit:contain;
+  background:#eee;
   border-radius:12px;
-  background:#eef2f7;
-  display:none;
   margin-bottom:12px;
 }
 
@@ -629,23 +689,23 @@ textarea.field{
 .chooseImage{
   width:100%;
   border:0;
-  background:var(--blue);
-  color:white;
+  background:#050505;
+  color:var(--yellow);
   padding:15px;
-  border-radius:12px;
+  border-radius:11px;
   font-weight:900;
 }
 
 .removeImage{
+  display:none;
   width:100%;
-  margin-top:8px;
   border:0;
   background:#fff0ef;
   color:var(--danger);
   padding:12px;
-  border-radius:12px;
+  border-radius:11px;
   font-weight:800;
-  display:none;
+  margin-top:8px;
 }
 
 .removeImage.show{
@@ -662,23 +722,23 @@ textarea.field{
   display:none;
 }
 
-/* ============================
+/* ===============================
    TOAST
-============================ */
+=============================== */
 
 .toast{
   position:fixed;
-  left:50%;
   bottom:25px;
+  left:50%;
   transform:translate(-50%,20px);
-  background:#111827;
-  color:white;
-  padding:13px 17px;
-  border-radius:12px;
   opacity:0;
   pointer-events:none;
   transition:.2s;
   z-index:100000;
+  background:#111;
+  color:white;
+  padding:13px 18px;
+  border-radius:12px;
   text-align:center;
 }
 
@@ -687,121 +747,127 @@ textarea.field{
   transform:translate(-50%,0);
 }
 
-/* ============================
-   MOBILE
-============================ */
+/* ===============================
+   RESPONSIVO
+=============================== */
 
-@media(max-width:1000px){
+@media(max-width:950px){
   .grid{
-    grid-template-columns:repeat(3,minmax(0,1fr));
+    grid-template-columns:repeat(3,1fr);
   }
 
-  .benefits{
+  .features{
     grid-template-columns:repeat(2,1fr);
   }
 
-  .benefit:nth-child(2){
+  .feature:nth-child(2){
+    border-right:0;
+  }
+
+  .quickInfoInner{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .quickItem:nth-child(2){
     border-right:0;
   }
 }
 
-@media(max-width:750px){
-  .topbar{
-    display:grid;
-    grid-template-columns:1fr auto;
-  }
-
-  .searchHeader{
-    grid-column:1/-1;
-    grid-row:2;
-  }
-
-  .heroMini h1{
-    font-size:28px;
-  }
-
+@media(max-width:700px){
   .grid{
-    grid-template-columns:repeat(2,minmax(0,1fr));
+    grid-template-columns:repeat(2,1fr);
   }
 
-  .photo{
-    height:210px;
+  .mainLogo{
+    width:240px;
   }
 }
 
 @media(max-width:560px){
+
   .headerInner{
-    padding:14px 13px 24px;
+    padding:12px 13px 17px;
   }
 
-  .logo{
-    font-size:20px;
-  }
-
-  .logoIcon{
-    width:40px;
-    height:40px;
+  .mainLogo{
+    width:200px;
+    max-width:56vw;
+    max-height:80px;
   }
 
   .adminTop{
-    padding:10px 11px;
     font-size:12px;
+    padding:10px 12px;
   }
 
-  .heroMini{
-    padding-top:20px;
+  .searchBox input{
+    font-size:15px;
+    padding:15px 55px 15px 15px;
   }
 
-  .heroMini h1{
-    font-size:25px;
+  .searchIcon{
+    width:42px;
+    height:42px;
+  }
+
+  .quickInfoInner{
+    padding:9px 10px;
+  }
+
+  .quickItem{
+    display:block;
+    text-align:center;
+    padding:9px 5px;
+    font-size:11px;
   }
 
   .categories{
-    padding:10px 13px;
-  }
-
-  .benefitsWrap{
     padding:0 13px;
-    margin-top:15px;
   }
 
-  .benefits{
-    grid-template-columns:1fr 1fr;
+  .catCircle{
+    width:62px;
+    height:62px;
   }
 
-  .benefit{
-    display:block;
-    padding:14px;
+  .featuresSection{
+    padding:0 13px 22px;
   }
 
-  .benefitIcon{
-    margin-bottom:5px;
+  .feature{
+    padding:16px;
   }
 
   .content{
-    padding:27px 13px 40px;
+    padding:10px 13px 38px;
   }
 
-  .sectionHeader h2{
-    font-size:24px;
+  .productsHead h2{
+    font-size:25px;
+  }
+
+  .productsHead p{
+    font-size:13px;
+  }
+
+  .count{
+    font-size:13px;
+    padding:8px 11px;
   }
 
   .grid{
     grid-template-columns:1fr;
-    gap:15px;
   }
 
   .photo{
-    height:auto;
-    aspect-ratio:1/1;
+    aspect-ratio:4/3;
   }
 
-  .card{
-    border-radius:15px;
+  .cardBody{
+    padding:17px;
   }
 
   .name{
-    min-height:auto;
     font-size:20px;
   }
 
@@ -810,12 +876,16 @@ textarea.field{
   }
 
   .price{
-    font-size:26px;
+    font-size:27px;
   }
 
   .wa{
-    font-size:16px;
+    font-size:15px;
     padding:14px;
+  }
+
+  .footerInner{
+    grid-template-columns:1fr;
   }
 
   .row{
@@ -838,10 +908,6 @@ textarea.field{
   .itemBtns button{
     flex:1;
   }
-
-  .footerInner{
-    grid-template-columns:1fr;
-  }
 }
 </style>
 </head>
@@ -852,68 +918,40 @@ textarea.field{
 
   <div class="headerInner">
 
-    <div class="topbar">
+    <div class="headerTop">
 
-      <div class="logo">
+      <div class="logoArea">
 
-        <span class="logoIcon">
-
-          <svg viewBox="0 0 24 24"
-               fill="none"
-               stroke="white"
-               stroke-width="2">
-
-            <rect x="6"
-                  y="2.5"
-                  width="12"
-                  height="19"
-                  rx="2.2"></rect>
-
-            <path d="M10 5h4M10 18.5h4"></path>
-
-          </svg>
-
-        </span>
-
-        DAN CELL
-
-      </div>
-
-      <div class="searchHeader">
-
-        <input
-          id="search"
-          type="search"
-          placeholder="Buscar celulares, acessórios e muito mais">
-
-        <button
-          class="searchButton"
-          type="button">
-          🔍
-        </button>
+        <img
+          class="mainLogo"
+          src="/logo.png"
+          alt="Dan Cell">
 
       </div>
 
       <button
         class="adminTop"
-        type="button"
-        id="openAdminBtn">
+        id="openAdminBtn"
+        type="button">
 
-        Área do lojista
+        👤 Área do lojista
 
       </button>
 
     </div>
 
-    <div class="heroMini">
+    <div class="searchBox">
 
-      <h1>
-        Tecnologia com ofertas de verdade.
-      </h1>
+      <input
+        id="search"
+        type="search"
+        placeholder="Buscar celulares, acessórios e muito mais...">
 
-      <p>
-        Celulares, acessórios e eletrônicos com atendimento direto pelo WhatsApp.
-      </p>
+      <button
+        class="searchIcon"
+        type="button">
+        🔍
+      </button>
 
     </div>
 
@@ -922,61 +960,102 @@ textarea.field{
 </header>
 
 
-<nav class="categorySection">
+<section class="quickInfo">
+
+  <div class="quickInfoInner">
+
+    <div class="quickItem">
+      <span class="quickIcon">🛡</span>
+      <span>
+        Compra <strong>segura</strong>
+      </span>
+    </div>
+
+    <div class="quickItem">
+      <span class="quickIcon">💳</span>
+      <span>
+        Condições <strong>no cartão</strong>
+      </span>
+    </div>
+
+    <div class="quickItem">
+      <span class="quickIcon">🚚</span>
+      <span>
+        Atendimento <strong>rápido</strong>
+      </span>
+    </div>
+
+    <div class="quickItem">
+      <span class="quickIcon">🟢</span>
+      <span>
+        Fale conosco <strong>no WhatsApp</strong>
+      </span>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="categoriesWrap">
 
   <div
     class="categories"
     id="categoryButtons">
   </div>
 
-</nav>
+</section>
 
 
-<section class="benefitsWrap">
+<section class="featuresSection">
 
-  <div class="benefits">
+  <div class="features">
 
-    <div class="benefit">
+    <div class="feature">
 
-      <div class="benefitIcon">📱</div>
+      <div class="featureIcon">📱</div>
 
-      <div>
-        <b>Produtos selecionados</b>
-        <span>Confira nossas ofertas</span>
-      </div>
+      <b>Produtos selecionados</b>
 
-    </div>
-
-    <div class="benefit">
-
-      <div class="benefitIcon">💳</div>
-
-      <div>
-        <b>Condições de pagamento</b>
-        <span>Consulte parcelamentos</span>
-      </div>
+      <span>
+        Confira nossas melhores ofertas.
+      </span>
 
     </div>
 
-    <div class="benefit">
+    <div class="feature">
 
-      <div class="benefitIcon">💬</div>
+      <div class="featureIcon">💳</div>
 
-      <div>
-        <b>Atendimento rápido</b>
-        <span>Direto pelo WhatsApp</span>
-      </div>
+      <b>Condições de pagamento</b>
+
+      <span>
+        Consulte parcelamentos disponíveis.
+      </span>
 
     </div>
 
-    <div class="benefit">
+    <div class="feature">
 
-      <div class="benefitIcon">🛡️</div>
+      <div class="featureIcon">💬</div>
 
-      <div>
-        <b>Dan Cell</b>
-        <span>Compra com confiança</span>
-      </div>
+      <b>Atendimento rápido</b>
+
+      <span>
+        Direto pelo WhatsApp.
+      </span>
+
+    </div>
+
+    <div class="feature">
+
+      <div class="featureIcon">🛡️</div>
+
+      <b>Dan Cell</b>
+
+      <span>
+        Compra com confiança.
+      </span>
 
     </div>
 
@@ -987,11 +1066,13 @@ textarea.field{
 
 <main class="content">
 
-  <div class="sectionHeader">
+  <div class="productsHead">
 
     <div>
 
-      <h2>Ofertas da Dan Cell</h2>
+      <h2>
+        Ofertas da Dan Cell
+      </h2>
 
       <p>
         Encontre o produto ideal para você.
@@ -1002,7 +1083,9 @@ textarea.field{
     <span
       class="count"
       id="count">
+
       0 itens
+
     </span>
 
   </div>
@@ -1015,19 +1098,21 @@ textarea.field{
 </main>
 
 
-<footer>
+<footer class="footer">
 
   <div class="footerInner">
 
     <div>
 
       <div class="footerTitle">
-        DAN CELL
+        📍 DAN CELL
       </div>
 
-      <div class="small">
-        Tecnologia, acessórios e assistência.<br>
-        Atendimento rápido e direto.
+      <div class="footerText">
+
+        Rua Santa Inês, 186<br>
+        Antônio Conselheiro - BA
+
       </div>
 
     </div>
@@ -1035,16 +1120,39 @@ textarea.field{
     <div>
 
       <div class="footerTitle">
-        Fale conosco
+        🟢 WhatsApp
       </div>
 
-      <div class="small">
-        WhatsApp: (74) 98145-2762<br>
-        Rua Santa Inês, 186<br>
-        Antônio Conselheiro
+      <div class="footerText">
+
+        (74) 98145-2762<br>
+        Atendimento rápido e direto!
+
       </div>
 
     </div>
+
+    <div>
+
+      <div class="footerTitle">
+        🕐 Atendimento
+      </div>
+
+      <div class="footerText">
+
+        Consulte nossos horários<br>
+        diretamente pelo WhatsApp.
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="copyright">
+
+    © Dan Cell Assistência & Acessórios.
+    Todos os direitos reservados.
 
   </div>
 
@@ -1091,58 +1199,29 @@ textarea.field{
 
 <script>
 
-const WHATSAPP = "5574981452762";
+const WHATSAPP =
+  "5574981452762";
 
 let products = [];
 let filtered = [];
 
-let selectedCategory = "Todos";
+let selectedCategory =
+  "Todos";
 
-let logged = false;
-let adminPin = "";
+let logged =
+  false;
 
-let editingId = null;
-let apiOnline = false;
+let adminPin =
+  "";
 
-let selectedImageData = "";
+let editingId =
+  null;
 
+let apiOnline =
+  false;
 
-const fallbackProducts = [
-
-  {
-    id:1,
-    name:"Redmi Note 15",
-    brand:"Xiaomi",
-    category:"Xiaomi",
-    description:"Desempenho, bateria e ótimo custo-benefício.",
-    price:"Consulte",
-    installment:"Peça sua condição de pagamento",
-    image:"https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=900&q=80"
-  },
-
-  {
-    id:2,
-    name:"iPhone 13 128GB",
-    brand:"iPhone",
-    category:"iPhone",
-    description:"Qualidade Apple com excelente conjunto de câmeras.",
-    price:"Consulte",
-    installment:"Parcelamento disponível",
-    image:"https://images.unsplash.com/photo-1605236453806-6ff36851218e?auto=format&fit=crop&w=900&q=80"
-  },
-
-  {
-    id:3,
-    name:"Caixa de Som Bluetooth",
-    brand:"Acessórios",
-    category:"Acessórios",
-    description:"Som potente e portátil para o dia a dia.",
-    price:"Consulte",
-    installment:"Fale conosco pelo WhatsApp",
-    image:"https://images.unsplash.com/photo-1589003077984-894e133dabab?auto=format&fit=crop&w=900&q=80"
-  }
-
-];
+let selectedImageData =
+  "";
 
 
 const $ =
@@ -1172,27 +1251,30 @@ function toast(message){
 
   el.classList.add("show");
 
-  clearTimeout(toast.timer);
+  clearTimeout(
+    toast.timer
+  );
 
   toast.timer =
     setTimeout(
-      () => {
-        el.classList.remove("show");
-      },
+      () =>
+        el.classList.remove(
+          "show"
+        ),
       2500
     );
 
 }
 
 
-function normalizeProduct(p,index = 0){
+function normalizeProduct(p,index=0){
 
   return {
 
     id:
       p.id ??
       p._id ??
-      Date.now() + index,
+      Date.now()+index,
 
     name:
       p.name ??
@@ -1203,14 +1285,12 @@ function normalizeProduct(p,index = 0){
       p.brand ??
       p.marca ??
       p.category ??
-      p.categoria ??
       "Dan Cell",
 
     category:
       p.category ??
       p.categoria ??
       p.brand ??
-      p.marca ??
       "Outros",
 
     description:
@@ -1253,7 +1333,11 @@ async function loadProducts(){
       );
 
     if(!r.ok){
-      throw new Error("API indisponível");
+
+      throw new Error(
+        "API indisponível"
+      );
+
     }
 
     const data =
@@ -1265,32 +1349,69 @@ async function loadProducts(){
       : data.products || [];
 
     products =
-      lista.map(normalizeProduct);
-
-    if(!products.length){
-
-      products =
-        fallbackProducts.map(
-          normalizeProduct
-        );
-
-    }
-
-    apiOnline = true;
-
-  }catch(error){
-
-    products =
-      fallbackProducts.map(
+      lista.map(
         normalizeProduct
       );
 
-    apiOnline = false;
+    apiOnline =
+      true;
+
+  }
+
+  catch(error){
+
+    products =
+      [];
+
+    apiOnline =
+      false;
 
   }
 
   renderCategories();
   applyFilters();
+
+}
+
+
+function categoryIcon(cat){
+
+  const c =
+    cat.toLowerCase();
+
+  if(c.includes("iphone")){
+    return "📱";
+  }
+
+  if(c.includes("xiaomi")){
+    return "🟧";
+  }
+
+  if(c.includes("samsung")){
+    return "🔵";
+  }
+
+  if(c.includes("realme")){
+    return "🟨";
+  }
+
+  if(c.includes("poco")){
+    return "🟨";
+  }
+
+  if(c.includes("som")){
+    return "🔊";
+  }
+
+  if(c.includes("acess")){
+    return "🎧";
+  }
+
+  if(c.includes("tablet")){
+    return "📲";
+  }
+
+  return "📦";
 
 }
 
@@ -1306,40 +1427,60 @@ function renderCategories(){
     )
   ];
 
+
   $("categoryButtons").innerHTML =
-    categories.map(cat => `
+    categories.map(
+      cat => `
 
-      <button
-        type="button"
-        class="categoryBtn ${
-          cat === selectedCategory
-          ? "active"
-          : ""
-        }"
-        data-category="${esc(cat)}">
+        <button
+          class="categoryBtn ${
+            selectedCategory === cat
+            ? "active"
+            : ""
+          }"
+          data-category="${esc(cat)}"
+          type="button">
 
-        ${esc(cat)}
+          <span class="catCircle">
 
-      </button>
+            ${
+              cat === "Todos"
+              ? "▦"
+              : categoryIcon(cat)
+            }
 
-    `).join("");
+          </span>
+
+          <span class="catLabel">
+            ${esc(cat)}
+          </span>
+
+        </button>
+
+      `
+    ).join("");
 
 
   $("categoryButtons")
-    .querySelectorAll(".categoryBtn")
-    .forEach(btn => {
+    .querySelectorAll(
+      ".categoryBtn"
+    )
+    .forEach(
+      btn => {
 
-      btn.onclick = () => {
+        btn.onclick =
+          () => {
 
-        selectedCategory =
-          btn.dataset.category;
+            selectedCategory =
+              btn.dataset.category;
 
-        renderCategories();
-        applyFilters();
+            renderCategories();
+            applyFilters();
 
-      };
+          };
 
-    });
+      }
+    );
 
 }
 
@@ -1352,34 +1493,40 @@ function applyFilters(){
       .trim()
       .toLowerCase();
 
+
   filtered =
-    products.filter(p => {
+    products.filter(
+      p => {
 
-      const text = [
-        p.name,
-        p.brand,
-        p.category,
-        p.description,
-        p.price,
-        p.installment
-      ]
-      .join(" ")
-      .toLowerCase();
+        const text = [
+          p.name,
+          p.brand,
+          p.category,
+          p.description,
+          p.price,
+          p.installment
+        ]
+        .join(" ")
+        .toLowerCase();
 
-      const matchesSearch =
-        !q ||
-        text.includes(q);
 
-      const matchesCategory =
-        selectedCategory === "Todos" ||
-        p.category === selectedCategory;
+        const matchSearch =
+          !q ||
+          text.includes(q);
 
-      return (
-        matchesSearch &&
-        matchesCategory
-      );
 
-    });
+        const matchCategory =
+          selectedCategory === "Todos" ||
+          p.category === selectedCategory;
+
+
+        return (
+          matchSearch &&
+          matchCategory
+        );
+
+      }
+    );
 
 
   renderProducts();
@@ -1424,27 +1571,23 @@ function renderProducts(){
 
 
   $("grid").innerHTML =
-    filtered.map(p => {
-
-      const image =
-        p.image
-        ? `
-          <img
-            src="${esc(p.image)}"
-            alt="${esc(p.name)}"
-            loading="lazy"
-            onerror="this.style.display='none'">
-        `
-        : "";
-
-
-      return `
+    filtered.map(
+      p => `
 
         <article class="card">
 
           <div class="photo">
 
-            ${image}
+            ${
+              p.image
+              ? `
+                <img
+                  src="${esc(p.image)}"
+                  alt="${esc(p.name)}"
+                  loading="lazy">
+              `
+              : ""
+            }
 
             <span class="badge">
               ${esc(
@@ -1471,12 +1614,10 @@ function renderProducts(){
             </div>
 
             <div class="price">
-
               ${esc(
                 p.price ||
                 "Consulte"
               )}
-
             </div>
 
             <div class="installment">
@@ -1494,7 +1635,7 @@ function renderProducts(){
               rel="noopener"
               href="https://wa.me/${WHATSAPP}?text=${productText(p)}">
 
-              Pedir pelo WhatsApp
+              🟢 Pedir no WhatsApp
 
             </a>
 
@@ -1502,9 +1643,8 @@ function renderProducts(){
 
         </article>
 
-      `;
-
-    }).join("");
+      `
+    ).join("");
 
 }
 
@@ -1535,17 +1675,14 @@ function closeAdmin(){
     .classList
     .remove("open");
 
-  $("adminModal")
-    .setAttribute(
-      "aria-hidden",
-      "true"
-    );
-
   document.body.style.overflow =
     "";
 
-  editingId = null;
-  selectedImageData = "";
+  editingId =
+    null;
+
+  selectedImageData =
+    "";
 
 }
 
@@ -1581,8 +1718,8 @@ function drawAdmin(){
 
           <button
             class="btn btnPrimary"
-            type="button"
-            id="loginBtn">
+            id="loginBtn"
+            type="button">
 
             Entrar
 
@@ -1670,57 +1807,60 @@ function drawAdmin(){
 
       ${
 
-        products.map(p => `
+        products.map(
+          p => `
 
-          <div class="adminItem">
+            <div class="adminItem">
 
-            <img
-              src="${esc(p.image || "")}"
-              alt=""
-              onerror="this.style.visibility='hidden'">
+              <img
+                src="${esc(
+                  p.image || ""
+                )}"
+                alt="">
 
-            <div>
+              <div>
 
-              <b>
-                ${esc(p.name)}
-              </b>
+                <b>
+                  ${esc(p.name)}
+                </b>
 
-              <div class="muted">
+                <div class="muted">
 
-                ${esc(p.category)}
-                •
-                ${esc(
-                  p.price ||
-                  "Consulte"
-                )}
+                  ${esc(p.category)}
+                  •
+                  ${esc(
+                    p.price ||
+                    "Consulte"
+                  )}
+
+                </div>
+
+              </div>
+
+              <div class="itemBtns">
+
+                <button
+                  class="btnGhost editBtn"
+                  data-id="${esc(p.id)}">
+
+                  Editar
+
+                </button>
+
+                <button
+                  class="btnDanger deleteBtn"
+                  data-id="${esc(p.id)}">
+
+                  Excluir
+
+                </button>
 
               </div>
 
             </div>
 
-            <div class="itemBtns">
-
-              <button
-                class="btnGhost editBtn"
-                data-id="${esc(p.id)}">
-
-                Editar
-
-              </button>
-
-              <button
-                class="btnDanger deleteBtn"
-                data-id="${esc(p.id)}">
-
-                Excluir
-
-              </button>
-
-            </div>
-
-          </div>
-
-        `).join("")
+          `
+        ).join("")
 
       }
 
@@ -1732,8 +1872,11 @@ function drawAdmin(){
   $("newProductBtn").onclick =
     () => {
 
-      editingId = "new";
-      selectedImageData = "";
+      editingId =
+        "new";
+
+      selectedImageData =
+        "";
 
       drawAdmin();
 
@@ -1757,45 +1900,57 @@ function drawAdmin(){
   $("logoutBtn").onclick =
     () => {
 
-      logged = false;
-      adminPin = "";
-      editingId = null;
-      selectedImageData = "";
+      logged =
+        false;
+
+      adminPin =
+        "";
+
+      editingId =
+        null;
 
       drawAdmin();
 
     };
 
 
-  b.querySelectorAll(".editBtn")
-    .forEach(btn => {
+  b.querySelectorAll(
+    ".editBtn"
+  )
+  .forEach(
+    btn => {
 
-      btn.onclick = () => {
+      btn.onclick =
+        () => {
 
-        editingId =
-          btn.dataset.id;
+          editingId =
+            btn.dataset.id;
 
-        selectedImageData = "";
+          selectedImageData =
+            "";
 
-        drawAdmin();
+          drawAdmin();
 
-      };
+        };
 
-    });
+    }
+  );
 
 
-  b.querySelectorAll(".deleteBtn")
-    .forEach(btn => {
+  b.querySelectorAll(
+    ".deleteBtn"
+  )
+  .forEach(
+    btn => {
 
-      btn.onclick = () => {
+      btn.onclick =
+        () =>
+          deleteProduct(
+            btn.dataset.id
+          );
 
-        deleteProduct(
-          btn.dataset.id
-        );
-
-      };
-
-    });
+    }
+  );
 
 }
 
@@ -1825,24 +1980,20 @@ async function login(){
       await fetch(
         "/api/products?action=login",
         {
-
           method:"POST",
 
           headers:{
-
             "Content-Type":
               "application/json",
 
             "x-admin-pin":
               pin
-
           },
 
           body:
             JSON.stringify({
               pin
             })
-
         }
       );
 
@@ -1865,8 +2016,11 @@ async function login(){
     }
 
 
-    adminPin = pin;
-    logged = true;
+    adminPin =
+      pin;
+
+    logged =
+      true;
 
     drawAdmin();
 
@@ -1874,8 +2028,9 @@ async function login(){
       "Acesso liberado."
     );
 
+  }
 
-  }catch(error){
+  catch(error){
 
     toast(
       error.message ||
@@ -1912,40 +2067,40 @@ function compressImage(file){
               let height =
                 img.height;
 
-              const maxSize =
+              const max =
                 900;
 
 
               if(
                 width > height &&
-                width > maxSize
+                width > max
               ){
 
                 height =
                   Math.round(
                     height *
-                    maxSize /
+                    max /
                     width
                   );
 
                 width =
-                  maxSize;
+                  max;
 
               }
 
               else if(
-                height > maxSize
+                height > max
               ){
 
                 width =
                   Math.round(
                     width *
-                    maxSize /
+                    max /
                     height
                   );
 
                 height =
-                  maxSize;
+                  max;
 
               }
 
@@ -1962,19 +2117,15 @@ function compressImage(file){
                 height;
 
 
-              const ctx =
-                canvas.getContext(
-                  "2d"
+              canvas
+                .getContext("2d")
+                .drawImage(
+                  img,
+                  0,
+                  0,
+                  width,
+                  height
                 );
-
-
-              ctx.drawImage(
-                img,
-                0,
-                0,
-                width,
-                height
-              );
 
 
               resolve(
@@ -1988,12 +2139,7 @@ function compressImage(file){
 
 
           img.onerror =
-            () =>
-              reject(
-                new Error(
-                  "Não foi possível abrir a imagem."
-                )
-              );
+            reject;
 
 
           img.src =
@@ -2003,12 +2149,7 @@ function compressImage(file){
 
 
       reader.onerror =
-        () =>
-          reject(
-            new Error(
-              "Erro ao ler a imagem."
-            )
-          );
+        reject;
 
 
       reader.readAsDataURL(
@@ -2034,27 +2175,12 @@ async function handleImageSelect(
   }
 
 
-  if(
-    !file.type.startsWith(
-      "image/"
-    )
-  ){
+  try{
 
     toast(
-      "Escolha uma imagem."
+      "Preparando imagem..."
     );
 
-    return;
-
-  }
-
-
-  toast(
-    "Preparando imagem..."
-  );
-
-
-  try{
 
     selectedImageData =
       await compressImage(
@@ -2062,17 +2188,13 @@ async function handleImageSelect(
       );
 
 
-    const preview =
-      $("imagePreview");
-
-
-    preview.src =
+    $("imagePreview").src =
       selectedImageData;
 
 
-    preview.classList.add(
-      "show"
-    );
+    $("imagePreview")
+      .classList
+      .add("show");
 
 
     $("removeImageBtn")
@@ -2084,12 +2206,12 @@ async function handleImageSelect(
       "Foto selecionada."
     );
 
+  }
 
-  }catch(error){
+  catch(error){
 
     toast(
-      error.message ||
-      "Erro ao carregar imagem."
+      "Erro ao preparar imagem."
     );
 
   }
@@ -2099,35 +2221,21 @@ async function handleImageSelect(
 
 function removeSelectedImage(){
 
-  selectedImageData = "";
+  selectedImageData =
+    "";
 
+  $("imagePreview")
+    .removeAttribute(
+      "src"
+    );
 
-  const preview =
-    $("imagePreview");
-
-
-  preview.removeAttribute(
-    "src"
-  );
-
-
-  preview.classList.remove(
-    "show"
-  );
-
+  $("imagePreview")
+    .classList
+    .remove("show");
 
   $("removeImageBtn")
     .classList
     .remove("show");
-
-
-  $("fImageFile").value =
-    "";
-
-
-  toast(
-    "Imagem removida."
-  );
 
 }
 
@@ -2141,13 +2249,12 @@ function drawProductForm(){
   const p =
     isNew
     ? {
-        id:"",
         name:"",
         brand:"",
         category:"",
-        description:"",
         price:"",
         installment:"",
+        description:"",
         image:""
       }
 
@@ -2160,7 +2267,8 @@ function drawProductForm(){
 
   if(!p){
 
-    editingId = null;
+    editingId =
+      null;
 
     drawAdmin();
 
@@ -2246,12 +2354,14 @@ function drawProductForm(){
             ? "show"
             : ""
           }"
+
           ${
             selectedImageData
-            ? `src="${esc(selectedImageData)}"`
+            ? `src="${esc(
+                selectedImageData
+              )}"`
             : ""
-          }
-          alt="Prévia da imagem">
+          }>
 
 
         <input
@@ -2261,9 +2371,9 @@ function drawProductForm(){
 
 
         <button
-          type="button"
           class="chooseImage"
-          id="chooseImageBtn">
+          id="chooseImageBtn"
+          type="button">
 
           📷 Escolher foto da galeria
 
@@ -2271,13 +2381,13 @@ function drawProductForm(){
 
 
         <button
-          type="button"
           class="removeImage ${
             selectedImageData
             ? "show"
             : ""
           }"
-          id="removeImageBtn">
+          id="removeImageBtn"
+          type="button">
 
           Remover imagem
 
@@ -2286,7 +2396,7 @@ function drawProductForm(){
 
         <div class="imageHelp">
 
-          Escolha uma foto diretamente do seu celular.
+          Escolha uma foto diretamente do celular.
 
         </div>
 
@@ -2297,7 +2407,9 @@ function drawProductForm(){
         class="field"
         id="fDescription"
         rows="4"
-        placeholder="Descrição">${esc(p.description)}</textarea>
+        placeholder="Descrição">${esc(
+          p.description
+        )}</textarea>
 
 
       <div class="row">
@@ -2331,11 +2443,9 @@ function drawProductForm(){
 
 
   $("chooseImageBtn").onclick =
-    () => {
-
-      $("fImageFile").click();
-
-    };
+    () =>
+      $("fImageFile")
+        .click();
 
 
   $("fImageFile")
@@ -2352,8 +2462,11 @@ function drawProductForm(){
   $("cancelEditBtn").onclick =
     () => {
 
-      editingId = null;
-      selectedImageData = "";
+      editingId =
+        null;
+
+      selectedImageData =
+        "";
 
       drawAdmin();
 
@@ -2371,38 +2484,25 @@ async function submitProduct(){
   const payload = {
 
     name:
-      $("fName")
-        .value
-        .trim(),
+      $("fName").value.trim(),
 
     brand:
-      $("fBrand")
-        .value
-        .trim(),
+      $("fBrand").value.trim(),
 
     category:
-      $("fCategory")
-        .value
-        .trim(),
+      $("fCategory").value.trim(),
 
     price:
-      $("fPrice")
-        .value
-        .trim(),
+      $("fPrice").value.trim(),
 
     installment:
-      $("fInstallment")
-        .value
-        .trim(),
+      $("fInstallment").value.trim(),
 
     image:
-      selectedImageData ||
-      "",
+      selectedImageData || "",
 
     description:
-      $("fDescription")
-        .value
-        .trim()
+      $("fDescription").value.trim()
 
   };
 
@@ -2430,13 +2530,14 @@ async function submitProduct(){
   }
 
 
-  const saveButton =
+  const btn =
     $("saveProductBtn");
 
 
-  saveButton.disabled = true;
+  btn.disabled =
+    true;
 
-  saveButton.textContent =
+  btn.textContent =
     "Salvando...";
 
 
@@ -2446,22 +2547,18 @@ async function submitProduct(){
       await fetch(
         "/api/products",
         {
-
           method:"PUT",
 
           headers:{
-
             "Content-Type":
               "application/json",
 
             "x-admin-pin":
               adminPin
-
           },
 
           body:
             JSON.stringify({
-
               action:
                 isNew
                 ? "create"
@@ -2469,9 +2566,7 @@ async function submitProduct(){
 
               product:
                 payload
-
             })
-
         }
       );
 
@@ -2494,12 +2589,14 @@ async function submitProduct(){
     }
 
 
-    editingId = null;
-    selectedImageData = "";
+    editingId =
+      null;
+
+    selectedImageData =
+      "";
 
 
     await loadProducts();
-
 
     drawAdmin();
 
@@ -2510,14 +2607,14 @@ async function submitProduct(){
       : "Produto atualizado."
     );
 
+  }
 
-  }catch(error){
+  catch(error){
 
-    saveButton.disabled =
+    btn.disabled =
       false;
 
-
-    saveButton.textContent =
+    btn.textContent =
       isNew
       ? "Adicionar produto"
       : "Salvar alterações";
@@ -2550,28 +2647,21 @@ async function deleteProduct(id){
       await fetch(
         "/api/products",
         {
-
           method:"PUT",
 
           headers:{
-
             "Content-Type":
               "application/json",
 
             "x-admin-pin":
               adminPin
-
           },
 
           body:
             JSON.stringify({
-
               action:"delete",
-
               id
-
             })
-
         }
       );
 
@@ -2598,13 +2688,13 @@ async function deleteProduct(id){
 
     drawAdmin();
 
-
     toast(
       "Produto excluído."
     );
 
+  }
 
-  }catch(error){
+  catch(error){
 
     toast(
       error.message ||
